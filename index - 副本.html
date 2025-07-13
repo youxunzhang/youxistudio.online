@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouXi Studio - 免费在线游戏平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .search-box:focus-within {
+            border-color: #667eea;
+        }
+
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            padding: 0.5rem;
+            width: 200px;
+        }
+
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .game-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .game-image {
+            height: 160px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .game-image::after {
+            content: '▶';
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .game-card:hover .game-image::after {
+            opacity: 0.8;
+        }
+
+        .game-info {
+            padding: 1rem;
+        }
+
+        .game-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .game-category {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .game-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ff6b35;
+        }
+
+        .categories {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 0.7rem 1.5rem;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: #333;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .content {
+                padding: 1rem;
+            }
+
+            .games-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .categories {
+                justify-content: center;
+            }
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element" style="top: 10%; left: 10%; font-size: 3rem;">🎮</div>
+        <div class="floating-element" style="top: 20%; right: 10%; font-size: 2rem;">🕹️</div>
+        <div class="floating-element" style="top: 60%; left: 5%; font-size: 2.5rem;">🎯</div>
+        <div class="floating-element" style="top: 70%; right: 20%; font-size: 2rem;">🏆</div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">YouXi Studio</a>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#games">游戏</a></li>
+                <li><a href="#categories">分类</a></li>
+                <li><a href="#new">最新</a></li>
+                <li><a href="#popular">热门</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" placeholder="搜索游戏..." id="searchInput">
+                <span>🔍</span>
+            </div>
+            <button class="mobile-menu">☰</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>欢迎来到 YouXi Studio</h1>
+        <p>免费在线游戏平台，随时随地畅玩精彩游戏</p>
+        <div class="stats">
+            <div class="stat">
+                <span class="stat-number">1000+</span>
+                <span class="stat-label">精品游戏</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">50万+</span>
+                <span class="stat-label">月活用户</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">全天候服务</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <section class="section">
+            <h2 class="section-title">🎮 游戏分类</h2>
+            <div class="categories">
+                <a href="#" class="category-btn active">全部</a>
+                <a href="#" class="category-btn">动作游戏</a>
+                <a href="#" class="category-btn">益智游戏</a>
+                <a href="#" class="category-btn">体育游戏</a>
+                <a href="#" class="category-btn">赛车游戏</a>
+                <a href="#" class="category-btn">冒险游戏</a>
+                <a href="#" class="category-btn">射击游戏</a>
+                <a href="#" class="category-btn">策略游戏</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">🔥 热门游戏</h2>
+            <div class="games-grid" id="gamesGrid">
+                <!-- 游戏卡片将通过JavaScript动态生成 -->
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">🆕 最新游戏</h2>
+            <div class="games-grid" id="newGamesGrid">
+                <!-- 新游戏卡片 -->
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 YouXi Studio. 为游戏玩家打造的免费平台</p>
+        <p>联系我们 | 关于我们 | 开发者合作</p>
+    </footer>
+
+    <script>
+        // 游戏数据
+        const games = [
+            { title: "地铁跑酷", category: "动作游戏", rating: 4.8, icon: "🏃" },
+            { title: "神庙逃亡", category: "冒险游戏", rating: 4.7, icon: "🏛️" },
+            { title: "贪吃蛇大作战", category: "益智游戏", rating: 4.6, icon: "🐍" },
+            { title: "赛车风云", category: "赛车游戏", rating: 4.9, icon: "🏎️" },
+            { title: "足球大师", category: "体育游戏", rating: 4.5, icon: "⚽" },
+            { title: "星际射击", category: "射击游戏", rating: 4.8, icon: "🚀" },
+            { title: "城市建造师", category: "策略游戏", rating: 4.7, icon: "🏙️" },
+            { title: "魔法消除", category: "益智游戏", rating: 4.6, icon: "✨" },
+            { title: "忍者跳跃", category: "动作游戏", rating: 4.4, icon: "🥷" },
+            { title: "宝石迷阵", category: "益智游戏", rating: 4.5, icon: "💎" },
+            { title: "极速摩托", category: "赛车游戏", rating: 4.7, icon: "🏍️" },
+            { title: "王者对决", category: "策略游戏", rating: 4.8, icon: "👑" }
+        ];
+
+        const newGames = [
+            { title: "太空探索", category: "冒险游戏", rating: 4.9, icon: "🛸" },
+            { title: "机器人大战", category: "动作游戏", rating: 4.6, icon: "🤖" },
+            { title: "梦幻花园", category: "益智游戏", rating: 4.7, icon: "🌸" },
+            { title: "超级英雄", category: "动作游戏", rating: 4.8, icon: "🦸" }
+        ];
+
+        // 生成游戏卡片
+        function createGameCard(game) {
+            return `
+                <div class="game-card" onclick="playGame('${game.title}')">
+                    <div class="game-image">${game.icon}</div>
+                    <div class="game-info">
+                        <div class="game-title">${game.title}</div>
+                        <div class="game-category">${game.category}</div>
+                        <div class="game-rating">
+                            <span>⭐</span>
+                            <span>${game.rating}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 渲染游戏列表
+        function renderGames() {
+            const gamesGrid = document.getElementById('gamesGrid');
+            const newGamesGrid = document.getElementById('newGamesGrid');
+            
+            gamesGrid.innerHTML = games.map(createGameCard).join('');
+            newGamesGrid.innerHTML = newGames.map(createGameCard).join('');
+        }
+
+        // 游戏点击事件
+        function playGame(gameTitle) {
+            alert(`正在启动游戏: ${gameTitle}\n\n这里将跳转到游戏页面！`);
+        }
+
+        // 搜索功能
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                const gameCards = document.querySelectorAll('.game-card');
+                
+                gameCards.forEach(card => {
+                    const title = card.querySelector('.game-title').textContent.toLowerCase();
+                    const category = card.querySelector('.game-category').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || category.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // 分类筛选
+        function setupCategoryFilter() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // 移除所有活动状态
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    // 添加当前活动状态
+                    this.classList.add('active');
+                    
+                    const category = this.textContent;
+                    const gameCards = document.querySelectorAll('.game-card');
+                    
+                    gameCards.forEach(card => {
+                        const cardCategory = card.querySelector('.game-category').textContent;
+                        
+                        if (category === '全部' || cardCategory === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            renderGames();
+            setupSearch();
+            setupCategoryFilter();
+        });
+
+        // 移动端菜单
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>

@@ -84,50 +84,13 @@
             width: 200px;
         }
 
-        .hero {
-            margin-top: 80px;
-            padding: 4rem 0;
-            text-align: center;
-            color: white;
-        }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
 
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            display: block;
-        }
-
-        .stat-label {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
 
         .content {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 100px auto 0;
             padding: 2rem;
         }
 
@@ -243,6 +206,16 @@
             height: 300px;
             border: none;
             border-radius: 15px;
+            background: #f0f0f0;
+        }
+
+        .game-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            height: 350px;
         }
 
         .footer {
@@ -350,49 +323,55 @@
         </div>
     </nav>
 
-    <section class="hero">
-        <h1>Welcome to YouXi Studio</h1>
-        <p>Free Online Gaming Platform, Play Exciting Games Anytime, Anywhere</p>
-        <div class="stats">
-            <div class="stat">
-                <span class="stat-number">1000+</span>
-                <span class="stat-label">Premium Games</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">500K+</span>
-                <span class="stat-label">Monthly Users</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">24/7</span>
-                <span class="stat-label">Service</span>
-            </div>
-        </div>
-    </section>
+
 
     <div class="content">
-        <section class="section">
-            <h2 class="section-title">🎮 Game Categories</h2>
-            <div class="categories">
-                <a href="#" class="category-btn active">All</a>
-                <a href="#" class="category-btn">Action Games</a>
-                <a href="#" class="category-btn">Puzzle Games</a>
-                <a href="#" class="category-btn">Sports Games</a>
-                <a href="#" class="category-btn">Racing Games</a>
-                <a href="#" class="category-btn">Adventure Games</a>
-                <a href="#" class="category-btn">Shooting Games</a>
-                <a href="#" class="category-btn">Strategy Games</a>
-            </div>
-        </section>
+
 
         <section class="section">
             <h2 class="section-title">🔥 Popular Games</h2>
             <div class="games-grid" id="gamesGrid">
                 <div class="game-card">
-                    <iframe src="https://scratch.mit.edu/projects/1102118868/embed" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    <iframe src="https://1games.io/game/wacky-flip" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Wacky Flip Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
+                </div>
+                <div class="game-card">
+                    <iframe src="https://cheesechompers-3d.io/game/165/" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Cheese Chompers 3D Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
+                </div>
+                <div class="game-card">
+                    <iframe src="https://html5.gamedistribution.com/e1e32230bdf040d69f4e367015e1c527/?gd_sdk_referrer_url=https://crazycattle3d.com/games/snow-rush-3d&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Snow Rush 3D Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
+                </div>
+                <div class="game-card">
+                    <iframe src="https://html5.gamedistribution.com/b375b05ea29b40abaaf3606a2ff215ad/?gd_sdk_referrer_url=https://crazycattle3d.com/games/tower-crash-3d&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Tower Crash 3D Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
+                </div>
+                <div class="game-card">
+                    <iframe src="https://html5.gamedistribution.com/14e87fab0cbf44b6b3e57ddb77af5941/?gd_sdk_referrer_url=https://crazycattle3d.com/games/tunnel-road&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" style="height:100%;position:relative;top:0;left:0;right:0;bottom:0;z-index:1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Tunnel Road Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen"></iframe>
+                </div>
+                <div class="game-card">
+                    <iframe src="https://html5.gamedistribution.com/2e5863b7cc10444a88f72c81e74502f1/?gd_sdk_referrer_url=https://crazycattle3d.com/games/merge-flowers&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Merge Flowers Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
+                </div>
+                <div class="game-card">
+                    <iframe src="https://html5.gamedistribution.com/bc2f52c2d9d04e41aee48bef01075d22/?gd_sdk_referrer_url=https://crazycattle3d.com/games/obby-on-a-bike&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Obby On a Bike Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
+                </div>
+                <div class="game-card">
+                    <iframe src="https://html5.gamedistribution.com/427f3a980dfc48e69e4329acdb5b9d8b/?gd_sdk_referrer_url=https://crazycattle3d.com/games/cat-chaos-simulator&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Cat Chaos Simulator Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
+                </div>
+                <div class="game-card">
+                    <iframe src="https://yujiandemo.com/" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Crazy Cattle 3D Online Game" sandbox="allow-scripts allow-same-origin allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">🎯 Featured Games</h2>
+            <div class="games-grid" id="featuredGamesGrid">
+                <div class="game-card">
+                    <iframe src="https://scratch.mit.edu/projects/1102118868/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
                 </div>
                 <div class="game-card">
                     <iframe 
                         src="https://games.crazygames.com/en_US/bloxdhop-io/index.html"
+                        width="740"
+                        height="480"
                         frameborder="0"
                         allowfullscreen="true"
                         title="CrazyGames - bloxdhop io"
@@ -400,11 +379,16 @@
                     </iframe>
                 </div>
                 <div class="game-card">
-                    <iframe src="https://www.crazygames.com/embed/fortzone-battle-royale-xkd" frameborder="0" allow="gamepad *;"></iframe>
+                    <iframe src="https://www.crazygames.com/embed/fortzone-battle-royale-xkd" style="width: 100%; height: 100%;" frameborder="0" allow="gamepad *;"></iframe>
+                </div>
+                <div class="game-card">
+                    <iframe src="https://html5.gamedistribution.com/1b3229bbbf6d4c519e216e8228b5d0a8/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" width="1400" height="875" scrolling="none" frameborder="0"></iframe>
                 </div>
                 <div class="game-card">
                     <iframe 
                         src="https://play.famobi.com/"
+                        width="700"
+                        height="450"
                         frameborder="0"
                         allowfullscreen="true"
                         title="Famobi - om nom run"
@@ -414,6 +398,8 @@
                 <div class="game-card">
                     <iframe 
                         src="https://games.poki.com/458768/a601b558-b49f-46c8-a13e-78b975209c89?tag=pg-86eacb676326848d32234d8634c2a510d77caf37&amp;site_id=73&amp;iso_lang=zh&amp;country=US&amp;poki_url=https://poki.com/zh/g/vortellas-dress-up&amp;hoist=yes&amp;nonPersonalized=n&amp;cloudsavegames=n&amp;familyFriendly=n&amp;categories=4,44,76,93,281,1126,1187,1190&amp;special_condition=landing"
+                        width="650"
+                        height="450"
                         frameborder="0"
                         allowfullscreen="true"
                         title="Poki - vortellas dress up"
@@ -421,17 +407,21 @@
                     </iframe>
                 </div>
                 <div class="game-card">
-                     <iframe 
+                    <iframe 
                         src="https://games.poki.com/458768/0322484b-7a58-4454-9667-f805afffded5?tag=pg-c269b0a890a4cfe1c499188409a9240669a68214&amp;site_id=73&amp;iso_lang=zh&amp;country=US&amp;poki_url=https://poki.com/zh/g/brain-test-tricky-puzzles&amp;hoist=yes&amp;nonPersonalized=n&amp;cloudsavegames=n&amp;familyFriendly=n&amp;categories=7,16,72,96,400,843,1150,1190,1206&amp;ab=0908c89d0b583118c6775850e2d29e4bd40cf449&amp;experiment=a-a7ce6afb&amp;special_condition=landing"
+                        width="650"
+                        height="450"
                         frameborder="0"
                         allowfullscreen="true"
                         title="Poki - brain test tricky puzzles"
                         sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-presentation">
                     </iframe>
                 </div>
-                 <div class="game-card">
+                <div class="game-card">
                     <iframe 
                         src="https://www.twoplayergames.org/gameframe/boxing-random"
+                        width="720"
+                        height="500"
                         frameborder="0"
                         allowfullscreen="true"
                         title="TwoPlayerGames - boxing random"
@@ -441,20 +431,11 @@
                 <div class="game-card">
                     <iframe 
                         src="https://19584.cache.armorgames.com/files/games/tortoise-truck-19584/index.html?v=1749056973"
+                        width="640"
+                        height="480"
                         frameborder="0"
                         allowfullscreen="true"
                         title="ArmorGames - tortoise truck game"
-                        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-presentation">
-                    </iframe>
-                </div>
-                <div class="game-card">
-                    <iframe 
-                        src="https://www.miniplay.com/embed/monster-survivors"
-                        width="680"
-                        height="520"
-                        frameborder="0"
-                        allowfullscreen="true"
-                        title="Miniplay - monster survivors"
                         sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-presentation">
                     </iframe>
                 </div>
@@ -464,7 +445,26 @@
         <section class="section">
             <h2 class="section-title">🆕 New Games</h2>
             <div class="games-grid" id="newGamesGrid">
-                <!-- New game cards -->
+                <div class="game-card">
+                    <iframe src="https://yujiandemo.com/" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Crazy Cattle 3D Online Game" sandbox="allow-scripts allow-same-origin allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
+                </div>
+                <div class="game-card">
+                    <iframe src="https://www.crazygames.com/embed/fortzone-battle-royale-xkd" style="width: 100%; height: 100%;" frameborder="0" allow="gamepad *;"></iframe>
+                </div>
+                <div class="game-card">
+                    <iframe src="https://html5.gamedistribution.com/1b3229bbbf6d4c519e216e8228b5d0a8/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" width="1400" height="875" scrolling="none" frameborder="0"></iframe>
+                </div>
+                <div class="game-card">
+                    <iframe 
+                        src="https://games.poki.com/458768/0322484b-7a58-4454-9667-f805afffded5?tag=pg-c269b0a890a4cfe1c499188409a9240669a68214&amp;site_id=73&amp;iso_lang=zh&amp;country=US&amp;poki_url=https://poki.com/zh/g/brain-test-tricky-puzzles&amp;hoist=yes&amp;nonPersonalized=n&amp;cloudsavegames=n&amp;familyFriendly=n&amp;categories=7,16,72,96,400,843,1150,1190,1206&amp;special_condition=landing"
+                        width="650"
+                        height="450"
+                        frameborder="0"
+                        allowfullscreen="true"
+                        title="Poki - brain test tricky puzzles"
+                        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-presentation">
+                    </iframe>
+                </div>
             </div>
         </section>
     </div>
@@ -542,40 +542,12 @@
             });
         }
 
-        // Category filter
-        function setupCategoryFilter() {
-            const categoryBtns = document.querySelectorAll('.category-btn');
-            
-            categoryBtns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Remove all active states
-                    categoryBtns.forEach(b => b.classList.remove('active'));
-                    // Add current active state
-                    this.classList.add('active');
-                    
-                    const category = this.textContent;
-                    const gameCards = document.querySelectorAll('.game-card');
-                    
-                    gameCards.forEach(card => {
-                        const cardCategory = card.querySelector('.game-category').textContent;
-                        
-                        if (category === 'All' || cardCategory === category) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-        }
+
 
         // Initialize after page load
         document.addEventListener('DOMContentLoaded', function() {
             renderGames();
             setupSearch();
-            setupCategoryFilter();
         });
 
         // Mobile menu
