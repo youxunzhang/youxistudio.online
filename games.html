@@ -12,6 +12,91 @@
             min-height: 100vh;
             margin: 0;
         }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .search-box:focus-within {
+            border-color: #667eea;
+        }
+
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            padding: 0.5rem;
+            width: 200px;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: #333;
+            }
+        }
+        
         .content {
             max-width: 1100px;
             margin: 100px auto 0;
@@ -87,14 +172,15 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">game studio</a>
+            <a href="index.html" class="logo">game studio</a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="games.html">Games</a></li>
                 <li><a href="#categories">Categories</a></li>
                 <li><a href="#new">New</a></li>
                 <li><a href="#popular">Popular</a></li>
                 <li><a href="Browser.html">Browser Game</a></li>
+                <li><a href="company-ranking.html">Company Ranking</a></li>
             </ul>
             <div class="search-box">
                 <input type="text" placeholder="Search games..." id="searchInput">
@@ -147,8 +233,26 @@
                     <a class="game-link" href="https://html5.gamedistribution.com/10f0beef65fe40ccae23194fd95782a8/" target="_blank">https://html5.gamedistribution.com/10f0beef65fe40ccae23194fd95782a8/</a>
                     <iframe class="game-iframe" src="https://html5.gamedistribution.com/10f0beef65fe40ccae23194fd95782a8/" allowfullscreen></iframe>
                 </div>
+                <div class="game-card">
+                    <div class="game-title">Click Kitty Idle</div>
+                    <a class="game-link" href="https://html5.gamedistribution.com/e93bed2b602c4b5abf3b14f7ab532e18/?gd_sdk_referrer_url=https://gamedistribution.com/games/click-kitty-idle/" target="_blank">https://html5.gamedistribution.com/e93bed2b602c4b5abf3b14f7ab532e18/?gd_sdk_referrer_url=https://gamedistribution.com/games/click-kitty-idle/</a>
+                    <iframe class="game-iframe" src="https://html5.gamedistribution.com/e93bed2b602c4b5abf3b14f7ab532e18/?gd_sdk_referrer_url=https://gamedistribution.com/games/click-kitty-idle/" allowfullscreen></iframe>
+                </div>
             </div>
         </section>
     </div>
+    
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu');
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    const navLinks = document.querySelector('.nav-links');
+                    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                });
+            }
+        });
+    </script>
 </body>
 </html> 
