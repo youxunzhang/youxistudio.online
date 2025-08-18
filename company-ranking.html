@@ -121,11 +121,30 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
             border-left: 4px solid #667eea;
+            position: relative;
         }
 
         .company-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .company-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background: white;
+            padding: 0.5rem;
+        }
+
+        .company-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
 
         .company-rank {
@@ -287,9 +306,14 @@
             <div class="ranking-grid" id="companiesGrid">
                 <!-- 中国公司 -->
                 <div class="company-card" data-category="chinese">
-                    <div class="company-rank">#1</div>
-                    <div class="company-name">腾讯游戏</div>
-                    <div class="company-name-en">Tencent Games</div>
+                    <div class="company-header">
+                        <img src="https://via.placeholder.com/80x80/1e90ff/ffffff?text=腾讯" alt="腾讯游戏LOGO" class="company-logo">
+                        <div>
+                            <div class="company-rank">#1</div>
+                            <div class="company-name">腾讯游戏</div>
+                            <div class="company-name-en">Tencent Games</div>
+                        </div>
+                    </div>
                     <div class="company-description">全球最大的游戏公司之一，拥有《王者荣耀》、《和平精英》等热门游戏。</div>
                     <div class="company-info">
                         <span class="company-country">🇨🇳 中国</span>
@@ -299,9 +323,14 @@
                 </div>
 
                 <div class="company-card" data-category="chinese">
-                    <div class="company-rank">#2</div>
-                    <div class="company-name">网易游戏</div>
-                    <div class="company-name-en">NetEase Games</div>
+                    <div class="company-header">
+                        <img src="https://via.placeholder.com/80x80/ff6b6b/ffffff?text=网易" alt="网易游戏LOGO" class="company-logo">
+                        <div>
+                            <div class="company-rank">#2</div>
+                            <div class="company-name">网易游戏</div>
+                            <div class="company-name-en">NetEase Games</div>
+                        </div>
+                    </div>
                     <div class="company-description">中国领先的游戏开发商，代表作包括《梦幻西游》、《阴阳师》等。</div>
                     <div class="company-info">
                         <span class="company-country">🇨🇳 中国</span>
@@ -311,9 +340,14 @@
                 </div>
 
                 <div class="company-card" data-category="chinese">
-                    <div class="company-rank">#3</div>
-                    <div class="company-name">米哈游</div>
-                    <div class="company-name-en">miHoYo</div>
+                    <div class="company-header">
+                        <img src="https://via.placeholder.com/80x80/4ecdc4/ffffff?text=米哈游" alt="米哈游LOGO" class="company-logo">
+                        <div>
+                            <div class="company-rank">#3</div>
+                            <div class="company-name">米哈游</div>
+                            <div class="company-name-en">miHoYo</div>
+                        </div>
+                    </div>
                     <div class="company-description">以《原神》、《崩坏》系列闻名的二次元游戏开发商。</div>
                     <div class="company-info">
                         <span class="company-country">🇨🇳 中国</span>
@@ -324,9 +358,14 @@
 
                 <!-- 国际公司 -->
                 <div class="company-card" data-category="international">
-                    <div class="company-rank">#4</div>
-                    <div class="company-name">索尼互动娱乐</div>
-                    <div class="company-name-en">Sony Interactive Entertainment</div>
+                    <div class="company-header">
+                        <img src="https://via.placeholder.com/80x80/003791/ffffff?text=SONY" alt="索尼互动娱乐LOGO" class="company-logo">
+                        <div>
+                            <div class="company-rank">#4</div>
+                            <div class="company-name">索尼互动娱乐</div>
+                            <div class="company-name-en">Sony Interactive Entertainment</div>
+                        </div>
+                    </div>
                     <div class="company-description">PlayStation平台的所有者，拥有《战神》、《最后生还者》等经典IP。</div>
                     <div class="company-info">
                         <span class="company-country">🇯🇵 日本</span>
