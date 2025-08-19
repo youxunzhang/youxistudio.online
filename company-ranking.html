@@ -138,6 +138,7 @@
             background: white;
             padding: 0.5rem;
             transition: transform 0.3s, box-shadow 0.3s;
+            display: block;
         }
 
         .company-logo:hover {
@@ -274,6 +275,15 @@
             .category-tabs {
                 justify-content: center;
             }
+
+            .company-logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .company-header {
+                gap: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -312,7 +322,7 @@
                 <!-- 中国公司 -->
                 <div class="company-card" data-category="chinese">
                     <div class="company-header">
-                        <img src="https://via.placeholder.com/80x80/1e90ff/ffffff?text=腾讯" alt="腾讯游戏LOGO" class="company-logo">
+                        <img src="https://picsum.photos/80/80?random=1" alt="腾讯游戏LOGO" class="company-logo">
                         <div>
                             <div class="company-rank">#1</div>
                             <div class="company-name">腾讯游戏</div>
@@ -329,7 +339,7 @@
 
                 <div class="company-card" data-category="chinese">
                     <div class="company-header">
-                        <img src="https://via.placeholder.com/80x80/ff6b6b/ffffff?text=网易" alt="网易游戏LOGO" class="company-logo">
+                        <img src="https://picsum.photos/80/80?random=2" alt="网易游戏LOGO" class="company-logo">
                         <div>
                             <div class="company-rank">#2</div>
                             <div class="company-name">网易游戏</div>
@@ -346,7 +356,7 @@
 
                 <div class="company-card" data-category="chinese">
                     <div class="company-header">
-                        <img src="https://via.placeholder.com/80x80/4ecdc4/ffffff?text=米哈游" alt="米哈游LOGO" class="company-logo">
+                        <img src="https://picsum.photos/80/80?random=3" alt="米哈游LOGO" class="company-logo">
                         <div>
                             <div class="company-rank">#3</div>
                             <div class="company-name">米哈游</div>
@@ -364,7 +374,7 @@
                 <!-- 国际公司 -->
                 <div class="company-card" data-category="international">
                     <div class="company-header">
-                        <img src="https://via.placeholder.com/80x80/003791/ffffff?text=SONY" alt="索尼互动娱乐LOGO" class="company-logo">
+                        <img src="https://picsum.photos/80/80?random=4" alt="索尼互动娱乐LOGO" class="company-logo">
                         <div>
                             <div class="company-rank">#4</div>
                             <div class="company-name">索尼互动娱乐</div>
@@ -381,7 +391,7 @@
 
                 <div class="company-card" data-category="international">
                     <div class="company-header">
-                        <img src="https://via.placeholder.com/80x80/00a4ef/ffffff?text=MS" alt="微软游戏LOGO" class="company-logo">
+                        <img src="https://picsum.photos/80/80?random=5" alt="微软游戏LOGO" class="company-logo">
                         <div>
                             <div class="company-rank">#5</div>
                             <div class="company-name">微软游戏</div>
@@ -398,7 +408,7 @@
 
                 <div class="company-card" data-category="international">
                     <div class="company-header">
-                        <img src="https://via.placeholder.com/80x80/e60012/ffffff?text=任天堂" alt="任天堂LOGO" class="company-logo">
+                        <img src="https://picsum.photos/80/80?random=6" alt="任天堂LOGO" class="company-logo">
                         <div>
                             <div class="company-rank">#6</div>
                             <div class="company-name">任天堂</div>
@@ -415,7 +425,7 @@
 
                 <div class="company-card" data-category="international">
                     <div class="company-header">
-                        <img src="https://via.placeholder.com/80x80/ff6b35/ffffff?text=AB" alt="动视暴雪LOGO" class="company-logo">
+                        <img src="https://picsum.photos/80/80?random=7" alt="动视暴雪LOGO" class="company-logo">
                         <div>
                             <div class="company-rank">#7</div>
                             <div class="company-name">动视暴雪</div>
@@ -432,7 +442,7 @@
 
                 <div class="company-card" data-category="international">
                     <div class="company-header">
-                        <img src="https://via.placeholder.com/80x80/ff0000/ffffff?text=EA" alt="艺电LOGO" class="company-logo">
+                        <img src="https://picsum.photos/80/80?random=8" alt="艺电LOGO" class="company-logo">
                         <div>
                             <div class="company-rank">#8</div>
                             <div class="company-name">艺电</div>
@@ -449,7 +459,7 @@
 
                 <div class="company-card" data-category="chinese">
                     <div class="company-header">
-                        <img src="https://via.placeholder.com/80x80/8e44ad/ffffff?text=完美" alt="完美世界LOGO" class="company-logo">
+                        <img src="https://picsum.photos/80/80?random=9" alt="完美世界LOGO" class="company-logo">
                         <div>
                             <div class="company-rank">#9</div>
                             <div class="company-name">完美世界</div>
@@ -466,7 +476,7 @@
 
                 <div class="company-card" data-category="international">
                     <div class="company-header">
-                        <img src="https://via.placeholder.com/80x80/0073e6/ffffff?text=UBI" alt="育碧LOGO" class="company-logo">
+                        <img src="https://picsum.photos/80/80?random=10" alt="育碧LOGO" class="company-logo">
                         <div>
                             <div class="company-rank">#10</div>
                             <div class="company-name">育碧</div>
@@ -535,6 +545,17 @@
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             const navLinks = document.querySelector('.nav-links');
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // 图片加载失败处理
+        document.addEventListener('DOMContentLoaded', function() {
+            const logos = document.querySelectorAll('.company-logo');
+            logos.forEach(logo => {
+                logo.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    this.nextElementSibling.style.marginLeft = '0';
+                });
+            });
         });
     </script>
 </body>
