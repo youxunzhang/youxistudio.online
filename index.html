@@ -354,6 +354,56 @@
             height: 350px;
         }
 
+        .popular-game-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .popular-game-card .game-iframe {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .game-placeholder {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.12));
+            text-align: center;
+        }
+
+        .game-placeholder img {
+            max-width: 220px;
+            width: 100%;
+            height: auto;
+        }
+
+        .game-placeholder p {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4b5563;
+        }
+
+        .game-placeholder.is-hidden {
+            display: none;
+        }
+
+        .popular-game-card:focus-visible {
+            outline: 3px solid #667eea;
+            outline-offset: 4px;
+        }
+
+        .popular-game-card.game-loaded {
+            cursor: default;
+        }
+
         .footer {
             background: rgba(0, 0, 0, 0.8);
             color: white;
@@ -468,78 +518,78 @@
             <h2 class="section-title">🔥 Popular Games</h2>
             <div class="games-grid" id="gamesGrid">
                 <div class="game-card">
-                    <iframe src="https://html5.gamedistribution.com/e1e32230bdf040d69f4e367015e1c527/?gd_sdk_referrer_url=https://crazycattle3d.com/games/snow-rush-3d&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Snow Rush 3D Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/e1e32230bdf040d69f4e367015e1c527/?gd_sdk_referrer_url=https://crazycattle3d.com/games/snow-rush-3d&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Snow Rush 3D Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
                 </div>
                 <div class="game-card">
-                    <iframe src="https://html5.gamedistribution.com/b375b05ea29b40abaaf3606a2ff215ad/?gd_sdk_referrer_url=https://crazycattle3d.com/games/tower-crash-3d&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Tower Crash 3D Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/b375b05ea29b40abaaf3606a2ff215ad/?gd_sdk_referrer_url=https://crazycattle3d.com/games/tower-crash-3d&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Tower Crash 3D Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
                 </div>
                 <div class="game-card">
-                    <iframe src="https://html5.gamedistribution.com/14e87fab0cbf44b6b3e57ddb77af5941/?gd_sdk_referrer_url=https://crazycattle3d.com/games/tunnel-road&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" style="height:100%;position:relative;top:0;left:0;right:0;bottom:0;z-index:1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Tunnel Road Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/14e87fab0cbf44b6b3e57ddb77af5941/?gd_sdk_referrer_url=https://crazycattle3d.com/games/tunnel-road&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" style="height:100%;position:relative;top:0;left:0;right:0;bottom:0;z-index:1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Tunnel Road Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen"></iframe>
                 </div>
                 <div class="game-card">
-                    <iframe src="https://html5.gamedistribution.com/2e5863b7cc10444a88f72c81e74502f1/?gd_sdk_referrer_url=https://crazycattle3d.com/games/merge-flowers&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Merge Flowers Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/2e5863b7cc10444a88f72c81e74502f1/?gd_sdk_referrer_url=https://crazycattle3d.com/games/merge-flowers&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Merge Flowers Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
                 </div>
                 <div class="game-card">
-                    <iframe src="https://html5.gamedistribution.com/bc2f52c2d9d04e41aee48bef01075d22/?gd_sdk_referrer_url=https://crazycattle3d.com/games/obby-on-a-bike&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Obby On a Bike Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/bc2f52c2d9d04e41aee48bef01075d22/?gd_sdk_referrer_url=https://crazycattle3d.com/games/obby-on-a-bike&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Obby On a Bike Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
                 </div>
                 <div class="game-card">
-                    <iframe src="https://html5.gamedistribution.com/427f3a980dfc48e69e4329acdb5b9d8b/?gd_sdk_referrer_url=https://crazycattle3d.com/games/cat-chaos-simulator&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Cat Chaos Simulator Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/427f3a980dfc48e69e4329acdb5b9d8b/?gd_sdk_referrer_url=https://crazycattle3d.com/games/cat-chaos-simulator&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Cat Chaos Simulator Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Memoji</div>
-                    <iframe src="https://html5.gamedistribution.com/50c56858d355416ba84e18c68321a69b/?gd_sdk_referrer_url=https://gamedistribution.com/games/memoji/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/50c56858d355416ba84e18c68321a69b/?gd_sdk_referrer_url=https://gamedistribution.com/games/memoji/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Cityquest</div>
-                    <iframe src="https://html5.gamedistribution.com/31068f4a88af4d3da31feeeddaeb44c8/?gd_sdk_referrer_url=https://gamedistribution.com/games/cityquest/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/31068f4a88af4d3da31feeeddaeb44c8/?gd_sdk_referrer_url=https://gamedistribution.com/games/cityquest/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">10K</div>
-                    <iframe src="https://html5.gamedistribution.com/3acc054600054896b62bda751eaef869/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/3acc054600054896b62bda751eaef869/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Phrasle Master</div>
-                    <iframe src="https://html5.gamedistribution.com/1adf969783854409b65b5ccb0873ea8a/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/1adf969783854409b65b5ccb0873ea8a/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Word Search</div>
-                    <iframe src="https://html5.gamedistribution.com/c13ee9c06edc4f0a8d7f6f291a7c13d8/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/c13ee9c06edc4f0a8d7f6f291a7c13d8/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Kitty Scramble</div>
-                    <iframe src="https://html5.gamedistribution.com/944186abe50e452dac7f0e8d3e0a8814/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/944186abe50e452dac7f0e8d3e0a8814/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Daily Crossword</div>
-                    <iframe src="https://html5.gamedistribution.com/e74d9a4123fb4880bc5e3d7664c9dcc9/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/e74d9a4123fb4880bc5e3d7664c9dcc9/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Hexa</div>
-                    <iframe src="https://html5.gamedistribution.com/ab1984b4b1314e1dab545a34b62bce47/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/ab1984b4b1314e1dab545a34b62bce47/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Daily Sudoku</div>
-                    <iframe src="https://html5.gamedistribution.com/dd9701cd84da40699cdc404645f29c1f/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/dd9701cd84da40699cdc404645f29c1f/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Crocword Crossword Puzzle Game</div>
-                    <iframe src="https://html5.gamedistribution.com/3e314ff40f40472f9aefed5b046f6dcc/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/3e314ff40f40472f9aefed5b046f6dcc/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Daily Jigsaw</div>
-                    <iframe src="https://html5.gamedistribution.com/5eebb19f0fcd43849721b95ecf53a700/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/5eebb19f0fcd43849721b95ecf53a700/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Word Swipe</div>
-                    <iframe src="https://html5.gamedistribution.com/ef4b392680554564abe1a3d3917a754b/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/ef4b392680554564abe1a3d3917a754b/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Word Sauce</div>
-                    <iframe src="https://html5.gamedistribution.com/8d8965a1f1af4d2b884e0bc48737925d/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/8d8965a1f1af4d2b884e0bc48737925d/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">4 Pix Word Quiz</div>
-                    <iframe src="https://html5.gamedistribution.com/992bf414c2fd4a7d8160bcbafd99b6f3/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/992bf414c2fd4a7d8160bcbafd99b6f3/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
             </div>
         </section>
@@ -548,11 +598,11 @@
             <h2 class="section-title">🎯 Featured Games</h2>
             <div class="games-grid" id="featuredGamesGrid">
                 <div class="game-card">
-                    <iframe src="https://scratch.mit.edu/projects/1102118868/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    <iframe data-src="https://scratch.mit.edu/projects/1102118868/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
                 </div>
                 <div class="game-card">
                     <iframe 
-                        src="https://games.crazygames.com/en_US/bloxdhop-io/index.html"
+                        data-src="https://games.crazygames.com/en_US/bloxdhop-io/index.html"
                         width="740"
                         height="480"
                         frameborder="0"
@@ -562,14 +612,14 @@
                     </iframe>
                 </div>
                 <div class="game-card">
-                    <iframe src="https://www.crazygames.com/embed/fortzone-battle-royale-xkd" style="width: 100%; height: 100%;" frameborder="0" allow="gamepad *;"></iframe>
+                    <iframe data-src="https://www.crazygames.com/embed/fortzone-battle-royale-xkd" style="width: 100%; height: 100%;" frameborder="0" allow="gamepad *;"></iframe>
                 </div>
                 <div class="game-card">
-                    <iframe src="https://html5.gamedistribution.com/1b3229bbbf6d4c519e216e8228b5d0a8/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" width="1400" height="875" scrolling="none" frameborder="0"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/1b3229bbbf6d4c519e216e8228b5d0a8/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" width="1400" height="875" scrolling="none" frameborder="0"></iframe>
                 </div>
                 <div class="game-card">
                     <iframe 
-                        src="https://play.famobi.com/"
+                        data-src="https://play.famobi.com/"
                         width="700"
                         height="450"
                         frameborder="0"
@@ -580,7 +630,7 @@
                 </div>
                 <div class="game-card">
                     <iframe 
-                        src="https://www.twoplayergames.org/gameframe/boxing-random"
+                        data-src="https://www.twoplayergames.org/gameframe/boxing-random"
                         width="720"
                         height="500"
                         frameborder="0"
@@ -591,7 +641,7 @@
                 </div>
                 <div class="game-card">
                     <iframe 
-                        src="https://19584.cache.armorgames.com/files/games/tortoise-truck-19584/index.html?v=1749056973"
+                        data-src="https://19584.cache.armorgames.com/files/games/tortoise-truck-19584/index.html?v=1749056973"
                         width="640"
                         height="480"
                         frameborder="0"
@@ -665,63 +715,63 @@
             <div class="games-grid" id="newGamesGrid" style="grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem;">
                 <div class="game-card">
                     <div class="game-title">Wacky Flip</div>
-                    <iframe src="https://html5.gamedistribution.com/e1e32230bdf040d69f4e367015e1c527/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/e1e32230bdf040d69f4e367015e1c527/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Tower Crash 3D</div>
-                    <iframe src="https://html5.gamedistribution.com/b375b05ea29b40abaaf3606a2ff215ad/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/b375b05ea29b40abaaf3606a2ff215ad/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Tunnel Road</div>
-                    <iframe src="https://html5.gamedistribution.com/14e87fab0cbf44b6b3e57ddb77af5941/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/14e87fab0cbf44b6b3e57ddb77af5941/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Merge Flowers</div>
-                    <iframe src="https://html5.gamedistribution.com/2e5863b7cc10444a88f72c81e74502f1/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/2e5863b7cc10444a88f72c81e74502f1/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Obby On a Bike</div>
-                    <iframe src="https://html5.gamedistribution.com/bc2f52c2d9d04e41aee48bef01075d22/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/bc2f52c2d9d04e41aee48bef01075d22/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Cat Chaos Simulator</div>
-                    <iframe src="https://html5.gamedistribution.com/427f3a980dfc48e69e4329acdb5b9d8b/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/427f3a980dfc48e69e4329acdb5b9d8b/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Snow Rush 3D</div>
-                    <iframe src="https://html5.gamedistribution.com/e1e32230bdf040d69f4e367015e1c527/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/e1e32230bdf040d69f4e367015e1c527/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">示例：自定义游戏</div>
-                    <iframe src="https://html5.gamedistribution.com/10f0beef65fe40ccae23194fd95782a8/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/10f0beef65fe40ccae23194fd95782a8/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Click Kitty Idle</div>
-                    <iframe src="https://html5.gamedistribution.com/e93bed2b602c4b5abf3b14f7ab532e18/?gd_sdk_referrer_url=https://gamedistribution.com/games/click-kitty-idle/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/e93bed2b602c4b5abf3b14f7ab532e18/?gd_sdk_referrer_url=https://gamedistribution.com/games/click-kitty-idle/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Memoji</div>
-                    <iframe src="https://html5.gamedistribution.com/50c56858d355416ba84e18c68321a69b/?gd_sdk_referrer_url=https://gamedistribution.com/games/memoji/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/50c56858d355416ba84e18c68321a69b/?gd_sdk_referrer_url=https://gamedistribution.com/games/memoji/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Cityquest</div>
-                    <iframe src="https://html5.gamedistribution.com/31068f4a88af4d3da31feeeddaeb44c8/?gd_sdk_referrer_url=https://gamedistribution.com/games/cityquest/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/31068f4a88af4d3da31feeeddaeb44c8/?gd_sdk_referrer_url=https://gamedistribution.com/games/cityquest/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">10K</div>
-                    <iframe src="https://html5.gamedistribution.com/3acc054600054896b62bda751eaef869/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/3acc054600054896b62bda751eaef869/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Phrasle Master</div>
-                    <iframe src="https://html5.gamedistribution.com/1adf969783854409b65b5ccb0873ea8a/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/1adf969783854409b65b5ccb0873ea8a/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Word Search</div>
-                    <iframe src="https://html5.gamedistribution.com/c13ee9c06edc4f0a8d7f6f291a7c13d8/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/c13ee9c06edc4f0a8d7f6f291a7c13d8/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Kitty Scramble</div>
-                    <iframe src="https://html5.gamedistribution.com/944186abe50e452dac7f0e8d3e0a8814/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/944186abe50e452dac7f0e8d3e0a8814/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
             </div>
         </section>
@@ -738,59 +788,59 @@
             <div class="games-grid" id="brainTeasersGrid" style="grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem;">
                 <div class="game-card">
                     <div class="game-title">Memoji</div>
-                    <iframe src="https://html5.gamedistribution.com/50c56858d355416ba84e18c68321a69b/?gd_sdk_referrer_url=https://youxistudio.online/#homes/memoji/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/50c56858d355416ba84e18c68321a69b/?gd_sdk_referrer_url=https://youxistudio.online/#homes/memoji/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Cityquest</div>
-                    <iframe src="https://html5.gamedistribution.com/31068f4a88af4d3da31feeeddaeb44c8/?gd_sdk_referrer_url=https://youxistudio.online/#homes/cityquest/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/31068f4a88af4d3da31feeeddaeb44c8/?gd_sdk_referrer_url=https://youxistudio.online/#homes/cityquest/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">10K</div>
-                    <iframe src="https://html5.gamedistribution.com/3acc054600054896b62bda751eaef869/?gd_sdk_referrer_url=https://youxistudio.online/#homes/10k/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/3acc054600054896b62bda751eaef869/?gd_sdk_referrer_url=https://youxistudio.online/#homes/10k/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Phrasle Master</div>
-                    <iframe src="https://html5.gamedistribution.com/1adf969783854409b65b5ccb0873ea8a/?gd_sdk_referrer_url=https://youxistudio.online/#homes/phrasle-master/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/1adf969783854409b65b5ccb0873ea8a/?gd_sdk_referrer_url=https://youxistudio.online/#homes/phrasle-master/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Word Search</div>
-                    <iframe src="https://html5.gamedistribution.com/c13ee9c06edc4f0a8d7f6f291a7c13d8/?gd_sdk_referrer_url=https://youxistudio.online/#homes/word-search/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/c13ee9c06edc4f0a8d7f6f291a7c13d8/?gd_sdk_referrer_url=https://youxistudio.online/#homes/word-search/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Kitty Scramble</div>
-                    <iframe src="https://html5.gamedistribution.com/944186abe50e452dac7f0e8d3e0a8814/?gd_sdk_referrer_url=https://youxistudio.online/#homes/kitty-scramble/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/944186abe50e452dac7f0e8d3e0a8814/?gd_sdk_referrer_url=https://youxistudio.online/#homes/kitty-scramble/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Daily Crossword</div>
-                    <iframe src="https://html5.gamedistribution.com/e74d9a4123fb4880bc5e3d7664c9dcc9/?gd_sdk_referrer_url=https://youxistudio.online/#homes/daily-crossword/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/e74d9a4123fb4880bc5e3d7664c9dcc9/?gd_sdk_referrer_url=https://youxistudio.online/#homes/daily-crossword/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Hexa</div>
-                    <iframe src="https://html5.gamedistribution.com/ab1984b4b1314e1dab545a34b62bce47/?gd_sdk_referrer_url=https://youxistudio.online/#homes/hexa/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/ab1984b4b1314e1dab545a34b62bce47/?gd_sdk_referrer_url=https://youxistudio.online/#homes/hexa/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Daily Sudoku</div>
-                    <iframe src="https://html5.gamedistribution.com/dd9701cd84da40699cdc404645f29c1f/?gd_sdk_referrer_url=https://youxistudio.online/#homes/daily-sudoku/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/dd9701cd84da40699cdc404645f29c1f/?gd_sdk_referrer_url=https://youxistudio.online/#homes/daily-sudoku/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Crocword Crossword Puzzle Game</div>
-                    <iframe src="https://html5.gamedistribution.com/3e314ff40f40472f9aefed5b046f6dcc/?gd_sdk_referrer_url=https://youxistudio.online/#homes/crocword-crossword/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/3e314ff40f40472f9aefed5b046f6dcc/?gd_sdk_referrer_url=https://youxistudio.online/#homes/crocword-crossword/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Daily Jigsaw</div>
-                    <iframe src="https://html5.gamedistribution.com/5eebb19f0fcd43849721b95ecf53a700/?gd_sdk_referrer_url=https://youxistudio.online/#homes/daily-jigsaw/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/5eebb19f0fcd43849721b95ecf53a700/?gd_sdk_referrer_url=https://youxistudio.online/#homes/daily-jigsaw/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Word Swipe</div>
-                    <iframe src="https://html5.gamedistribution.com/ef4b392680554564abe1a3d3917a754b/?gd_sdk_referrer_url=https://youxistudio.online/#homes/word-swipe/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/ef4b392680554564abe1a3d3917a754b/?gd_sdk_referrer_url=https://youxistudio.online/#homes/word-swipe/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">Word Sauce</div>
-                    <iframe src="https://html5.gamedistribution.com/8d8965a1f1af4d2b884e0bc48737925d/?gd_sdk_referrer_url=https://youxistudio.online/#homes/word-sauce/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/8d8965a1f1af4d2b884e0bc48737925d/?gd_sdk_referrer_url=https://youxistudio.online/#homes/word-sauce/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
                 <div class="game-card">
                     <div class="game-title">4 Pix Word Quiz</div>
-                    <iframe src="https://html5.gamedistribution.com/992bf414c2fd4a7d8160bcbafd99b6f3/?gd_sdk_referrer_url=https://youxistudio.online/#homes/4-pix-word-quiz/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                    <iframe data-src="https://html5.gamedistribution.com/992bf414c2fd4a7d8160bcbafd99b6f3/?gd_sdk_referrer_url=https://youxistudio.online/#homes/4-pix-word-quiz/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
                 </div>
             </div>
         </section>
@@ -855,18 +905,105 @@
             searchInput.addEventListener('input', function(e) {
                 const searchTerm = e.target.value.toLowerCase();
                 const gameCards = document.querySelectorAll('.game-card');
-                
+
                 gameCards.forEach(card => {
-                    const title = card.querySelector('.game-title').textContent.toLowerCase();
-                    const category = card.querySelector('.game-category').textContent.toLowerCase();
-                    
-                    if (title.includes(searchTerm) || category.includes(searchTerm)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
+                    const titleElement = card.querySelector('.game-title');
+                    const categoryElement = card.querySelector('.game-category');
+                    const title = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    const category = categoryElement ? categoryElement.textContent.toLowerCase() : '';
+                    const match = title.includes(searchTerm) || category.includes(searchTerm) || searchTerm === '';
+                    card.style.display = match ? '' : 'none';
+                });
+            });
+        }
+
+        function initializePopularGamePlaceholders() {
+            const placeholderImage = 'images/games/game-placeholder.svg';
+            const popularCards = document.querySelectorAll('#gamesGrid .game-card');
+
+            popularCards.forEach(card => {
+                const iframe = card.querySelector('iframe');
+                const dataSrc = iframe ? iframe.dataset.src : null;
+
+                if (!iframe || !dataSrc) {
+                    return;
+                }
+
+                card.classList.add('popular-game-card');
+                card.setAttribute('role', 'button');
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('aria-label', '点击加载游戏内容');
+                iframe.classList.add('game-iframe');
+
+                const placeholder = document.createElement('div');
+                placeholder.className = 'game-placeholder';
+                placeholder.innerHTML = `
+                    <img src="${placeholderImage}" alt="点击开始游戏" loading="lazy">
+                    <p>点击卡片快速加载游戏</p>
+                `;
+                card.insertBefore(placeholder, iframe);
+
+                const loadGame = () => {
+                    if (card.classList.contains('game-loaded')) {
+                        return;
+                    }
+
+                    card.classList.add('game-loaded');
+                    placeholder.classList.add('is-hidden');
+                    iframe.style.display = 'block';
+                    iframe.setAttribute('src', dataSrc);
+                    iframe.setAttribute('loading', 'lazy');
+                    card.removeAttribute('role');
+                    card.removeAttribute('tabindex');
+                    card.removeAttribute('aria-label');
+                };
+
+                card.addEventListener('click', loadGame);
+                placeholder.addEventListener('click', event => {
+                    event.stopPropagation();
+                    loadGame();
+                });
+
+                card.addEventListener('keydown', event => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        loadGame();
                     }
                 });
             });
+        }
+
+        function setupIframeLazyLoading() {
+            const popularIframes = new Set(Array.from(document.querySelectorAll('#gamesGrid .game-card iframe')));
+            const lazyIframes = Array.from(document.querySelectorAll('iframe')).filter(iframe => !popularIframes.has(iframe));
+
+            const loadIframe = (iframe) => {
+                if (!iframe.dataset.src || iframe.getAttribute('src')) {
+                    return;
+                }
+
+                iframe.setAttribute('src', iframe.dataset.src);
+                iframe.setAttribute('loading', 'lazy');
+            };
+
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries, observerInstance) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            loadIframe(entry.target);
+                            observerInstance.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    rootMargin: '200px 0px',
+                    threshold: 0.15
+                });
+
+                lazyIframes.forEach(iframe => observer.observe(iframe));
+            } else {
+                // Fallback: load after short delay
+                setTimeout(() => lazyIframes.forEach(loadIframe), 500);
+            }
         }
 
 
@@ -875,6 +1012,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             renderGames();
             setupSearch();
+            initializePopularGamePlaceholders();
+            setupIframeLazyLoading();
         });
 
         // Mobile menu
