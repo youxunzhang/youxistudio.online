@@ -1,9 +1,9 @@
-<!-- 社交媒体分享组件 -->
-<!-- 使用方法：将此代码复制到任何页面的适当位置 -->
+<!-- Social media sharing component -->
+<!-- Usage: copy this snippet into any page where sharing is needed -->
 
-<!-- 分享区域HTML -->
+<!-- Share area HTML -->
 <div class="share-section">
-    <h2 class="share-title">🌐 分享到社交媒体</h2>
+    <h2 class="share-title">🌐 Share on Social Media</h2>
     <div class="share-buttons">
         <a href="#" class="share-btn facebook" onclick="shareToFacebook()">
             <span class="share-icon">📘</span>
@@ -39,12 +39,12 @@
         </a>
         <button class="share-btn copy" onclick="copyPageLink()">
             <span class="share-icon">📋</span>
-            复制链接
+            Copy Link
         </button>
     </div>
 </div>
 
-<!-- 分享按钮CSS样式 -->
+<!-- Share button CSS styles -->
 <style>
     .share-section {
         background: rgba(255, 255, 255, 0.95);
@@ -146,9 +146,9 @@
     }
 </style>
 
-<!-- 分享功能JavaScript -->
+<!-- Sharing JavaScript helpers -->
 <script>
-    // 社交媒体分享功能
+    // Social media share helpers
     function shareToFacebook() {
         const url = encodeURIComponent(window.location.href);
         const title = encodeURIComponent(document.title);
@@ -209,21 +209,21 @@
 
     function copyPageLink() {
         const url = window.location.href;
-        navigator.clipboard.writeText(url).then(function() {
-            // 显示复制成功提示
-            const copyBtn = document.querySelector('.share-btn.copy');
-            const originalText = copyBtn.innerHTML;
-            copyBtn.innerHTML = '<span class="share-icon">✅</span>已复制';
-            copyBtn.style.background = 'linear-gradient(45deg, #22c55e, #16a34a)';
+            navigator.clipboard.writeText(url).then(function() {
+                // Show a success message
+                const copyBtn = document.querySelector('.share-btn.copy');
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<span class="share-icon">✅</span>Copied';
+                copyBtn.style.background = 'linear-gradient(45deg, #22c55e, #16a34a)';
             
             setTimeout(() => {
                 copyBtn.innerHTML = originalText;
                 copyBtn.style.background = 'linear-gradient(45deg, #6b7280, #9ca3af)';
             }, 2000);
-        }).catch(function(err) {
-            console.error('复制失败:', err);
-            alert('复制失败，请手动复制链接：' + url);
-        });
-    }
+            }).catch(function(err) {
+                console.error('Copy failed:', err);
+                alert('Copy failed. Please copy the link manually: ' + url);
+            });
+        }
 </script>
 

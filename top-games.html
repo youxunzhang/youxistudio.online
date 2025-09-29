@@ -183,7 +183,7 @@
     </div>
 
     <script>
-        // 添加点击事件 - 打开游戏链接
+        // Add click handlers to open game links
         document.querySelectorAll('.game-card').forEach(card => {
             card.addEventListener('click', () => {
                 const gameUrl = card.getAttribute('data-url');
@@ -193,7 +193,7 @@
             });
         });
 
-        // 添加随机颜色动画
+        // Add random color animation
         function animateCards() {
             const cards = document.querySelectorAll('.game-card');
             cards.forEach((card, index) => {
@@ -203,7 +203,7 @@
             });
         }
 
-        // 添加CSS动画
+        // Add CSS animation class
         const style = document.createElement('style');
         style.textContent = `
             @keyframes pulse {
@@ -214,7 +214,7 @@
         `;
         document.head.appendChild(style);
 
-        // 页面加载完成后添加入场动画
+        // Apply entrance animation after the page loads
         window.addEventListener('load', () => {
             setTimeout(animateCards, 500);
         });
