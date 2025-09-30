@@ -1,15 +1,15 @@
 User-agent: *
 Allow: /
 
-# 网站地图
+# Sitemap
 Sitemap: https://youxistudio.online/sitemap.xml
 
-# 允许所有搜索引擎爬取
+# Allow all search engines to crawl
 Disallow: /admin/
 Disallow: /private/
 Disallow: /temp/
 
-# 允许爬取所有游戏页面
+# Permit crawling of all game pages
 Allow: /games.html
 Allow: /new-game.html
 Allow: /game-development.html
@@ -18,5 +18,5 @@ Allow: /top-games.html
 Allow: /Browser.html
 Allow: /IFRAMGAME.html
 
-# 爬取延迟（秒）
+# Crawl delay (seconds)
 Crawl-delay: 1
