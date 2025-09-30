@@ -120,6 +120,25 @@
             font-size: 1rem;
         }
 
+        .section-link-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .section-link-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
         /* Social media sharing styles */
         .share-section {
             background: rgba(255, 255, 255, 0.95);
@@ -245,6 +264,13 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+        }
+
+        .section-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 1.5rem;
         }
 
         .games-grid {
@@ -497,6 +523,8 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="games.html">Games</a></li>
+                <li><a href="featured-games.html">Featured Games</a></li>
+                <li><a href="brain-teasers.html">Brain Teasers</a></li>
                 <li><a href="new-game.html">New Releases</a></li>
                 <li><a href="game-development.html">Game Development</a></li>
                 <li><a href="company-ranking.html">Company Rankings</a></li>
@@ -596,61 +624,8 @@
 
         <section class="section">
             <h2 class="section-title">🎯 Featured Games</h2>
-            <div class="games-grid" id="featuredGamesGrid">
-                <div class="game-card">
-                    <iframe data-src="https://scratch.mit.edu/projects/1102118868/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
-                </div>
-                <div class="game-card">
-                    <iframe 
-                        data-src="https://games.crazygames.com/en_US/bloxdhop-io/index.html"
-                        width="740"
-                        height="480"
-                        frameborder="0"
-                        allowfullscreen="true"
-                        title="CrazyGames - bloxdhop io"
-                        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-presentation allow-gamepad">
-                    </iframe>
-                </div>
-                <div class="game-card">
-                    <iframe data-src="https://www.crazygames.com/embed/fortzone-battle-royale-xkd" style="width: 100%; height: 100%;" frameborder="0" allow="gamepad *;"></iframe>
-                </div>
-                <div class="game-card">
-                    <iframe data-src="https://html5.gamedistribution.com/1b3229bbbf6d4c519e216e8228b5d0a8/?gd_sdk_referrer_url=https://www.example.com/games/{game-path}" width="1400" height="875" scrolling="none" frameborder="0"></iframe>
-                </div>
-                <div class="game-card">
-                    <iframe 
-                        data-src="https://play.famobi.com/"
-                        width="700"
-                        height="450"
-                        frameborder="0"
-                        allowfullscreen="true"
-                        title="Famobi - om nom run"
-                        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-presentation">
-                    </iframe>
-                </div>
-                <div class="game-card">
-                    <iframe 
-                        data-src="https://www.twoplayergames.org/gameframe/boxing-random"
-                        width="720"
-                        height="500"
-                        frameborder="0"
-                        allowfullscreen="true"
-                        title="TwoPlayerGames - boxing random"
-                        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-presentation">
-                    </iframe>
-                </div>
-                <div class="game-card">
-                    <iframe 
-                        data-src="https://19584.cache.armorgames.com/files/games/tortoise-truck-19584/index.html?v=1749056973"
-                        width="640"
-                        height="480"
-                        frameborder="0"
-                        allowfullscreen="true"
-                        title="ArmorGames - tortoise truck game"
-                        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-presentation">
-                    </iframe>
-                </div>
-            </div>
+            <p class="section-description">Discover our curated collection of high-quality experiences, spotlighting the most engaging titles from across the platform. Visit the dedicated page to enjoy the full lineup and immerse yourself in every featured adventure.</p>
+            <a class="section-link-button" href="featured-games.html">Explore Featured Games <span aria-hidden="true">➡️</span></a>
         </section>
 
         <!-- Social media share area -->
@@ -785,64 +760,8 @@
 
         <section class="section">
             <h2 class="section-title">🧩 Brain Teasers - Puzzle Games</h2>
-            <div class="games-grid" id="brainTeasersGrid" style="grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem;">
-                <div class="game-card">
-                    <div class="game-title">Memoji</div>
-                    <iframe data-src="https://html5.gamedistribution.com/50c56858d355416ba84e18c68321a69b/?gd_sdk_referrer_url=https://youxistudio.online/#homes/memoji/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
-                </div>
-                <div class="game-card">
-                    <div class="game-title">Cityquest</div>
-                    <iframe data-src="https://html5.gamedistribution.com/31068f4a88af4d3da31feeeddaeb44c8/?gd_sdk_referrer_url=https://youxistudio.online/#homes/cityquest/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
-                </div>
-                <div class="game-card">
-                    <div class="game-title">10K</div>
-                    <iframe data-src="https://html5.gamedistribution.com/3acc054600054896b62bda751eaef869/?gd_sdk_referrer_url=https://youxistudio.online/#homes/10k/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
-                </div>
-                <div class="game-card">
-                    <div class="game-title">Phrasle Master</div>
-                    <iframe data-src="https://html5.gamedistribution.com/1adf969783854409b65b5ccb0873ea8a/?gd_sdk_referrer_url=https://youxistudio.online/#homes/phrasle-master/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
-                </div>
-                <div class="game-card">
-                    <div class="game-title">Word Search</div>
-                    <iframe data-src="https://html5.gamedistribution.com/c13ee9c06edc4f0a8d7f6f291a7c13d8/?gd_sdk_referrer_url=https://youxistudio.online/#homes/word-search/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
-                </div>
-                <div class="game-card">
-                    <div class="game-title">Kitty Scramble</div>
-                    <iframe data-src="https://html5.gamedistribution.com/944186abe50e452dac7f0e8d3e0a8814/?gd_sdk_referrer_url=https://youxistudio.online/#homes/kitty-scramble/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
-                </div>
-                <div class="game-card">
-                    <div class="game-title">Daily Crossword</div>
-                    <iframe data-src="https://html5.gamedistribution.com/e74d9a4123fb4880bc5e3d7664c9dcc9/?gd_sdk_referrer_url=https://youxistudio.online/#homes/daily-crossword/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
-                </div>
-                <div class="game-card">
-                    <div class="game-title">Hexa</div>
-                    <iframe data-src="https://html5.gamedistribution.com/ab1984b4b1314e1dab545a34b62bce47/?gd_sdk_referrer_url=https://youxistudio.online/#homes/hexa/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
-                </div>
-                <div class="game-card">
-                    <div class="game-title">Daily Sudoku</div>
-                    <iframe data-src="https://html5.gamedistribution.com/dd9701cd84da40699cdc404645f29c1f/?gd_sdk_referrer_url=https://youxistudio.online/#homes/daily-sudoku/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
-                </div>
-                <div class="game-card">
-                    <div class="game-title">Crocword Crossword Puzzle Game</div>
-                    <iframe data-src="https://html5.gamedistribution.com/3e314ff40f40472f9aefed5b046f6dcc/?gd_sdk_referrer_url=https://youxistudio.online/#homes/crocword-crossword/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
-                </div>
-                <div class="game-card">
-                    <div class="game-title">Daily Jigsaw</div>
-                    <iframe data-src="https://html5.gamedistribution.com/5eebb19f0fcd43849721b95ecf53a700/?gd_sdk_referrer_url=https://youxistudio.online/#homes/daily-jigsaw/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
-                </div>
-                <div class="game-card">
-                    <div class="game-title">Word Swipe</div>
-                    <iframe data-src="https://html5.gamedistribution.com/ef4b392680554564abe1a3d3917a754b/?gd_sdk_referrer_url=https://youxistudio.online/#homes/word-swipe/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
-                </div>
-                <div class="game-card">
-                    <div class="game-title">Word Sauce</div>
-                    <iframe data-src="https://html5.gamedistribution.com/8d8965a1f1af4d2b884e0bc48737925d/?gd_sdk_referrer_url=https://youxistudio.online/#homes/word-sauce/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
-                </div>
-                <div class="game-card">
-                    <div class="game-title">4 Pix Word Quiz</div>
-                    <iframe data-src="https://html5.gamedistribution.com/992bf414c2fd4a7d8160bcbafd99b6f3/?gd_sdk_referrer_url=https://youxistudio.online/#homes/4-pix-word-quiz/" style="width: 100%; height: 200px; border: none; border-radius: 10px; margin-top: 0.5rem; background: #e0e0e0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
-                </div>
-            </div>
+            <p class="section-description">Keep your mind sharp with puzzles, word challenges, and relaxing logic experiences. Jump to the dedicated Brain Teasers hub to find every brain-bending game in one place.</p>
+            <a class="section-link-button" href="brain-teasers.html">Play Brain Teasers <span aria-hidden="true">🧠</span></a>
         </section>
     </div>
 
