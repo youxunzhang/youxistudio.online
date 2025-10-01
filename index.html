@@ -275,7 +275,7 @@
 
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
@@ -286,6 +286,11 @@
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+            padding: 1.5rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
         }
 
         .game-card:hover {
@@ -293,50 +298,29 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
 
-        .game-image {
-            height: 160px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+        .game-thumbnail {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #d1d5db, #9ca3af);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 2rem;
-            position: relative;
         }
 
-        .game-image::after {
-            content: '▶';
-            position: absolute;
-            font-size: 3rem;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .game-card:hover .game-image::after {
-            opacity: 0.8;
-        }
-
-        .game-info {
-            padding: 1rem;
+        .game-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .game-title {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .game-category {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .game-rating {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #ff6b35;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #4c51bf;
+            text-align: center;
         }
 
         .categories {
@@ -371,19 +355,12 @@
             background: #f0f0f0;
         }
 
-        .game-card {
-            background: #f8f9fa;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            height: 350px;
-        }
-
         .popular-game-card {
             position: relative;
             display: flex;
             flex-direction: column;
+            align-items: stretch;
+            width: 100%;
         }
 
         .popular-game-card .game-iframe {
@@ -395,6 +372,7 @@
 
         .game-placeholder {
             flex: 1;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -403,6 +381,7 @@
             padding: 1.5rem;
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.12));
             text-align: center;
+            border-radius: 12px;
         }
 
         .game-placeholder img {
@@ -545,19 +524,39 @@
         <section class="section">
             <h2 class="section-title">🔥 Popular Games</h2>
             <div class="games-grid" id="gamesGrid">
-                <div class="game-card">
+                <div class="game-card" data-game-name="Snow Rush 3D">
+                    <div class="game-thumbnail">
+                        <img src="images/games/game-placeholder.svg" alt="Snow Rush 3D game cover" loading="lazy">
+                    </div>
+                    <div class="game-title">Snow Rush 3D</div>
                     <iframe data-src="https://html5.gamedistribution.com/e1e32230bdf040d69f4e367015e1c527/?gd_sdk_referrer_url=https://crazycattle3d.com/games/snow-rush-3d&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Snow Rush 3D Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
                 </div>
-                <div class="game-card">
+                <div class="game-card" data-game-name="Tower Crash 3D">
+                    <div class="game-thumbnail">
+                        <img src="images/games/game-placeholder.svg" alt="Tower Crash 3D game cover" loading="lazy">
+                    </div>
+                    <div class="game-title">Tower Crash 3D</div>
                     <iframe data-src="https://html5.gamedistribution.com/b375b05ea29b40abaaf3606a2ff215ad/?gd_sdk_referrer_url=https://crazycattle3d.com/games/tower-crash-3d&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Tower Crash 3D Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
                 </div>
-                <div class="game-card">
+                <div class="game-card" data-game-name="Tunnel Road">
+                    <div class="game-thumbnail">
+                        <img src="images/games/game-placeholder.svg" alt="Tunnel Road game cover" loading="lazy">
+                    </div>
+                    <div class="game-title">Tunnel Road</div>
                     <iframe data-src="https://html5.gamedistribution.com/14e87fab0cbf44b6b3e57ddb77af5941/?gd_sdk_referrer_url=https://crazycattle3d.com/games/tunnel-road&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" style="height:100%;position:relative;top:0;left:0;right:0;bottom:0;z-index:1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Tunnel Road Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen"></iframe>
                 </div>
-                <div class="game-card">
+                <div class="game-card" data-game-name="Merge Flowers">
+                    <div class="game-thumbnail">
+                        <img src="images/games/game-placeholder.svg" alt="Merge Flowers game cover" loading="lazy">
+                    </div>
+                    <div class="game-title">Merge Flowers</div>
                     <iframe data-src="https://html5.gamedistribution.com/2e5863b7cc10444a88f72c81e74502f1/?gd_sdk_referrer_url=https://crazycattle3d.com/games/merge-flowers&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Merge Flowers Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
                 </div>
-                <div class="game-card">
+                <div class="game-card" data-game-name="Obby On a Bike">
+                    <div class="game-thumbnail">
+                        <img src="images/games/game-placeholder.svg" alt="Obby On a Bike game cover" loading="lazy">
+                    </div>
+                    <div class="game-title">Obby On a Bike</div>
                     <iframe data-src="https://html5.gamedistribution.com/bc2f52c2d9d04e41aee48bef01075d22/?gd_sdk_referrer_url=https://crazycattle3d.com/games/obby-on-a-bike&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Obby On a Bike Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
                 </div>
             </div>
@@ -661,6 +660,51 @@
             });
         }
 
+        function initializePopularGameImages() {
+            const fallbackImage = 'images/games/game-placeholder.svg';
+            const extensions = ['webp', 'jpg', 'jpeg', 'png'];
+
+            document.querySelectorAll('#gamesGrid .game-card').forEach(card => {
+                const imgElement = card.querySelector('.game-thumbnail img');
+                if (!imgElement) {
+                    return;
+                }
+
+                const manualImage = card.dataset.image;
+                const gameName = card.dataset.gameName ? card.dataset.gameName.trim() : '';
+                const slug = gameName
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]+/g, '-')
+                    .replace(/^-+|-+$/g, '');
+
+                const candidates = manualImage
+                    ? [`images/games/${manualImage}`]
+                    : slug
+                        ? extensions.map(ext => `images/games/${slug}.${ext}`)
+                        : [];
+
+                let index = 0;
+
+                const handleError = () => {
+                    if (index < candidates.length) {
+                        imgElement.src = candidates[index++];
+                    } else {
+                        imgElement.removeEventListener('error', handleError);
+                        imgElement.src = fallbackImage;
+                    }
+                };
+
+                imgElement.addEventListener('error', handleError);
+
+                if (candidates.length > 0) {
+                    imgElement.src = candidates[index++];
+                } else {
+                    imgElement.removeEventListener('error', handleError);
+                    imgElement.src = fallbackImage;
+                }
+            });
+        }
+
         function initializePopularGamePlaceholders() {
             const placeholderImage = 'images/games/game-placeholder.svg';
             const popularCards = document.querySelectorAll('#gamesGrid .game-card');
@@ -755,6 +799,7 @@
         // Initialize after page load
         document.addEventListener('DOMContentLoaded', function() {
             setupSearch();
+            initializePopularGameImages();
             initializePopularGamePlaceholders();
             setupIframeLazyLoading();
         });
