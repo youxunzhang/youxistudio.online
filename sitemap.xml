@@ -31,6 +31,12 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://youxistudio.online/geometry-dash.html</loc>
+        <lastmod>2025-10-02</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://youxistudio.online/top-games.html</loc>
         <lastmod>2025-10-02</lastmod>
         <changefreq>weekly</changefreq>
