@@ -166,6 +166,176 @@
             flex-wrap: wrap;
         }
 
+        .hotsport-section {
+            background: linear-gradient(135deg, #0b7a29 0%, #11998e 100%);
+            border-radius: 24px;
+            padding: 2.5rem 3rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            color: #f1f5f9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hotsport-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.15), transparent 50%),
+                radial-gradient(circle at 85% 0%, rgba(255, 255, 255, 0.18), transparent 55%),
+                radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.1), transparent 60%);
+            z-index: 0;
+        }
+
+        .hotsport-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .hotsport-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hotsport-eyebrow {
+            font-size: 0.85rem;
+            letter-spacing: 0.4rem;
+            text-transform: uppercase;
+            opacity: 0.8;
+            margin-bottom: 0.75rem;
+        }
+
+        .hotsport-title {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+        }
+
+        .hotsport-subtitle {
+            font-size: 1.05rem;
+            max-width: 640px;
+            line-height: 1.6;
+            color: rgba(241, 245, 249, 0.9);
+        }
+
+        .hotsport-search {
+            display: flex;
+            align-items: center;
+            background: rgba(15, 118, 110, 0.55);
+            border-radius: 40px;
+            padding: 0.6rem 1.2rem;
+            min-width: 260px;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .hotsport-search:focus-within {
+            background: rgba(15, 118, 110, 0.75);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+        }
+
+        .hotsport-search input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            padding: 0.4rem 0.8rem;
+            outline: none;
+        }
+
+        .hotsport-search input::placeholder {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .hotsport-search-icon {
+            font-size: 1.25rem;
+            opacity: 0.85;
+        }
+
+        .hotsport-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .hotsport-card {
+            background: rgba(15, 23, 42, 0.15);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .hotsport-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px rgba(15, 23, 42, 0.25);
+            background: rgba(15, 23, 42, 0.22);
+        }
+
+        .hotsport-card a {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .hotsport-thumb {
+            aspect-ratio: 16 / 10;
+            background: rgba(15, 23, 42, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hotsport-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hotsport-card-body {
+            padding: 1rem 1.1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .hotsport-card-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+
+        .hotsport-card-category {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(241, 245, 249, 0.7);
+        }
+
+        .hotsport-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 18px;
+            background: rgba(15, 23, 42, 0.22);
+            font-size: 1rem;
+            color: rgba(241, 245, 249, 0.85);
+        }
+
         .share-btn {
             display: flex;
             align-items: center;
@@ -231,11 +401,29 @@
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .share-btn {
                 width: 100%;
                 max-width: 300px;
                 justify-content: center;
+            }
+
+            .hotsport-section {
+                padding: 2rem;
+            }
+
+            .hotsport-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hotsport-title {
+                font-size: 2rem;
+            }
+
+            .hotsport-search {
+                width: 100%;
+                min-width: unset;
             }
         }
 
@@ -522,6 +710,24 @@
     <div class="content">
 
 
+        <section class="hotsport-section" id="hotsportSection" aria-labelledby="hotsportTitle">
+            <div class="hotsport-content">
+                <div class="hotsport-header">
+                    <div>
+                        <p class="hotsport-eyebrow">HOTSPORT</p>
+                        <h1 class="hotsport-title" id="hotsportTitle">Hot Games Hub</h1>
+                        <p class="hotsport-subtitle" id="hotsportSubtitle">Dive into the most popular quick-play games from across the web.</p>
+                    </div>
+                    <label class="hotsport-search" for="hotsportSearch">
+                        <input type="search" id="hotsportSearch" name="hotsportSearch" placeholder="Search HOTSPORT games" aria-describedby="hotsportTitle">
+                        <span class="hotsport-search-icon" aria-hidden="true">🔍</span>
+                    </label>
+                </div>
+                <div class="hotsport-grid" id="hotsportGrid" role="list"></div>
+            </div>
+        </section>
+
+
         <section class="section">
             <h2 class="section-title">🔥 Popular Games</h2>
             <div class="games-grid" id="gamesGrid">
@@ -643,6 +849,128 @@
     </footer>
 
     <script>
+        function loadHotsportGames() {
+            const section = document.getElementById('hotsportSection');
+            const grid = document.getElementById('hotsportGrid');
+            const titleElement = document.getElementById('hotsportTitle');
+            const subtitleElement = document.getElementById('hotsportSubtitle');
+            const searchInput = document.getElementById('hotsportSearch');
+
+            if (!section || !grid || !titleElement || !subtitleElement || !searchInput) {
+                return;
+            }
+
+            let games = [];
+
+            const renderCards = (items) => {
+                grid.innerHTML = '';
+
+                if (!items.length) {
+                    const emptyState = document.createElement('div');
+                    emptyState.className = 'hotsport-empty';
+                    emptyState.textContent = 'No games match your search. Try a different keyword.';
+                    grid.appendChild(emptyState);
+                    return;
+                }
+
+                items.forEach(game => {
+                    const card = document.createElement('article');
+                    card.className = 'hotsport-card';
+                    card.setAttribute('role', 'listitem');
+
+                    const link = document.createElement('a');
+                    link.href = game.url || '#';
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.title = game.title ? `Play ${game.title}` : 'Play game';
+
+                    const thumb = document.createElement('div');
+                    thumb.className = 'hotsport-thumb';
+
+                    const img = document.createElement('img');
+                    img.loading = 'lazy';
+                    img.decoding = 'async';
+                    img.src = game.thumbnail || 'images/games/game-placeholder.svg';
+                    img.alt = game.title ? `${game.title} cover art` : 'Game cover art';
+                    img.addEventListener('error', () => {
+                        img.src = 'images/games/game-placeholder.svg';
+                    });
+                    thumb.appendChild(img);
+
+                    const body = document.createElement('div');
+                    body.className = 'hotsport-card-body';
+
+                    const title = document.createElement('h3');
+                    title.className = 'hotsport-card-title';
+                    title.textContent = game.title || 'Untitled Game';
+
+                    const category = document.createElement('span');
+                    category.className = 'hotsport-card-category';
+                    category.textContent = game.category || 'Game';
+
+                    body.appendChild(title);
+                    body.appendChild(category);
+
+                    link.appendChild(thumb);
+                    link.appendChild(body);
+
+                    card.appendChild(link);
+                    grid.appendChild(card);
+                });
+            };
+
+            const applyFilter = (query) => {
+                const normalizedQuery = query.trim().toLowerCase();
+
+                if (!normalizedQuery) {
+                    renderCards(games);
+                    return;
+                }
+
+                const filtered = games.filter(game => {
+                    const haystack = [game.title, game.category, game.slug]
+                        .filter(Boolean)
+                        .join(' ')
+                        .toLowerCase();
+                    return haystack.includes(normalizedQuery);
+                });
+
+                renderCards(filtered);
+            };
+
+            grid.innerHTML = '';
+            const loadingState = document.createElement('div');
+            loadingState.className = 'hotsport-empty';
+            loadingState.textContent = 'Loading HOTSPORT games...';
+            grid.appendChild(loadingState);
+
+            fetch('img-portal/game-library.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Failed to load games: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    titleElement.textContent = data.title || titleElement.textContent;
+                    subtitleElement.textContent = data.subtitle || subtitleElement.textContent;
+                    games = Array.isArray(data.games) ? data.games : [];
+                    renderCards(games);
+                })
+                .catch(error => {
+                    console.error(error);
+                    grid.innerHTML = '';
+                    const errorState = document.createElement('div');
+                    errorState.className = 'hotsport-empty';
+                    errorState.textContent = 'Unable to load the HOTSPORT games right now. Please try again later.';
+                    grid.appendChild(errorState);
+                });
+
+            searchInput.addEventListener('input', (event) => {
+                applyFilter(event.target.value || '');
+            });
+        }
+
         // Search functionality
         function setupSearch() {
             const searchInput = document.getElementById('searchInput');
@@ -799,6 +1127,7 @@
 
         // Initialize after page load
         document.addEventListener('DOMContentLoaded', function() {
+            loadHotsportGames();
             setupSearch();
             initializePopularGameImages();
             initializePopularGamePlaceholders();
