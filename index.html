@@ -166,6 +166,134 @@
             flex-wrap: wrap;
         }
 
+        .classic-gallery-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 2rem 2.5rem 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 20px 45px rgba(31, 41, 55, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .classic-gallery-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 0% 0%, rgba(102, 126, 234, 0.12), transparent 45%),
+                radial-gradient(circle at 100% 100%, rgba(118, 75, 162, 0.1), transparent 50%);
+            pointer-events: none;
+        }
+
+        .classic-gallery-header {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.75rem;
+        }
+
+        .classic-gallery-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1f2937;
+        }
+
+        .classic-gallery-header p {
+            max-width: 520px;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .classic-gallery-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .classic-gallery-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #0f172a;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+            text-decoration: none;
+            color: #f8fafc;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .classic-gallery-card:hover,
+        .classic-gallery-card:focus-visible {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 30px rgba(30, 64, 175, 0.3);
+        }
+
+        .classic-gallery-card:focus-visible {
+            outline: 3px solid #60a5fa;
+            outline-offset: 3px;
+        }
+
+        .classic-gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.35s ease;
+        }
+
+        .classic-gallery-card:hover img,
+        .classic-gallery-card:focus-visible img {
+            transform: scale(1.05);
+        }
+
+        .classic-gallery-card .classic-gallery-image-wrapper {
+            position: absolute;
+            inset: 0;
+        }
+
+        .classic-gallery-card .classic-gallery-image-wrapper::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0) 40%, rgba(15, 23, 42, 0.75) 100%);
+        }
+
+        .classic-gallery-card .classic-game-title {
+            position: relative;
+            z-index: 1;
+            padding: 1rem 1.1rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+        }
+
+        .classic-gallery-placeholder {
+            grid-column: 1 / -1;
+            padding: 2rem;
+            text-align: center;
+            background: rgba(102, 126, 234, 0.08);
+            border-radius: 18px;
+            color: #4c1d95;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .classic-gallery-section {
+                padding: 1.75rem 1.5rem;
+            }
+
+            .classic-gallery-header h2 {
+                font-size: 1.65rem;
+            }
+        }
+
         .hotsport-section {
             background: linear-gradient(135deg, #0b7a29 0%, #11998e 100%);
             border-radius: 24px;
@@ -710,6 +838,17 @@
     <div class="content">
 
 
+        <section class="classic-gallery-section" id="classicGallerySection" aria-labelledby="classicGalleryTitle">
+            <div class="classic-gallery-header">
+                <div>
+                    <h2 id="classicGalleryTitle">Classic Game Wall</h2>
+                    <p id="classicGalleryDescription">Browse a colorful grid of classic titles and jump directly into your next adventure. Every tile opens the game instantly in a new tab.</p>
+                </div>
+            </div>
+            <div class="classic-gallery-grid" id="classicGalleryGrid" role="list"></div>
+        </section>
+
+
         <section class="hotsport-section" id="hotsportSection" aria-labelledby="hotsportTitle">
             <div class="hotsport-content">
                 <div class="hotsport-header">
@@ -849,6 +988,131 @@
     </footer>
 
     <script>
+        const CLASSIC_IMAGE_BASE_PATH = 'img-classic/';
+        const CLASSIC_IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp'];
+
+        function buildClassicImageSources(game) {
+            const sources = [];
+
+            if (game && typeof game.image === 'string' && game.image.trim()) {
+                sources.push(game.image.trim());
+            }
+
+            if (game && typeof game.name === 'string' && game.name.trim()) {
+                const rawName = game.name.trim();
+                const baseCandidates = new Set([
+                    rawName,
+                    rawName.replace(/\s+/g, ''),
+                    rawName.toLowerCase().replace(/\s+/g, ''),
+                ]);
+
+                baseCandidates.forEach(candidate => {
+                    const encodedCandidate = encodeURIComponent(candidate);
+                    CLASSIC_IMAGE_EXTENSIONS.forEach(ext => {
+                        sources.push(`${CLASSIC_IMAGE_BASE_PATH}${encodedCandidate}${ext}`);
+                    });
+                });
+            }
+
+            sources.push('images/games/game-placeholder.svg');
+
+            return Array.from(new Set(sources));
+        }
+
+        function loadClassicGallery() {
+            const grid = document.getElementById('classicGalleryGrid');
+
+            if (!grid) {
+                return;
+            }
+
+            const placeholder = document.createElement('div');
+            placeholder.className = 'classic-gallery-placeholder';
+            placeholder.textContent = 'Loading classic games...';
+            grid.innerHTML = '';
+            grid.appendChild(placeholder);
+
+            fetch('img-classic/youxistudiodata.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Failed to load classic games (${response.status})`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const games = Array.isArray(data.games) ? data.games : [];
+                    grid.innerHTML = '';
+
+                    if (!games.length) {
+                        const emptyState = document.createElement('div');
+                        emptyState.className = 'classic-gallery-placeholder';
+                        emptyState.textContent = 'No classic games are available right now. Please check back soon!';
+                        grid.appendChild(emptyState);
+                        return;
+                    }
+
+                    const fragment = document.createDocumentFragment();
+
+                    games.forEach(game => {
+                        const card = document.createElement('a');
+                        card.className = 'classic-gallery-card';
+                        card.href = game.url || '#';
+                        card.target = '_blank';
+                        card.rel = 'noopener noreferrer';
+                        card.setAttribute('role', 'listitem');
+                        card.setAttribute('aria-label', game.name ? `Play ${game.name}` : 'Play classic game');
+
+                        const imageWrapper = document.createElement('div');
+                        imageWrapper.className = 'classic-gallery-image-wrapper';
+
+                        const img = document.createElement('img');
+                        img.loading = 'lazy';
+                        img.decoding = 'async';
+                        img.alt = game.name ? `${game.name} cover art` : 'Classic game cover art';
+
+                        const candidateSources = buildClassicImageSources(game);
+                        let sourceIndex = 0;
+                        let lastAssignedSource = null;
+
+                        const assignNextSource = () => {
+                            while (sourceIndex < candidateSources.length) {
+                                const nextSource = candidateSources[sourceIndex++];
+
+                                if (!nextSource || nextSource === lastAssignedSource) {
+                                    continue;
+                                }
+
+                                lastAssignedSource = nextSource;
+                                img.src = nextSource;
+                                return;
+                            }
+                        };
+
+                        img.addEventListener('error', assignNextSource);
+                        assignNextSource();
+                        imageWrapper.appendChild(img);
+
+                        const title = document.createElement('span');
+                        title.className = 'classic-game-title';
+                        title.textContent = game.name || 'Play Now';
+
+                        card.appendChild(imageWrapper);
+                        card.appendChild(title);
+                        fragment.appendChild(card);
+                    });
+
+                    grid.appendChild(fragment);
+                })
+                .catch(error => {
+                    console.error(error);
+                    grid.innerHTML = '';
+                    const errorState = document.createElement('div');
+                    errorState.className = 'classic-gallery-placeholder';
+                    errorState.textContent = 'Unable to load the classic game gallery. Please try again later.';
+                    grid.appendChild(errorState);
+                });
+        }
+
         function loadHotsportGames() {
             const section = document.getElementById('hotsportSection');
             const grid = document.getElementById('hotsportGrid');
@@ -1127,6 +1391,7 @@
 
         // Initialize after page load
         document.addEventListener('DOMContentLoaded', function() {
+            loadClassicGallery();
             loadHotsportGames();
             setupSearch();
             initializePopularGameImages();
