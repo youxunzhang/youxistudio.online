@@ -991,11 +991,43 @@
         const CLASSIC_IMAGE_BASE_PATH = 'img-classic/';
         const CLASSIC_IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp'];
 
+        function normalizeClassicImageUrl(url) {
+            if (!url || typeof url !== 'string') {
+                return url;
+            }
+
+            const trimmed = url.trim();
+
+            if (!trimmed) {
+                return trimmed;
+            }
+
+            try {
+                if (/^https?:\/\//i.test(trimmed)) {
+                    const parsed = new URL(trimmed);
+
+                    if (parsed.pathname.startsWith('/img-classic') && !parsed.pathname.startsWith('/img-classic/')) {
+                        parsed.pathname = parsed.pathname.replace('/img-classic', '/img-classic/');
+                    }
+
+                    return parsed.toString();
+                }
+
+                if (trimmed.startsWith('img-classic') && !trimmed.startsWith('img-classic/')) {
+                    return trimmed.replace(/^img-classic/, 'img-classic/');
+                }
+
+                return trimmed;
+            } catch (_) {
+                return trimmed;
+            }
+        }
+
         function buildClassicImageSources(game) {
             const sources = [];
 
             if (game && typeof game.image === 'string' && game.image.trim()) {
-                sources.push(game.image.trim());
+                sources.push(normalizeClassicImageUrl(game.image));
             }
 
             if (game && typeof game.name === 'string' && game.name.trim()) {
