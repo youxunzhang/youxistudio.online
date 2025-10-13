@@ -1032,7 +1032,7 @@
             grid.innerHTML = '';
             grid.appendChild(placeholder);
 
-            fetch('img-classic/youxistudiodata.json')
+            fetch('img-classic/classic-games.json')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error(`Failed to load classic games (${response.status})`);
@@ -1040,7 +1040,7 @@
                     return response.json();
                 })
                 .then(data => {
-                    const games = Array.isArray(data.games) ? data.games : [];
+                    const games = Array.isArray(data) ? data : (data && Array.isArray(data.games) ? data.games : []);
                     grid.innerHTML = '';
 
                     if (!games.length) {
