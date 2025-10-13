@@ -5,51 +5,58 @@
     {
       "title": "Bubble Shooter Pop",
       "slug": "bubble-shooter-pop",
-      "url": "https://www.crazygames.com/game/bubble-shooter-pop",
+      "url": "https://gamedistribution.com/games/bubble-shooter-pop-it-now!/",
       "thumbnail": "img-portal/bubbleshooterpop.jpg",
       "category": "Puzzle"
     },
     {
       "title": "Emoji Match 3D",
       "slug": "emoji-match-3d",
-      "url": "https://www.crazygames.com/game/emoji-match-3d",
+      "url": "https://gamedistribution.com/games/emoji-match-3/",
       "thumbnail": "img-portal/emojimatch.jpeg",
       "category": "Brain"
     },
     {
       "title": "Match Find 3D",
       "slug": "match-find-3d",
-      "url": "https://www.crazygames.com/game/match-find-3d",
+      "url": "https://gamedistribution.com/games/match-find-3d/",
       "thumbnail": "img-portal/matchfind3d.jpg",
       "category": "Puzzle"
     },
     {
       "title": "Farm Block Puzzle",
       "slug": "farm-block-puzzle",
-      "url": "https://www.crazygames.com/game/farm-block-puzzle",
+      "url": "https://gamedistribution.com/games/farm-block-puzzle/",
       "thumbnail": "img-portal/farmblockpuzzle.jpg",
       "category": "Casual"
     },
     {
       "title": "Block Puzzle 3D",
       "slug": "block-puzzle-3d",
-      "url": "https://www.crazygames.com/game/block-puzzle-3d",
+      "url": "https://gamedistribution.com/games/blockpuzzle-:-color-blast/",
       "thumbnail": "img-portal/blockpuzzle3d.jpg",
       "category": "Puzzle"
     },
     {
       "title": "Block Dropping Merge",
       "slug": "block-dropping-merge",
-      "url": "https://www.crazygames.com/game/blocks-merge-3d",
+      "url": "https://gamedistribution.com/games/block-dropping-merge/",
       "thumbnail": "img-portal/blockdroppingmerge.jpg",
       "category": "Hypercasual"
     },
     {
       "title": "Paper.io 2",
       "slug": "paper-io-2",
-      "url": "https://paper-io.com/",
+      "url": "https://gamedistribution.com/games/paper.io-2/",
       "thumbnail": "img-portal/Paper.jpg",
       "category": "Arcade"
+    },
+    {
+      "title": "Minecraft Battle Party",
+      "slug": "minecraft-battle-party",
+      "url": "https://gamedistribution.com/games/minecraft-battle-party/",
+      "thumbnail": "images/games/game-placeholder.svg",
+      "category": "Adventure"
     },
     {
       "title": "Getting Over It",
@@ -61,63 +68,70 @@
     {
       "title": "Crazy Motorcycle",
       "slug": "crazy-motorcycle",
-      "url": "https://www.crazygames.com/game/moto-maniac-3",
+      "url": "https://gamedistribution.com/games/crazy-motorcycle/",
       "thumbnail": "img-portal/crazymotorcycle.jpg",
       "category": "Racing"
     },
     {
       "title": "Hawaii Match 5",
       "slug": "hawaii-match-5",
-      "url": "https://www.crazygames.com/game/hawaii-match-3",
+      "url": "https://gamedistribution.com/games/hawaii-match-5/",
       "thumbnail": "img-portal/hawaiimatch5.jpg",
       "category": "Match"
     },
     {
       "title": "My Little City",
       "slug": "my-little-city",
-      "url": "https://www.crazygames.com/game/my-little-city",
+      "url": "https://gamedistribution.com/games/my-little-city-1/",
       "thumbnail": "img-portal/mylittlecity.jpg",
       "category": "Strategy"
     },
     {
       "title": "Parking Fury 3D: Night Thief",
       "slug": "parking-fury-3d-night-thief",
-      "url": "https://www.crazygames.com/game/parking-fury-3d-night-thief",
+      "url": "https://gamedistribution.com/games/parking-fury-3d:-beach-city-2/",
       "thumbnail": "img-portal/parkingfury3dn.jpg",
       "category": "Driving"
     },
     {
+      "title": "Night City Racing",
+      "slug": "night-city-racing",
+      "url": "https://gamedistribution.com/games/night-city-racing/",
+      "thumbnail": "images/games/game-placeholder.svg",
+      "category": "Racing"
+    },
+    {
       "title": "Sudoku Classic",
       "slug": "sudoku-classic",
-      "url": "https://sudoku.com/",
+      "url": "https://gamedistribution.com/games/sudoku-relax/",
       "thumbnail": "img-portal/suduku.png",
       "category": "Numbers"
     },
     {
       "title": "Fall Beans 2",
       "slug": "fall-beans-2",
-      "url": "https://www.crazygames.com/game/fall-beans",
+      "url": "https://gamedistribution.com/games/fall-bean-2/",
       "thumbnail": "img-portal/fallbean2.jpeg",
       "category": "Arcade"
     },
     {
       "title": "Magic Solitaire",
       "slug": "magic-solitaire",
-      "url": "https://www.crazygames.com/game/magic-solitaire-world",
+      "url": "https://gamedistribution.com/games/magic-solitaire/",
       "thumbnail": "img-portal/magicsolitaire.jpg",
       "category": "Card"
     },
     {
       "title": "High School Mean Girls 3",
       "slug": "high-school-mean-girls-3",
-      "url": "https://www.girlsgogames.com/game/high-school-mean-girls-3",
+      "url": "https://gamedistribution.com/games/bffs-high-school-first-date-look/",
       "thumbnail": "img-portal/highschoolmeangirls3.jpg",
       "category": "Girls"
     },
     {
       "title": "Vex 3",
       "slug": "vex-3",
-      "url": "https://www.crazygames.com/game/vex-3",
+      "url": "https://gamedistribution.com/games/vex-x3m-2/",
       "thumbnail": "img-portal/vexx3m.jpg",
       "category": "Platform"
     }
