@@ -990,6 +990,41 @@
     <script>
         const CLASSIC_IMAGE_BASE_PATH = 'img-classic/';
         const CLASSIC_IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp'];
+        const CLASSIC_IMAGE_FALLBACKS = {
+            'paper minecraft': 'img-classic/SuperMario2.jpg',
+            'paperminecraft': 'img-classic/SuperMario2.jpg',
+            'sudoku': 'img-classic/udoku.jpg',
+            'suduku': 'img-classic/udoku.jpg',
+            'blockpuzzle3d': 'img-classic/2048.jpg',
+            'block puzzle 3d': 'img-classic/2048.jpg',
+            'blockdroppingmerge': 'img-classic/2048.jpg',
+            'block dropping merge': 'img-classic/2048.jpg',
+            'crazymotorcycle': 'img-classic/agar.jpg',
+            'crazy motorcycle': 'img-classic/agar.jpg',
+            'hawaiimatch5': 'img-classic/MatchPairs.jpg',
+            'hawaii match 5': 'img-classic/MatchPairs.jpg',
+            'parkingfury3d:nightcity': 'img-classic/agar.jpg',
+            'parkingfury3d nightcity': 'img-classic/agar.jpg',
+            'parking fury 3d night city': 'img-classic/agar.jpg',
+            'mylittlecity': 'img-classic/Bejeweled.jpg',
+            'my little city': 'img-classic/Bejeweled.jpg',
+            'matchfind3d': 'img-classic/Pairs.png',
+            'match find 3d': 'img-classic/Pairs.png',
+            'highschoolmeangirls3': 'img-classic/happywheels.jpg',
+            'highschool mean girls 3': 'img-classic/happywheels.jpg',
+            'fallbean2': 'img-classic/run-3.jpg',
+            'fall bean 2': 'img-classic/run-3.jpg',
+            'bubbleshooterpop': 'img-classic/FireboyandWatergirl.jpg',
+            'bubble shooter pop': 'img-classic/FireboyandWatergirl.jpg',
+            'emojimatch': 'img-classic/MatchPairs.jpg',
+            'emoji match': 'img-classic/MatchPairs.jpg',
+            'vexx3m': 'img-classic/run-3.jpg',
+            'vex x3m': 'img-classic/run-3.jpg',
+            'magicsolitaire': 'img-classic/Minesweeper.jpg',
+            'magic solitaire': 'img-classic/Minesweeper.jpg',
+            'farmblockpuzzle': 'img-classic/2048.jpg',
+            'farm block puzzle': 'img-classic/2048.jpg'
+        };
 
         function normalizeClassicImageUrl(url) {
             if (!url || typeof url !== 'string') {
@@ -1032,6 +1067,12 @@
 
             if (game && typeof game.name === 'string' && game.name.trim()) {
                 const rawName = game.name.trim();
+                const normalizedName = rawName.toLowerCase();
+
+                if (Object.prototype.hasOwnProperty.call(CLASSIC_IMAGE_FALLBACKS, normalizedName)) {
+                    sources.push(normalizeClassicImageUrl(CLASSIC_IMAGE_FALLBACKS[normalizedName]));
+                }
+
                 const baseCandidates = new Set([
                     rawName,
                     rawName.replace(/\s+/g, ''),
