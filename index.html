@@ -56,6 +56,11 @@
             display: flex;
             gap: 2rem;
             list-style: none;
+            align-items: center;
+        }
+
+        .nav-links li {
+            position: relative;
         }
 
         .nav-links a {
@@ -67,6 +72,56 @@
 
         .nav-links a:hover {
             color: #667eea;
+        }
+
+        .dropdown > a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .dropdown > a::after {
+            content: '▾';
+            font-size: 0.75rem;
+            color: #667eea;
+            transition: transform 0.2s ease;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 0.75rem);
+            left: 0;
+            background: #ffffff;
+            list-style: none;
+            padding: 0.75rem 0;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.15);
+            min-width: 220px;
+            z-index: 10;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 0.6rem 1.5rem;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu li a:hover {
+            background: rgba(102, 126, 234, 0.08);
+            color: #667eea;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown:focus-within .dropdown-menu,
+        .dropdown.open .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown:hover > a::after,
+        .dropdown:focus-within > a::after,
+        .dropdown.open > a::after {
+            transform: rotate(180deg);
         }
 
         .search-box {
@@ -733,14 +788,40 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                padding: 1rem 1.5rem;
+                border-radius: 18px;
+                box-shadow: 0 15px 35px rgba(102, 126, 234, 0.18);
+                margin-top: 1rem;
             }
-            
+
             .mobile-menu {
                 display: block;
                 background: none;
                 border: none;
                 font-size: 1.5rem;
                 color: #333;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .dropdown-menu {
+                position: static;
+                padding: 0.5rem 0;
+                margin-top: 0.5rem;
+                background: transparent;
+                box-shadow: none;
+            }
+
+            .dropdown-menu li a {
+                padding: 0.45rem 0;
             }
 
             .hero h1 {
@@ -810,13 +891,18 @@
             <a href="#" class="logo">game studio</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="games.html">Games</a></li>
+                <li class="dropdown">
+                    <a href="games.html" aria-expanded="false">Games</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="games.html">All Games</a></li>
+                        <li><a href="geometry-dash.html">Geometry Dash</a></li>
+                        <li><a href="brain-teasers.html">Brain Teasers</a></li>
+                        <li><a href="new-game.html">New Releases</a></li>
+                        <li><a href="game-development.html">Game Development</a></li>
+                        <li><a href="company-ranking.html">Company Rankings</a></li>
+                    </ul>
+                </li>
                 <li><a href="featured-games.html">Featured Games</a></li>
-                <li><a href="geometry-dash.html">Geometry Dash</a></li>
-                <li><a href="brain-teasers.html">Brain Teasers</a></li>
-                <li><a href="new-game.html">New Releases</a></li>
-                <li><a href="game-development.html">Game Development</a></li>
-                <li><a href="company-ranking.html">Company Rankings</a></li>
             </ul>
             <div class="search-box">
                 <input type="text" placeholder="Search games..." id="searchInput">
@@ -1464,11 +1550,62 @@
             setupIframeLazyLoading();
         });
 
-        // Mobile menu
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        // Navigation interactions
+        const mobileMenuButton = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        dropdowns.forEach(dropdown => {
+            const toggleLink = dropdown.querySelector('a');
+            if (!toggleLink) return;
+
+            toggleLink.setAttribute('aria-expanded', 'false');
+
+            toggleLink.addEventListener('click', function(event) {
+                if (window.innerWidth <= 768) {
+                    event.preventDefault();
+                    const isOpen = dropdown.classList.toggle('open');
+                    toggleLink.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                }
+            });
         });
+
+        function closeDropdowns() {
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('open');
+                const toggleLink = dropdown.querySelector('a');
+                if (toggleLink) {
+                    toggleLink.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+        if (mobileMenuButton && navLinks) {
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+
+            mobileMenuButton.addEventListener('click', function() {
+                const isOpen = navLinks.style.display === 'flex';
+                if (isOpen) {
+                    navLinks.style.display = 'none';
+                    closeDropdowns();
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                } else {
+                    navLinks.style.display = 'flex';
+                    mobileMenuButton.setAttribute('aria-expanded', 'true');
+                }
+            });
+
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    navLinks.style.display = 'flex';
+                    closeDropdowns();
+                } else {
+                    navLinks.style.display = 'none';
+                    closeDropdowns();
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
 
         // Social media share helpers
         function shareToFacebook() {
