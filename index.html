@@ -418,11 +418,29 @@
             justify-content: center;
         }
 
+        .hotsport-thumb--icon {
+            background: linear-gradient(135deg, #eef2ff, #f5f3ff);
+        }
+
         .hotsport-thumb img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+
+        .hotsport-thumb-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            background: white;
+            color: #4f46e5;
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 15px rgba(79, 70, 229, 0.15);
         }
 
         .hotsport-card-body {
@@ -1216,15 +1234,26 @@
                     const thumb = document.createElement('div');
                     thumb.className = 'hotsport-thumb';
 
-                    const img = document.createElement('img');
-                    img.loading = 'lazy';
-                    img.decoding = 'async';
-                    img.src = game.thumbnail || 'images/games/game-placeholder.svg';
-                    img.alt = game.title ? `${game.title} cover art` : 'Game cover art';
-                    img.addEventListener('error', () => {
-                        img.src = 'images/games/game-placeholder.svg';
-                    });
-                    thumb.appendChild(img);
+                    if (game.icon) {
+                        thumb.classList.add('hotsport-thumb--icon');
+                        thumb.setAttribute('aria-label', game.title ? `${game.title} icon` : 'Game icon');
+
+                        const icon = document.createElement('span');
+                        icon.className = 'hotsport-thumb-icon';
+                        icon.textContent = game.icon;
+                        icon.setAttribute('aria-hidden', 'true');
+                        thumb.appendChild(icon);
+                    } else {
+                        const img = document.createElement('img');
+                        img.loading = 'lazy';
+                        img.decoding = 'async';
+                        img.src = game.thumbnail || 'images/games/game-placeholder.svg';
+                        img.alt = game.title ? `${game.title} cover art` : 'Game cover art';
+                        img.addEventListener('error', () => {
+                            img.src = 'images/games/game-placeholder.svg';
+                        });
+                        thumb.appendChild(img);
+                    }
 
                     const body = document.createElement('div');
                     body.className = 'hotsport-card-body';
