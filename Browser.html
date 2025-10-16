@@ -36,10 +36,75 @@
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #667eea;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 0.35rem 0.85rem 0.35rem 0.6rem;
+            border-radius: 1.25rem;
+            font-size: 1.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.18rem;
             text-decoration: none;
+            background: linear-gradient(120deg, #5f3df7, #05d0f5, #38f5a5);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: logoPulse 8s ease infinite;
+            filter: drop-shadow(0 10px 22px rgba(95, 61, 247, 0.25));
+            transition: transform 0.35s ease, filter 0.35s ease;
+            isolation: isolate;
+            z-index: 0;
+        }
+
+        .logo::before {
+            content: 'GS';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.6rem;
+            height: 2.6rem;
+            border-radius: 0.85rem;
+            background: linear-gradient(135deg, rgba(95, 61, 247, 0.95), rgba(5, 208, 245, 0.95));
+            box-shadow: 0 15px 30px rgba(95, 61, 247, 0.4);
+            color: #ffffff;
+            font-size: 1.05rem;
+            letter-spacing: 0.1rem;
+            text-shadow: 0 0 14px rgba(0, 0, 0, 0.35);
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            inset: 0.2rem -0.4rem;
+            border-radius: 1.4rem;
+            background: radial-gradient(circle at 0% 0%, rgba(95, 61, 247, 0.28), transparent 60%),
+                        radial-gradient(circle at 100% 100%, rgba(56, 245, 165, 0.3), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+            filter: drop-shadow(0 14px 30px rgba(95, 61, 247, 0.35));
+        }
+
+        .logo:hover::after {
+            opacity: 1;
+        }
+
+        @keyframes logoPulse {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .nav-links {
