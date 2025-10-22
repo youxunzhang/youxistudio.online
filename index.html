@@ -30,6 +30,149 @@
             padding-top: var(--nav-height);
         }
 
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.12));
+            border-radius: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(102, 126, 234, 0.18);
+            filter: blur(0.5px);
+            z-index: -1;
+        }
+
+        .hero::before {
+            width: 280px;
+            height: 280px;
+            top: -120px;
+            left: -80px;
+        }
+
+        .hero::after {
+            width: 320px;
+            height: 320px;
+            bottom: -150px;
+            right: -100px;
+            background: rgba(56, 245, 165, 0.18);
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            line-height: 1.2;
+            color: #1a1f4d;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 1rem auto 2rem;
+            font-size: 1.1rem;
+            color: #4a4a6a;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2.6rem;
+            border-radius: 999px;
+            background: linear-gradient(120deg, #667eea, #764ba2);
+            color: #ffffff;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.35);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 22px 38px rgba(102, 126, 234, 0.45);
+        }
+
+        .hot-games-section {
+            margin-top: 3.5rem;
+        }
+
+        .hot-games-section h2 {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 2rem;
+        }
+
+        .hot-games-intro {
+            max-width: 680px;
+            margin: 0.75rem auto 2rem;
+            text-align: center;
+            color: #4a4a6a;
+        }
+
+        .hot-games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.75rem;
+        }
+
+        .hot-game-card {
+            background: #ffffff;
+            border-radius: 22px;
+            box-shadow: 0 18px 35px rgba(20, 20, 43, 0.08);
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .hot-game-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 24px 45px rgba(20, 20, 43, 0.12);
+        }
+
+        .hot-game-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .hot-game-card h3 {
+            font-size: 1.15rem;
+            margin: 1.25rem 1.25rem 0.35rem;
+            color: #1f2242;
+        }
+
+        .hot-game-card p {
+            margin: 0 1.25rem 1.5rem;
+            color: #5b5b7a;
+            font-size: 0.95rem;
+        }
+
+        .hot-game-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin: 0 1.25rem 1.4rem;
+            padding: 0.55rem 1.1rem;
+            border-radius: 999px;
+            background: rgba(102, 126, 234, 0.12);
+            color: #4a4fd4;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.25s ease, color 0.25s ease;
+        }
+
+        .hot-game-link:hover {
+            background: linear-gradient(120deg, #667eea, #764ba2);
+            color: #ffffff;
+        }
+
         .navbar {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -729,8 +872,16 @@
                 padding: 0.45rem 0;
             }
 
+            .hero {
+                padding: 3rem 1.5rem;
+            }
+
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
             }
 
             .stats {
@@ -744,6 +895,10 @@
 
             .games-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .hot-games-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             }
 
             .categories {
@@ -817,6 +972,45 @@
 
 
     <div class="content">
+
+
+        <section class="hero" aria-labelledby="heroTitle">
+            <h1 id="heroTitle">Play the Best Free Games Online — No Download Needed!</h1>
+            <p>Discover arcade hits, strategy classics, and bite-sized favorites curated to keep you playing longer. Fresh releases and timeless adventures are ready whenever you are.</p>
+            <a href="#hot-games" class="hero-cta">Start Playing Now</a>
+        </section>
+
+
+        <section class="section hot-games-section" id="hot-games" aria-labelledby="hotGamesTitle">
+            <h2 id="hotGamesTitle">🔥 Hot Games This Week</h2>
+            <p class="hot-games-intro">Jump into the titles players are loving right now. Each pick is optimized for instant play so you can explore, compete, and keep your streak going.</p>
+            <div class="hot-games-grid">
+                <article class="hot-game-card">
+                    <img src="img-portal/crazymotorcycle.jpg" alt="Extreme Pamplona gameplay preview" loading="lazy">
+                    <h3>Extreme Pamplona</h3>
+                    <p>Dodge charging bulls and race through vibrant city streets in this adrenaline-packed runner.</p>
+                    <a class="hot-game-link" href="extremepamplona.html">Play Extreme Pamplona →</a>
+                </article>
+                <article class="hot-game-card">
+                    <img src="img-portal/magicsolitaire.jpg" alt="Mancala Classic board view" loading="lazy">
+                    <h3>Mancala Classic</h3>
+                    <p>Master the timeless strategy puzzle with polished visuals and intuitive touch controls.</p>
+                    <a class="hot-game-link" href="games/Mancala/index.html">Play Mancala →</a>
+                </article>
+                <article class="hot-game-card">
+                    <img src="images/games/game-placeholder.svg" alt="Fruit Connect tile matching preview" loading="lazy">
+                    <h3>Fruit Connect</h3>
+                    <p>Match colorful fruits before the timer ends in this fast-paced logic challenge.</p>
+                    <a class="hot-game-link" href="games.html">Play Fruit Connect →</a>
+                </article>
+                <article class="hot-game-card">
+                    <img src="img-portal/blockdroppingmerge.jpg" alt="Block Breaker neon arcade blocks" loading="lazy">
+                    <h3>Block Breaker</h3>
+                    <p>Smash through cascading blocks, trigger combos, and chase high scores in neon arenas.</p>
+                    <a class="hot-game-link" href="top-games.html">Play Block Breaker →</a>
+                </article>
+            </div>
+        </section>
 
 
         <section class="classic-gallery-section" id="classicGallerySection" aria-labelledby="classicGalleryTitle">
