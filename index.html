@@ -437,138 +437,185 @@
         }
 
         .classic-gallery-section {
-            background: linear-gradient(135deg, #f6f8ff 0%, #eef2ff 45%, #ffffff 100%);
-            border-radius: 0;
-            padding: 2.5rem 4vw 3rem;
-            margin: 0;
-            box-shadow: none;
-            position: relative;
-            overflow: visible;
-            min-height: calc(100vh - var(--nav-height));
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.5rem 3vw 3rem;
+            margin: 2.5rem auto 3rem;
+            box-shadow: 0 35px 60px rgba(15, 23, 42, 0.08);
+            border: 1px solid #e2e8f0;
+            max-width: 1240px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .classic-gallery-section::before {
-            content: none;
+            gap: 2.25rem;
         }
 
         .classic-gallery-header {
-            position: relative;
-            z-index: 1;
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
-            gap: 1.5rem;
+            align-items: center;
+            gap: 1rem;
             flex-wrap: wrap;
         }
 
         .classic-gallery-header h2 {
-            font-size: 2.4rem;
+            font-size: 2.1rem;
             font-weight: 800;
-            color: #1f2937;
+            color: #0f172a;
+            margin: 0;
         }
 
-        .classic-gallery-header p {
-            max-width: 520px;
-            color: #6b7280;
-            line-height: 1.6;
+        .classic-gallery-view-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #2563eb;
+            text-decoration: none;
+            padding: 0.4rem 0.85rem;
+            border-radius: 999px;
+            background: rgba(37, 99, 235, 0.08);
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .classic-gallery-view-more::after {
+            content: '→';
+            font-size: 1rem;
+        }
+
+        .classic-gallery-view-more:hover,
+        .classic-gallery-view-more:focus-visible {
+            background: rgba(37, 99, 235, 0.16);
+            transform: translateX(2px);
         }
 
         .classic-gallery-grid {
-            position: relative;
-            z-index: 1;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            flex: 1;
-            align-content: flex-start;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.75rem;
         }
 
         .classic-gallery-card {
-            position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
+            background: #ffffff;
             border-radius: 18px;
             overflow: hidden;
-            background: #0f172a;
-            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
             text-decoration: none;
-            color: #f8fafc;
+            color: #0f172a;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            box-shadow: 0 18px 30px rgba(15, 23, 42, 0.08);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
-            min-height: 220px;
         }
 
         .classic-gallery-card:hover,
         .classic-gallery-card:focus-visible {
             transform: translateY(-6px);
-            box-shadow: 0 18px 30px rgba(30, 64, 175, 0.3);
+            box-shadow: 0 24px 40px rgba(15, 23, 42, 0.14);
         }
 
         .classic-gallery-card:focus-visible {
-            outline: 3px solid #60a5fa;
+            outline: 3px solid rgba(37, 99, 235, 0.35);
             outline-offset: 3px;
         }
 
-        .classic-gallery-card img {
+        .classic-gallery-image-wrapper {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: #f1f5f9;
+        }
+
+        .classic-gallery-image-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.35s ease;
+            transition: transform 0.3s ease;
+            display: block;
         }
 
-        .classic-gallery-card:hover img,
-        .classic-gallery-card:focus-visible img {
+        .classic-gallery-card:hover .classic-gallery-image-wrapper img,
+        .classic-gallery-card:focus-visible .classic-gallery-image-wrapper img {
             transform: scale(1.05);
         }
 
-        .classic-gallery-card .classic-gallery-image-wrapper {
+        .classic-gallery-badge {
             position: absolute;
-            inset: 0;
+            top: 0.75rem;
+            left: 0.75rem;
+            background: #22c55e;
+            color: #ffffff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.3rem 0.6rem;
+            border-radius: 999px;
+            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.35);
         }
 
-        .classic-gallery-card .classic-gallery-image-wrapper::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(15, 23, 42, 0) 40%, rgba(15, 23, 42, 0.75) 100%);
+        .classic-gallery-info {
+            padding: 1rem 1.1rem 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
         }
 
-        .classic-gallery-card .classic-game-title {
-            position: relative;
-            z-index: 1;
-            padding: 1rem 1.1rem;
+        .classic-game-title {
+            margin: 0;
             font-weight: 700;
             font-size: 0.95rem;
-            letter-spacing: 0.02em;
+            color: #0f172a;
+            line-height: 1.35;
+        }
+
+        .classic-gallery-arrow {
+            font-size: 1rem;
+            color: #2563eb;
+            transition: transform 0.3s ease;
+        }
+
+        .classic-gallery-card:hover .classic-gallery-arrow,
+        .classic-gallery-card:focus-visible .classic-gallery-arrow {
+            transform: translateX(4px);
         }
 
         .classic-gallery-placeholder {
             grid-column: 1 / -1;
-            padding: 2rem;
+            padding: 2.5rem 1.5rem;
             text-align: center;
-            background: rgba(102, 126, 234, 0.08);
+            background: rgba(37, 99, 235, 0.06);
             border-radius: 18px;
-            color: #4c1d95;
+            color: #1d4ed8;
             font-weight: 600;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .classic-gallery-section {
-                padding: 1.5rem 1.25rem 2.25rem;
-                gap: 1.5rem;
-            }
-
-            .classic-gallery-header h2 {
-                font-size: 2rem;
+                margin: 2rem 1.5rem 2.5rem;
+                padding: 2rem 1.75rem 2.5rem;
             }
 
             .classic-gallery-grid {
+                gap: 1.5rem;
                 grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-                gap: 1.25rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .classic-gallery-section {
+                margin: 1.5rem 1rem 2rem;
+                padding: 1.75rem 1.25rem 2rem;
+                border-radius: 20px;
+            }
+
+            .classic-gallery-header h2 {
+                font-size: 1.7rem;
+            }
+
+            .classic-gallery-info {
+                padding: 0.9rem 1rem 1.1rem;
             }
         }
 
@@ -1016,9 +1063,8 @@
 
         <section class="classic-gallery-section" id="classicGallerySection" aria-labelledby="classicGalleryTitle">
             <div class="classic-gallery-header">
-                <div>
-                    <h2 id="classicGalleryTitle">Classic Game Wall</h2>
-                </div>
+                <h2 id="classicGalleryTitle">Classic Game Wall</h2>
+                <a class="classic-gallery-view-more" href="games.html">View more</a>
             </div>
             <div class="classic-gallery-grid" id="classicGalleryGrid" role="list"></div>
         </section>
@@ -1318,12 +1364,30 @@
                         assignNextSource();
                         imageWrapper.appendChild(img);
 
+                        if (game.isNew !== false) {
+                            const badge = document.createElement('span');
+                            badge.className = 'classic-gallery-badge';
+                            badge.textContent = 'NEW';
+                            imageWrapper.appendChild(badge);
+                        }
+
+                        const info = document.createElement('div');
+                        info.className = 'classic-gallery-info';
+
                         const title = document.createElement('span');
                         title.className = 'classic-game-title';
                         title.textContent = game.name || 'Play Now';
 
+                        const arrow = document.createElement('span');
+                        arrow.className = 'classic-gallery-arrow';
+                        arrow.textContent = '→';
+                        arrow.setAttribute('aria-hidden', 'true');
+
+                        info.appendChild(title);
+                        info.appendChild(arrow);
+
                         card.appendChild(imageWrapper);
-                        card.appendChild(title);
+                        card.appendChild(info);
                         fragment.appendChild(card);
                     });
 
