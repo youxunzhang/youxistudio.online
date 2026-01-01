@@ -5,12 +5,49 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Game Studio - Professional game development, publishing, and design services. Discover mobile, PC, and web games alongside the latest news, featured releases, and gameplay tips.">
+    <meta name="description" content="Youxi Studio delivers free online games, indie game development insights, and a curated hub of mobile, PC, and web titles. Play instantly, explore genres, and stay updated on new releases.">
     <meta name="keywords" content="game studio, game development, game production, indie games, game design, mobile games, PC games, single-player games, online games, RPG, strategy games, action games, adventure games, casual games, free games, latest games, popular games, game recommendations, game guides, game reviews, game news, game engine, Unity development, Unreal development, game programming, game art, game planning">
-    <meta name="author" content="Game Studio">
+    <meta name="author" content="Youxi Studio">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://youxistudio.online/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-    <title>Game Studio - Professional Game Development & Indie Game Design</title>
+    <meta property="og:title" content="Youxi Studio | Free Online Games & Indie Game Development">
+    <meta property="og:description" content="Play free online games, explore featured releases, and learn how we build indie titles across mobile, PC, and web.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://youxistudio.online/">
+    <meta property="og:image" content="https://youxistudio.online/img-portal/fruit-connect-cover.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Youxi Studio | Free Online Games & Indie Game Development">
+    <meta name="twitter:description" content="Discover hot games, genre collections, and studio updates from Youxi Studio.">
+    <meta name="twitter:image" content="https://youxistudio.online/img-portal/fruit-connect-cover.svg">
+    <meta name="theme-color" content="#667eea">
+    <title>Youxi Studio | Free Online Games & Indie Game Development</title>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Youxi Studio",
+            "url": "https://youxistudio.online/",
+            "logo": "https://youxistudio.online/img-portal/fruit-connect-cover.svg",
+            "sameAs": [
+                "https://youxistudio.online/featured-games.html",
+                "https://youxistudio.online/games.html"
+            ]
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Youxi Studio",
+            "url": "https://youxistudio.online/",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://youxistudio.online/games.html?search={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+    </script>
     <style>
         * {
             margin: 0;
@@ -103,6 +140,31 @@
         .hero-cta:hover {
             transform: translateY(-3px);
             box-shadow: 0 22px 38px rgba(102, 126, 234, 0.45);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .hero-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 2.2rem;
+            border-radius: 999px;
+            border: 1px solid rgba(102, 126, 234, 0.35);
+            color: #4a4fd4;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .hero-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px rgba(102, 126, 234, 0.2);
         }
 
         .hot-games-section {
@@ -453,6 +515,77 @@
             justify-content: center;
             gap: 0.75rem;
             flex-wrap: wrap;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .insight-card {
+            padding: 1.5rem;
+            border-radius: 18px;
+            background: #ffffff;
+            box-shadow: 0 18px 32px rgba(20, 20, 43, 0.08);
+        }
+
+        .insight-card h3 {
+            margin-bottom: 0.6rem;
+            color: #1f2242;
+        }
+
+        .insight-card p {
+            color: #5b5b7a;
+            font-size: 0.95rem;
+        }
+
+        .resource-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .resource-links a {
+            display: block;
+            padding: 0.9rem 1.2rem;
+            border-radius: 14px;
+            text-decoration: none;
+            color: #1f2242;
+            background: rgba(102, 126, 234, 0.08);
+            font-weight: 600;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .resource-links a:hover {
+            background: rgba(102, 126, 234, 0.16);
+            transform: translateY(-2px);
+        }
+
+        .faq {
+            margin-top: 2rem;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .faq details {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1rem 1.4rem;
+            box-shadow: 0 14px 24px rgba(20, 20, 43, 0.06);
+        }
+
+        .faq summary {
+            font-weight: 700;
+            cursor: pointer;
+            color: #1f2242;
+        }
+
+        .faq p {
+            margin-top: 0.6rem;
+            color: #5b5b7a;
         }
 
         .classic-gallery-section {
@@ -1009,7 +1142,7 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">game studio</a>
+            <a href="index.html" class="logo">Youxi Studio</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="games.html">Games</a></li>
@@ -1027,6 +1160,14 @@
 
 
     <div class="content">
+        <section class="hero" aria-labelledby="heroTitle">
+            <h1 id="heroTitle">Play Free Online Games & Explore Indie Game Development</h1>
+            <p>Welcome to Youxi Studio — a curated hub of instant-play titles, genre collections, and behind-the-scenes insights from our game development team.</p>
+            <div class="hero-actions">
+                <a class="hero-cta" href="games.html">Start Playing Now</a>
+                <a class="hero-secondary" href="featured-games.html">See Featured Releases</a>
+            </div>
+        </section>
 
 
         <section class="section hot-games-section" id="hot-games" aria-labelledby="hotGamesTitle">
@@ -1038,7 +1179,7 @@
                     <img src="img-portal/extreme-pamplona-cover.svg" alt="Extreme Pamplona official promo art" loading="lazy">
                     <h3>Extreme Pamplona</h3>
                     <p>Fast-paced runner. Dodge bulls and keep sprinting.</p>
-                    <a class="hot-game-link" href="https://extremepamplona.org/Extreme Pamplona">▶ Play Now</a>
+                    <a class="hot-game-link" href="extremepamplona.html">▶ Play Now</a>
                 </article>
                 <article class="hot-game-card">
                     <img src="img-portal/magicsolitaire.jpg" alt="Mancala Classic board view" loading="lazy">
@@ -1068,6 +1209,38 @@
                 <a class="classic-gallery-view-more" href="games.html">View more</a>
             </div>
             <div class="classic-gallery-grid" id="classicGalleryGrid" role="list"></div>
+        </section>
+
+        <section class="section" id="studioInsights">
+            <h2 class="section-title">Why Players Return to Youxi Studio</h2>
+            <p class="section-description">We focus on quick load times, easy discovery, and genre-driven playlists so you can jump into the right game in seconds.</p>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h3>Instant Play Library</h3>
+                    <p>Curated browser games with lightweight assets so sessions start fast on mobile, desktop, and tablet.</p>
+                </div>
+                <div class="insight-card">
+                    <h3>Genre Spotlights</h3>
+                    <p>Weekly highlights for puzzle, arcade, and strategy fans. Find trending titles without endless scrolling.</p>
+                </div>
+                <div class="insight-card">
+                    <h3>Studio Updates</h3>
+                    <p>Follow our development pipeline, from concept art to launch plans, and get a peek behind the scenes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="resourceHub">
+            <h2 class="section-title">Explore Our Game Hubs</h2>
+            <p class="section-description">Dive deeper into specific genres, studio services, and industry insights across the Youxi Studio network.</p>
+            <div class="resource-links">
+                <a href="featured-games.html">Featured Game Picks</a>
+                <a href="top-games.html">Top Games Charts</a>
+                <a href="brain-teasers.html">Brain Teasers Collection</a>
+                <a href="game-development.html">Game Development Services</a>
+                <a href="marketing-hub.html">Marketing & Growth Hub</a>
+                <a href="company-ranking.html">Studio Rankings</a>
+            </div>
         </section>
 
 
@@ -1159,15 +1332,34 @@
 
         <!-- SEO content area -->
         <section class="section">
-            <h2 class="section-title">🎮 Game Studio - Professional Game Development Services</h2>
+            <h2 class="section-title">🎮 Youxi Studio - Professional Game Development Services</h2>
             <div style="line-height: 1.8; color: #555; margin-bottom: 2rem; font-size: 0.95rem;">
-                <p><strong>Game Studio</strong> specializes in <strong>game development</strong>, <strong>production</strong>, and <strong>indie game</strong> design. We deliver end-to-end <strong>game design</strong> services for <strong>mobile</strong>, <strong>PC</strong>, <strong>single-player</strong>, and <strong>online</strong> experiences.</p>
+                <p><strong>Youxi Studio</strong> specializes in <strong>game development</strong>, <strong>production</strong>, and <strong>indie game</strong> design. We deliver end-to-end <strong>game design</strong> services for <strong>mobile</strong>, <strong>PC</strong>, <strong>single-player</strong>, and <strong>online</strong> experiences.</p>
 
                 <p>Our <strong>development team</strong> builds a wide range of genres, including <strong>role-playing (RPG)</strong>, <strong>strategy</strong>, <strong>action</strong>, <strong>adventure</strong>, and <strong>casual</strong> games. Every project focuses on polished gameplay so players can enjoy premium experiences for free.</p>
 
                 <p>As a dedicated <strong>game development company</strong>, we use modern <strong>game engines</strong> such as <strong>Unity</strong> and <strong>Unreal Engine</strong>. Our <strong>programmers</strong>, <strong>artists</strong>, and <strong>designers</strong> collaborate to ship the <strong>latest</strong> and most <strong>popular games</strong>.</p>
 
                 <p>We also share <strong>game recommendations</strong>, <strong>guides</strong>, <strong>reviews</strong>, and <strong>industry news</strong> so fans stay informed about trends. From <strong>indie productions</strong> to large-scale launches, we support a complete <strong>game development pipeline</strong>.</p>
+            </div>
+        </section>
+
+        <section class="section" id="faqSection">
+            <h2 class="section-title">FAQ – Playing on Youxi Studio</h2>
+            <p class="section-description">Quick answers to the most common questions from new players and studio partners.</p>
+            <div class="faq">
+                <details>
+                    <summary>Do I need to download anything to play?</summary>
+                    <p>No. All titles are browser-based and optimized to launch instantly without installs.</p>
+                </details>
+                <details>
+                    <summary>How do you choose featured games?</summary>
+                    <p>We highlight games with strong engagement, fast performance, and clear genre appeal so players can find the best options quickly.</p>
+                </details>
+                <details>
+                    <summary>Can developers collaborate with Youxi Studio?</summary>
+                    <p>Yes. Visit the Game Development Services page to learn about publishing support, art direction, and go-to-market planning.</p>
+                </details>
             </div>
         </section>
 
@@ -1182,10 +1374,47 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2024 game studio. All rights reserved.</p>
-            <p>Contact Us | About Us | Developer Collaboration</p>
+            <p>&copy; 2024 Youxi Studio. All rights reserved.</p>
+            <p>
+                <a href="about-us.html">About Us</a> |
+                <a href="game-development.html">Developer Collaboration</a> |
+                <a href="marketing-hub.html">Contact & Marketing</a>
+            </p>
         </div>
     </footer>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Do I need to download anything to play?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. All titles are browser-based and optimized to launch instantly without installs."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How do you choose featured games?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "We highlight games with strong engagement, fast performance, and clear genre appeal so players can find the best options quickly."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can developers collaborate with Youxi Studio?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. Visit the Game Development Services page to learn about publishing support, art direction, and go-to-market planning."
+                    }
+                }
+            ]
+        }
+    </script>
 
     <script>
         const CLASSIC_IMAGE_BASE_PATH = 'img-classic/';
