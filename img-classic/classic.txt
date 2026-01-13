@@ -1,6 +1,6 @@
-《黄金矿工》、《贪吃蛇》、《俄罗斯方块》、《扫雷》、《连连看》、《纸牌》和《劲舞团》
+Gold Miner, Snake, Tetris, Minesweeper, Link Link, Solitaire, and Audition
 
-游戏分类
+Game categories
 Home
 Action
 Adventure
@@ -18,7 +18,7 @@ Sports
 
 
 
-俄罗斯方块
+Tetris
 tictactoe
 snake
 Chrome Dino Game
@@ -45,7 +45,6 @@ FlappyBird https://flappybird.org/
 https://www.crazygames.com/game/run-3
 agar https://agaronline.io/
 FireboyandWatergirl https://www.crazygames.com/game/fireboy-and-watergirl-the-forest-temple
-
 
 
 

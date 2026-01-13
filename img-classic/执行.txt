@@ -1,5 +1,5 @@
-下方数据插入 youxistudio.com\img-classic\gamedata.json
-image字段 https://youxistudio.com/img-classic/这个地址加上游戏名
+Insert the data below into youxistudio.com\img-classic\gamedata.json
+For the image field, use https://youxistudio.com/img-classic/ followed by the game name
 
 
 
@@ -22,4 +22,4 @@ agar https://agaronline.io/
 FireboyandWatergirl https://www.crazygames.com/game/fireboy-and-watergirl-the-forest-temple
 
 
-数据处理完毕后在https://youxistudio.com/img-classic/目录下面生成一个index.html页面，展示 youxistudio.com\img-classic\gamedata.json文件里面的游戏信息
+After processing, generate an index.html page under https://youxistudio.com/img-classic/ to display the game data from youxistudio.com\img-classic\gamedata.json
