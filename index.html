@@ -1,1932 +1,680 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8794607118520437"
-     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Youxi Studio delivers free online games, indie game development insights, and a curated hub of mobile, PC, and web titles. Play instantly, explore genres, and stay updated on new releases.">
-    <meta name="keywords" content="game studio, game development, game production, indie games, game design, mobile games, PC games, single-player games, online games, RPG, strategy games, action games, adventure games, casual games, free games, latest games, popular games, game recommendations, game guides, game reviews, game news, game engine, Unity development, Unreal development, game programming, game art, game planning">
+    <meta name="description" content="Youxi Studio 数独库提供经典 9x9 数独、6 级难度、计时与错误追踪、提示与笔记模式。多端支持，随时开局。">
+    <meta name="keywords" content="数独, Sudoku, 9x9, 益智游戏, 计时, 笔记模式, 难度分级, Daily Challenge">
     <meta name="author" content="Youxi Studio">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://youxistudio.online/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-    <meta property="og:title" content="Youxi Studio | Free Online Games & Indie Game Development">
-    <meta property="og:description" content="Play free online games, explore featured releases, and learn how we build indie titles across mobile, PC, and web.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://youxistudio.online/">
-    <meta property="og:image" content="https://youxistudio.online/img-portal/fruit-connect-cover.svg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Youxi Studio | Free Online Games & Indie Game Development">
-    <meta name="twitter:description" content="Discover hot games, genre collections, and studio updates from Youxi Studio.">
-    <meta name="twitter:image" content="https://youxistudio.online/img-portal/fruit-connect-cover.svg">
-    <meta name="theme-color" content="#667eea">
-    <title>Youxi Studio | Free Online Games & Indie Game Development</title>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Youxi Studio",
-            "url": "https://youxistudio.online/",
-            "logo": "https://youxistudio.online/img-portal/fruit-connect-cover.svg",
-            "sameAs": [
-                "https://youxistudio.online/featured-games.html",
-                "https://youxistudio.online/games.html"
-            ]
-        }
-    </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "Youxi Studio",
-            "url": "https://youxistudio.online/",
-            "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://youxistudio.online/games.html?search={search_term_string}",
-                "query-input": "required name=search_term_string"
-            }
-        }
-    </script>
+    <meta property="og:title" content="Youxi Studio 数独库 | 经典 9x9 数独" />
+    <meta property="og:description" content="经典 9x9 数独，多难度分级，计时与错误追踪，支持笔记与提示，移动端友好。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://youxistudio.online/" />
+    <meta property="og:image" content="https://youxistudio.online/img-portal/fruit-connect-cover.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Youxi Studio 数独库 | 经典 9x9 数独" />
+    <meta name="twitter:description" content="经典 9x9 数独，多难度分级，计时与错误追踪，支持笔记与提示。" />
+    <meta name="twitter:image" content="https://youxistudio.online/img-portal/fruit-connect-cover.svg" />
+    <meta name="theme-color" content="#3558ff" />
+    <title>Youxi Studio 数独库 | 经典 9x9 数独</title>
     <style>
+        :root {
+            --nav-height: 64px;
+            --primary: #3558ff;
+            --primary-dark: #2a42c5;
+            --secondary: #ffb454;
+            --bg: #f5f7fb;
+            --surface: #ffffff;
+            --text: #1c2431;
+            --muted: #5a667d;
+            --border: rgba(28, 36, 49, 0.12);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 12px;
+            --shadow: 0 20px 45px rgba(12, 24, 46, 0.12);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --nav-height: 56px;
-        }
-
         body {
-            font-family: 'Arial', sans-serif;
-            background: #ffffff;
-            color: #333;
+            font-family: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
-            padding-top: var(--nav-height);
         }
 
-        .popup,
-        .game-popup,
-        .sticky-popup {
-            display: none !important;
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .page {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+        }
+
+        .topbar-inner {
+            width: min(1200px, 92vw);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .brand-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), #7c90ff);
+            display: grid;
+            place-items: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .nav-links a:hover,
+        .nav-links button:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .pill {
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-weight: 600;
+            background: #fff;
+        }
+
+        .primary-btn {
+            padding: 0.6rem 1.4rem;
+            border-radius: 999px;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 600;
+            box-shadow: 0 12px 24px rgba(53, 88, 255, 0.25);
+        }
+
+        .primary-btn:hover {
+            background: var(--primary-dark);
         }
 
         .hero {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem 3rem;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.12));
-            border-radius: 28px;
+            width: min(1200px, 92vw);
+            margin: 2.5rem auto 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before,
-        .hero::after {
-            content: '';
+        .hero-card::after {
+            content: "";
             position: absolute;
-            border-radius: 50%;
-            background: rgba(102, 126, 234, 0.18);
-            filter: blur(0.5px);
-            z-index: -1;
+            inset: auto -40% -60% auto;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(53, 88, 255, 0.15) 0%, rgba(53, 88, 255, 0) 70%);
+            z-index: 0;
         }
 
-        .hero::before {
-            width: 280px;
-            height: 280px;
-            top: -120px;
-            left: -80px;
+        .hero-card h1 {
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
         }
 
-        .hero::after {
-            width: 320px;
-            height: 320px;
-            bottom: -150px;
-            right: -100px;
-            background: rgba(56, 245, 165, 0.18);
-        }
-
-        .hero h1 {
-            font-size: 2.75rem;
-            line-height: 1.2;
-            color: #1a1f4d;
-        }
-
-        .hero p {
-            max-width: 680px;
-            margin: 1rem auto 2rem;
-            font-size: 1.1rem;
-            color: #4a4a6a;
-        }
-
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.9rem 2.6rem;
-            border-radius: 999px;
-            background: linear-gradient(120deg, #667eea, #764ba2);
-            color: #ffffff;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.35);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .hero-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 22px 38px rgba(102, 126, 234, 0.45);
+        .hero-card p {
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .hero-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.85rem 2.2rem;
-            border-radius: 999px;
-            border: 1px solid rgba(102, 126, 234, 0.35);
-            color: #4a4fd4;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .hero-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 14px 28px rgba(102, 126, 234, 0.2);
-        }
-
-        .hot-games-section {
-            margin-top: 3.5rem;
-        }
-
-        .hot-games-section h2 {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 2rem;
-        }
-
-        .featured-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            margin-top: 0.25rem;
-            padding: 0.15rem 0.65rem;
-            border-radius: 999px;
-            background: #f1f5f9;
-            color: #475569;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .hot-games-intro {
-            max-width: 680px;
-            margin: 0.75rem auto 2rem;
-            text-align: center;
-            color: #4a4a6a;
-        }
-
-        .hot-games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.75rem;
-        }
-
-        .hot-game-card {
-            background: #ffffff;
-            border-radius: 22px;
-            box-shadow: 0 18px 35px rgba(20, 20, 43, 0.08);
-            overflow: hidden;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .hot-game-card:hover {
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 24px 45px rgba(20, 20, 43, 0.12);
-        }
-
-        .hot-game-card img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-        }
-
-        .hot-game-card h3 {
-            font-size: 1.15rem;
-            margin: 1.25rem 1.25rem 0.35rem;
-            color: #1f2242;
-        }
-
-        .hot-game-card p {
-            margin: 0 1.25rem 1.5rem;
-            color: #5b5b7a;
-            font-size: 0.95rem;
-        }
-
-        .hot-game-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            margin: 0 1.25rem 1.4rem;
-            padding: 0.55rem 1.1rem;
-            border-radius: 999px;
-            background: rgba(102, 126, 234, 0.12);
-            color: #4a4fd4;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.25s ease, color 0.25s ease;
-        }
-
-        .hot-game-link:hover {
-            background: linear-gradient(120deg, #667eea, #764ba2);
-            color: #ffffff;
-        }
-
-        .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 0.5rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            min-height: var(--nav-height);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
+            gap: 0.8rem;
             position: relative;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.85rem;
-            padding: 0.35rem 0.85rem 0.35rem 0.6rem;
-            border-radius: 1.25rem;
-            font-size: 1.85rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.18rem;
-            text-decoration: none;
-            background: linear-gradient(120deg, #5f3df7, #05d0f5, #38f5a5);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: logoPulse 8s ease infinite;
-            filter: drop-shadow(0 10px 22px rgba(95, 61, 247, 0.25));
-            transition: transform 0.35s ease, filter 0.35s ease;
-            isolation: isolate;
-            z-index: 0;
+            z-index: 1;
         }
 
-        .logo::before {
-            content: 'GS';
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 2.6rem;
-            height: 2.6rem;
-            border-radius: 0.85rem;
-            background: linear-gradient(135deg, rgba(95, 61, 247, 0.95), rgba(5, 208, 245, 0.95));
-            box-shadow: 0 15px 30px rgba(95, 61, 247, 0.4);
-            color: #ffffff;
-            font-size: 1.05rem;
-            letter-spacing: 0.1rem;
-            text-shadow: 0 0 14px rgba(0, 0, 0, 0.35);
-        }
-
-        .logo::after {
-            content: '';
-            position: absolute;
-            inset: 0.2rem -0.4rem;
-            border-radius: 1.4rem;
-            background: radial-gradient(circle at 0% 0%, rgba(95, 61, 247, 0.28), transparent 60%),
-                        radial-gradient(circle at 100% 100%, rgba(56, 245, 165, 0.3), transparent 60%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-
-        .logo:hover {
-            transform: translateY(-2px);
-            filter: drop-shadow(0 14px 30px rgba(95, 61, 247, 0.35));
-        }
-
-        .logo:hover::after {
-            opacity: 1;
-        }
-
-        @keyframes logoPulse {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links li {
-            position: relative;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #667eea;
-        }
-
-        .dropdown > a {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-        }
-
-        .dropdown > a::after {
-            content: '▾';
-            font-size: 0.75rem;
-            color: #667eea;
-            transition: transform 0.2s ease;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: calc(100% + 0.75rem);
-            left: 0;
-            background: #ffffff;
-            list-style: none;
-            padding: 0.75rem 0;
-            border-radius: 16px;
-            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.15);
-            min-width: 220px;
-            z-index: 10;
-        }
-
-        .dropdown-menu li a {
-            display: block;
-            padding: 0.6rem 1.5rem;
-            white-space: nowrap;
-        }
-
-        .dropdown-menu li a:hover {
-            background: rgba(102, 126, 234, 0.08);
-            color: #667eea;
-        }
-
-        .dropdown:hover .dropdown-menu,
-        .dropdown:focus-within .dropdown-menu,
-        .dropdown.open .dropdown-menu {
-            display: block;
-        }
-
-        .dropdown:hover > a::after,
-        .dropdown:focus-within > a::after,
-        .dropdown.open > a::after {
-            transform: rotate(180deg);
-        }
-
-        .search-box {
-            display: flex;
-            align-items: center;
-            background: #f8f9fa;
-            border-radius: 25px;
-            padding: 0.5rem 1rem;
-            border: 2px solid transparent;
-            transition: border-color 0.3s;
-        }
-
-        .search-box:focus-within {
-            border-color: #667eea;
-        }
-
-        .search-box input {
-            border: none;
-            background: none;
-            outline: none;
-            padding: 0.5rem;
-            width: 200px;
-        }
-
-        .favorite-btn {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            padding: 0.7rem 1.2rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .favorite-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .favorite-btn.favorited {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-        }
-
-        .favorite-btn .bookmark-icon {
-            font-size: 1rem;
-        }
-
-        .section-link-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 999px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .section-link-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        /* Social media sharing styles */
-        .share-section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 16px;
-            padding: 1.25rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            text-align: center;
-        }
-
-        .share-title {
-            font-size: 1.35rem;
-            margin-bottom: 1.1rem;
-            color: #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-        }
-
-        .share-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .insights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .insight-card {
-            padding: 1.5rem;
-            border-radius: 18px;
-            background: #ffffff;
-            box-shadow: 0 18px 32px rgba(20, 20, 43, 0.08);
-        }
-
-        .insight-card h3 {
-            margin-bottom: 0.6rem;
-            color: #1f2242;
-        }
-
-        .insight-card p {
-            color: #5b5b7a;
-            font-size: 0.95rem;
-        }
-
-        .resource-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .resource-links a {
-            display: block;
-            padding: 0.9rem 1.2rem;
-            border-radius: 14px;
-            text-decoration: none;
-            color: #1f2242;
-            background: rgba(102, 126, 234, 0.08);
-            font-weight: 600;
-            transition: background 0.2s ease, transform 0.2s ease;
-        }
-
-        .resource-links a:hover {
-            background: rgba(102, 126, 234, 0.16);
-            transform: translateY(-2px);
-        }
-
-        .faq {
-            margin-top: 2rem;
-            display: grid;
-            gap: 1rem;
-        }
-
-        .faq details {
-            background: #ffffff;
-            border-radius: 14px;
-            padding: 1rem 1.4rem;
-            box-shadow: 0 14px 24px rgba(20, 20, 43, 0.06);
-        }
-
-        .faq summary {
-            font-weight: 700;
-            cursor: pointer;
-            color: #1f2242;
-        }
-
-        .faq p {
-            margin-top: 0.6rem;
-            color: #5b5b7a;
-        }
-
-        .classic-gallery-section {
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 2.5rem 3vw 3rem;
-            margin: 2.5rem auto 3rem;
-            box-shadow: 0 35px 60px rgba(15, 23, 42, 0.08);
-            border: 1px solid #e2e8f0;
-            max-width: 1240px;
-            display: flex;
-            flex-direction: column;
-            gap: 2.25rem;
-        }
-
-        .classic-gallery-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .classic-gallery-header h2 {
-            font-size: 2.1rem;
-            font-weight: 800;
-            color: #0f172a;
-            margin: 0;
-        }
-
-        .classic-gallery-view-more {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #1d4ed8;
-            text-decoration: none;
-            padding: 0.45rem 1rem;
-            border-radius: 999px;
-            background: rgba(37, 99, 235, 0.16);
-            border: 1px solid rgba(29, 78, 216, 0.45);
-            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .classic-gallery-view-more::after {
-            content: '→';
-            font-size: 1rem;
-        }
-
-        .classic-gallery-view-more:hover,
-        .classic-gallery-view-more:focus-visible {
-            background: rgba(37, 99, 235, 0.16);
-            transform: translateX(2px);
-        }
-
-        .classic-gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.75rem;
-        }
-
-        .classic-gallery-card {
-            display: flex;
-            flex-direction: column;
-            background: #ffffff;
-            border-radius: 18px;
-            overflow: hidden;
-            text-decoration: none;
-            color: #0f172a;
-            border: 1px solid rgba(148, 163, 184, 0.35);
-            box-shadow: 0 18px 30px rgba(15, 23, 42, 0.08);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .classic-gallery-card:hover,
-        .classic-gallery-card:focus-visible {
-            transform: translateY(-6px);
-            box-shadow: 0 24px 40px rgba(15, 23, 42, 0.14);
-        }
-
-        .classic-gallery-card:focus-visible {
-            outline: 3px solid rgba(37, 99, 235, 0.35);
-            outline-offset: 3px;
-        }
-
-        .classic-gallery-image-wrapper {
-            position: relative;
-            aspect-ratio: 4 / 3;
-            overflow: hidden;
-            background: #f1f5f9;
-        }
-
-        .classic-gallery-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            display: block;
-        }
-
-        .classic-gallery-card:hover .classic-gallery-image-wrapper img,
-        .classic-gallery-card:focus-visible .classic-gallery-image-wrapper img {
-            transform: scale(1.05);
-        }
-
-        .classic-gallery-badge {
-            position: absolute;
-            top: 0.75rem;
-            left: 0.75rem;
-            background: #22c55e;
-            color: #ffffff;
-            font-size: 0.65rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 0.3rem 0.6rem;
-            border-radius: 999px;
-            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.35);
-        }
-
-        .classic-gallery-info {
-            padding: 1rem 1.1rem 1.2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .classic-game-title {
-            margin: 0;
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: #0f172a;
-            line-height: 1.35;
-        }
-
-        .classic-gallery-arrow {
-            font-size: 1rem;
-            color: #2563eb;
-            transition: transform 0.3s ease;
-        }
-
-        .classic-gallery-card:hover .classic-gallery-arrow,
-        .classic-gallery-card:focus-visible .classic-gallery-arrow {
-            transform: translateX(4px);
-        }
-
-        .classic-gallery-placeholder {
-            grid-column: 1 / -1;
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-            background: rgba(37, 99, 235, 0.06);
-            border-radius: 18px;
-            color: #1d4ed8;
-            font-weight: 600;
-        }
-
-        @media (max-width: 992px) {
-            .classic-gallery-section {
-                margin: 2rem 1.5rem 2.5rem;
-                padding: 2rem 1.75rem 2.5rem;
-            }
-
-            .classic-gallery-grid {
-                gap: 1.5rem;
-                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            }
-        }
-
-        @media (max-width: 640px) {
-            .classic-gallery-section {
-                margin: 1.5rem 1rem 2rem;
-                padding: 1.75rem 1.25rem 2rem;
-                border-radius: 20px;
-            }
-
-            .classic-gallery-header h2 {
-                font-size: 1.7rem;
-            }
-
-            .classic-gallery-info {
-                padding: 0.9rem 1rem 1.1rem;
-            }
-        }
-
-        .share-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
+        .ghost-btn {
             padding: 0.6rem 1.2rem;
-            border: none;
-            border-radius: 22px;
-            color: white;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            font-size: 0.82rem;
-        }
-
-        .share-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .share-btn.facebook {
-            background: linear-gradient(45deg, #1877f2, #0d6efd);
-        }
-
-        .share-btn.twitter {
-            background: linear-gradient(45deg, #1da1f2, #0ea5e9);
-        }
-
-        .share-btn.linkedin {
-            background: linear-gradient(45deg, #0077b5, #0ea5e9);
-        }
-
-        .share-btn.whatsapp {
-            background: linear-gradient(45deg, #25d366, #22c55e);
-        }
-
-        .share-btn.telegram {
-            background: linear-gradient(45deg, #0088cc, #0ea5e9);
-        }
-
-        .share-btn.reddit {
-            background: linear-gradient(45deg, #ff4500, #f97316);
-        }
-
-        .share-btn.pinterest {
-            background: linear-gradient(45deg, #e60023, #ef4444);
-        }
-
-        .share-btn.email {
-            background: linear-gradient(45deg, #ea4335, #ef4444);
-        }
-
-        .share-btn.copy {
-            background: linear-gradient(45deg, #6b7280, #9ca3af);
-        }
-
-        .share-btn .share-icon {
-            font-size: 0.95rem;
-        }
-
-        @media (max-width: 768px) {
-            .share-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .share-btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-
-        }
-
-
-
-
-
-        .content {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        .content > section:not(.classic-gallery-section) {
-            max-width: 1200px;
-            margin: 0 auto 2.5rem;
-        }
-
-        .section {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: #333;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .section-description {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 1.5rem;
-        }
-
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .game-card {
-            background: #f8f9fa;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            padding: 1.5rem 1.25rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .game-thumbnail {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            border-radius: 12px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #d1d5db, #9ca3af);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .game-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .game-title {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #4c51bf;
-            text-align: center;
-        }
-
-        .categories {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .category-btn {
-            padding: 0.7rem 1.5rem;
-            background: white;
-            border: 2px solid #667eea;
-            border-radius: 25px;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .category-btn:hover, .category-btn.active {
-            background: #667eea;
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .game-card iframe {
-            width: 100%;
-            height: 300px;
-            border: none;
-            border-radius: 15px;
-            background: #f0f0f0;
-        }
-
-        .popular-game-card {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            width: 100%;
-        }
-
-        .popular-game-card .game-iframe {
-            flex: 1;
-            width: 100%;
-            height: 100%;
-            display: none;
-        }
-
-        .game-placeholder {
-            flex: 1;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.12));
-            text-align: center;
-            border-radius: 12px;
-        }
-
-        .game-placeholder img {
-            max-width: 220px;
-            width: 100%;
-            height: auto;
-        }
-
-        .game-placeholder p {
-            font-size: 1rem;
+            border-radius: 999px;
+            border: 1px solid rgba(53, 88, 255, 0.35);
+            color: var(--primary);
             font-weight: 600;
-            color: #4b5563;
         }
 
-        .game-placeholder.is-hidden {
-            display: none;
+        .hero-panel {
+            background: linear-gradient(140deg, #ffffff 0%, #eef2ff 100%);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            border: 1px solid rgba(53, 88, 255, 0.12);
         }
 
-        .popular-game-card:focus-visible {
-            outline: 3px solid #667eea;
-            outline-offset: 4px;
+        .hero-panel h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
         }
 
-        .popular-game-card.game-loaded {
-            cursor: default;
+        .mode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .mode-card {
+            background: var(--surface);
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            min-height: 120px;
+        }
+
+        .mode-card span {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .main-layout {
+            width: min(1200px, 92vw);
+            margin: 0 auto 3rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .panel {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .panel h4 {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .gallery-card {
+            border-radius: var(--radius-md);
+            padding: 1.2rem;
+            background: linear-gradient(180deg, #ffffff 0%, #f9faff 100%);
+            border: 1px solid var(--border);
+        }
+
+        .gallery-card ul,
+        .info-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .sudoku-board {
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            max-width: 520px;
+            margin: 0 auto;
+            border-radius: var(--radius-md);
+            border: 2px solid rgba(28, 36, 49, 0.2);
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            background: #fff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .sudoku-cell {
+            border: 1px solid rgba(28, 36, 49, 0.12);
+            display: grid;
+            place-items: center;
+            font-weight: 600;
+            font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+            color: #28314a;
+        }
+
+        .sudoku-cell:nth-child(3n) {
+            border-right: 2px solid rgba(28, 36, 49, 0.2);
+        }
+
+        .sudoku-row-break {
+            grid-column: span 9;
+            height: 0;
+            border-bottom: 2px solid rgba(28, 36, 49, 0.2);
+        }
+
+        .game-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .control-bar {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .control-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .control-btn {
+            padding: 0.55rem 0.9rem;
+            border-radius: 10px;
+            background: #f0f3ff;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .control-btn.primary {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .note-bar {
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .note-btn {
+            padding: 0.55rem 0;
+            border-radius: 10px;
+            background: #f8f9ff;
+            border: 1px solid rgba(53, 88, 255, 0.2);
+            font-weight: 600;
+        }
+
+        .info-card {
+            background: #fdf6ec;
+            border-radius: var(--radius-md);
+            padding: 1.2rem;
+            border: 1px solid rgba(255, 180, 84, 0.4);
+        }
+
+        .info-card h5 {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .footer {
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
+            margin-top: auto;
+            padding: 2rem 0 3rem;
+            color: var(--muted);
             text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
         }
 
-        .mobile-menu {
+        .mobile-actions {
             display: none;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            position: sticky;
+            bottom: 0;
+            padding: 0.8rem 1rem;
+            gap: 0.6rem;
+            justify-content: center;
+        }
+
+        @media (max-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .column.left,
+            .column.right {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .column.left .panel,
+            .column.right .panel {
+                flex: 1 1 260px;
+            }
         }
 
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
-                flex-direction: column;
-                gap: 1rem;
-                width: 100%;
-                background: rgba(255, 255, 255, 0.95);
-                padding: 1rem 1.5rem;
-                border-radius: 18px;
-                box-shadow: 0 15px 35px rgba(102, 126, 234, 0.18);
-                margin-top: 1rem;
             }
 
-            .mobile-menu {
-                display: block;
-                background: none;
-                border: none;
-                font-size: 1.5rem;
-                color: #333;
-            }
-
-            .nav-container {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-
-            .dropdown-menu {
-                position: static;
-                padding: 0.5rem 0;
-                margin-top: 0.5rem;
-                background: transparent;
-                box-shadow: none;
-            }
-
-            .dropdown-menu li a {
-                padding: 0.45rem 0;
+            .topbar-inner {
+                gap: 0.75rem;
             }
 
             .hero {
-                padding: 3rem 1.5rem;
+                margin-top: 1.5rem;
             }
 
-            .hero h1 {
-                font-size: 2.1rem;
+            .hero-card {
+                padding: 2rem;
             }
 
-            .hero p {
-                font-size: 1rem;
+            .mobile-actions {
+                display: flex;
             }
-
-            .stats {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .content {
-                padding: 0;
-            }
-
-            .games-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-
-            .hot-games-grid {
-                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            }
-
-            .categories {
-                justify-content: center;
-            }
-        }
-
-        .floating-elements {
-            display: none;
-        }
-
-        .floating-element {
-            position: absolute;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
         }
     </style>
-	
-	<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F9DEFKMPM5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-F9DEFKMPM5');
-</script>
 </head>
 <body>
-    <div class="floating-elements">
-        <div class="floating-element" style="top: 10%; left: 10%; font-size: 3rem;">🎮</div>
-        <div class="floating-element" style="top: 20%; right: 10%; font-size: 2rem;">🕹️</div>
-        <div class="floating-element" style="top: 60%; left: 5%; font-size: 2.5rem;">🎯</div>
-        <div class="floating-element" style="top: 70%; right: 20%; font-size: 2rem;">🏆</div>
-    </div>
-
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">Youxi Studio</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="games.html">Games</a></li>
-                <li><a href="featured-games.html">Featured</a></li>
-                <li><a href="#searchInput">Search</a></li>
-            </ul>
-            <div class="search-box">
-                <input type="text" placeholder="Search games..." id="searchInput">
-                <span>🔍</span>
+    <div class="page">
+        <header class="topbar">
+            <div class="topbar-inner">
+                <div class="brand">
+                    <div class="brand-badge">S</div>
+                    Youxi Studio 数独库
+                </div>
+                <nav class="nav-links">
+                    <a href="#modes">玩法入口</a>
+                    <a href="#classic">经典数独</a>
+                    <a href="#tips">规则与技巧</a>
+                    <button type="button">More ▾</button>
+                </nav>
+                <div class="nav-cta">
+                    <button class="pill" type="button">收藏</button>
+                    <button class="pill" type="button">分享</button>
+                    <button class="primary-btn" type="button">New Game</button>
+                </div>
             </div>
-            <button class="mobile-menu">☰</button>
+        </header>
+
+        <section class="hero">
+            <div class="hero-card">
+                <h1>经典 9×9 数独库，全端畅玩与挑战</h1>
+                <p>
+                    从 Easy 到 Extreme 6 级难度，支持计时与错误追踪、Notes / Hint / Undo，
+                    每一次落子都保持高可玩性与容错性。
+                </p>
+                <div class="hero-actions">
+                    <button class="primary-btn" type="button">立即开局</button>
+                    <button class="ghost-btn" type="button">每日挑战</button>
+                    <button class="ghost-btn" type="button">查看排行榜</button>
+                </div>
+            </div>
+            <div class="hero-panel" id="modes">
+                <h3>玩法入口</h3>
+                <div class="mode-grid">
+                    <div class="mode-card">
+                        <strong>Classic</strong>
+                        <span>经典 9×9</span>
+                    </div>
+                    <div class="mode-card">
+                        <strong>Daily Challenge</strong>
+                        <span>每日谜题</span>
+                    </div>
+                    <div class="mode-card">
+                        <strong>Killer</strong>
+                        <span>规划中</span>
+                    </div>
+                    <div class="mode-card">
+                        <strong>Tournaments</strong>
+                        <span>规划中</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <main class="main-layout" id="classic">
+            <aside class="column left">
+                <div class="panel gallery-card">
+                    <h4>数独图廊</h4>
+                    <ul>
+                        <li>6 级难度分档，支持快速切换。</li>
+                        <li>多端输入优化：键盘 / 触控 / 鼠标。</li>
+                        <li>错误提醒 + 自动保存进度。</li>
+                    </ul>
+                </div>
+                <div class="panel">
+                    <h4>难度与语言</h4>
+                    <div class="control-group">
+                        <button class="control-btn" type="button">Easy</button>
+                        <button class="control-btn" type="button">Normal</button>
+                        <button class="control-btn" type="button">Hard</button>
+                        <button class="control-btn" type="button">Expert</button>
+                        <button class="control-btn" type="button">Extreme</button>
+                        <button class="control-btn" type="button">Master</button>
+                    </div>
+                    <div class="control-group">
+                        <button class="control-btn" type="button">中文</button>
+                        <button class="control-btn" type="button">English</button>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="column">
+                <div class="panel">
+                    <h4>经典数独 · 当前局</h4>
+                    <div class="sudoku-board" aria-label="数独棋盘示意">
+                        <div class="sudoku-cell">5</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">8</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">1</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-row-break"></div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">2</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">9</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">3</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-row-break"></div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">7</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">4</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">6</div>
+                        <div class="sudoku-row-break"></div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">5</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">1</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-row-break"></div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">9</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">7</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">5</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-row-break"></div>
+                        <div class="sudoku-cell">6</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">3</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">2</div>
+                        <div class="sudoku-row-break"></div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">4</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">6</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">9</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-row-break"></div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">8</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">1</div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell"> </div>
+                        <div class="sudoku-cell">7</div>
+                    </div>
+                    <div class="game-meta">
+                        <span>计时：00:00:00</span>
+                        <span>错误：0 / 3</span>
+                        <span>难度：Normal</span>
+                    </div>
+                </div>
+                <div class="panel control-bar">
+                    <h4>操作面板</h4>
+                    <div class="control-group">
+                        <button class="control-btn primary" type="button">New Game</button>
+                        <button class="control-btn" type="button">Undo</button>
+                        <button class="control-btn" type="button">Hint</button>
+                        <button class="control-btn" type="button">Notes</button>
+                        <button class="control-btn" type="button">Auto Save</button>
+                    </div>
+                    <div class="note-bar">
+                        <button class="note-btn" type="button">1</button>
+                        <button class="note-btn" type="button">2</button>
+                        <button class="note-btn" type="button">3</button>
+                        <button class="note-btn" type="button">4</button>
+                        <button class="note-btn" type="button">5</button>
+                        <button class="note-btn" type="button">6</button>
+                        <button class="note-btn" type="button">7</button>
+                        <button class="note-btn" type="button">8</button>
+                        <button class="note-btn" type="button">9</button>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="column right">
+                <div class="panel">
+                    <h4>统计与挑战</h4>
+                    <ul class="info-list">
+                        <li>本周完成：12 盘</li>
+                        <li>最快记录：05:23</li>
+                        <li>当前连胜：4</li>
+                    </ul>
+                </div>
+                <div class="info-card" id="tips">
+                    <h5>规则 / 技巧入口</h5>
+                    <p>掌握基础排除法、宫格优先与候选数标注。</p>
+                    <div class="control-group">
+                        <button class="control-btn" type="button">规则说明</button>
+                        <button class="control-btn" type="button">解题技巧</button>
+                    </div>
+                </div>
+                <div class="panel">
+                    <h4>Roadmap</h4>
+                    <ul class="info-list">
+                        <li>Killer 完整实现</li>
+                        <li>账号体系与云端同步</li>
+                        <li>排行榜与联赛玩法</li>
+                    </ul>
+                </div>
+            </aside>
+        </main>
+
+        <div class="mobile-actions">
+            <button class="control-btn primary" type="button">New Game</button>
+            <button class="control-btn" type="button">Hint</button>
+            <button class="control-btn" type="button">Notes</button>
         </div>
-    </nav>
 
-
-
-    <div class="content">
-        <section class="hero" aria-labelledby="heroTitle">
-            <h1 id="heroTitle">Play Free Online Games & Explore Indie Game Development</h1>
-            <p>Welcome to Youxi Studio — a curated hub of instant-play titles, genre collections, and behind-the-scenes insights from our game development team.</p>
-            <div class="hero-actions">
-                <a class="hero-cta" href="games.html">Start Playing Now</a>
-                <a class="hero-secondary" href="featured-games.html">See Featured Releases</a>
-            </div>
-        </section>
-
-
-        <section class="section hot-games-section" id="hot-games" aria-labelledby="hotGamesTitle">
-            <h2 id="hotGamesTitle">🔥 Hot Games This Week</h2>
-            <div class="featured-tag">⭐ Editor’s Pick</div>
-            <p class="hot-games-intro">Jump into the titles players are loving right now. Each pick is optimized for instant play so you can explore, compete, and keep your streak going.</p>
-            <div class="hot-games-grid">
-                <article class="hot-game-card">
-                    <img src="img-portal/extreme-pamplona-cover.svg" alt="Extreme Pamplona official promo art" loading="lazy">
-                    <h3>Extreme Pamplona</h3>
-                    <p>Fast-paced runner. Dodge bulls and keep sprinting.</p>
-                    <a class="hot-game-link" href="extremepamplona.html">▶ Play Now</a>
-                </article>
-                <article class="hot-game-card">
-                    <img src="img-portal/magicsolitaire.jpg" alt="Mancala Classic board view" loading="lazy">
-                    <h3>Mancala Classic</h3>
-                    <p>Classic pit capture. Plan moves to outscore rivals.</p>
-                    <a class="hot-game-link" href="games/Mancala/index.html">▶ Play Now</a>
-                </article>
-                <article class="hot-game-card">
-                    <img src="img-portal/fruit-connect-cover.svg" alt="Fruit Connect 3 tropical tile board" loading="lazy">
-                    <h3>Fruit Connect</h3>
-                    <p>Speedy tile matcher. Link fruits before time runs out.</p>
-                    <a class="hot-game-link" href="https://fruitconnect.online/" target="_blank" rel="noopener">▶ Play Now</a>
-                </article>
-                <article class="hot-game-card">
-                    <img src="img-portal/blockdroppingmerge.jpg" alt="Block Breaker neon arcade blocks" loading="lazy">
-                    <h3>Block Breaker</h3>
-                    <p>Arcade block blaster. Smash stacks and chase combos.</p>
-                    <a class="hot-game-link" href="https://gamedistribution.com/games/koko-loco-block-blast/">▶ Play Now</a>
-                </article>
-            </div>
-        </section>
-
-
-        <section class="classic-gallery-section" id="classicGallerySection" aria-labelledby="classicGalleryTitle">
-            <div class="classic-gallery-header">
-                <h2 id="classicGalleryTitle">Classic Games – Play Instantly</h2>
-                <a class="classic-gallery-view-more" href="games.html">View more</a>
-            </div>
-            <div class="classic-gallery-grid" id="classicGalleryGrid" role="list"></div>
-        </section>
-
-        <section class="section" id="studioInsights">
-            <h2 class="section-title">Why Players Return to Youxi Studio</h2>
-            <p class="section-description">We focus on quick load times, easy discovery, and genre-driven playlists so you can jump into the right game in seconds.</p>
-            <div class="insights-grid">
-                <div class="insight-card">
-                    <h3>Instant Play Library</h3>
-                    <p>Curated browser games with lightweight assets so sessions start fast on mobile, desktop, and tablet.</p>
-                </div>
-                <div class="insight-card">
-                    <h3>Genre Spotlights</h3>
-                    <p>Weekly highlights for puzzle, arcade, and strategy fans. Find trending titles without endless scrolling.</p>
-                </div>
-                <div class="insight-card">
-                    <h3>Studio Updates</h3>
-                    <p>Follow our development pipeline, from concept art to launch plans, and get a peek behind the scenes.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="resourceHub">
-            <h2 class="section-title">Explore Our Game Hubs</h2>
-            <p class="section-description">Dive deeper into specific genres, studio services, and industry insights across the Youxi Studio network.</p>
-            <div class="resource-links">
-                <a href="featured-games.html">Featured Game Picks</a>
-                <a href="top-games.html">Top Games Charts</a>
-                <a href="brain-teasers.html">Brain Teasers Collection</a>
-                <a href="game-development.html">Game Development Services</a>
-                <a href="marketing-hub.html">Marketing & Growth Hub</a>
-                <a href="company-ranking.html">Studio Rankings</a>
-            </div>
-        </section>
-
-
-        
-
-        <section class="section" id="popularGamesSection" hidden>
-            <h2 class="section-title">🔥 Popular Games</h2>
-            <div class="games-grid" id="gamesGrid">
-                <div class="game-card" data-game-name="Snow Rush 3D">
-                    <div class="game-thumbnail">
-                        <img src="images/games/game-placeholder.svg" alt="Snow Rush 3D game cover" loading="lazy">
-                    </div>
-                    <div class="game-title">Snow Rush 3D</div>
-                    <iframe data-src="https://html5.gamedistribution.com/e1e32230bdf040d69f4e367015e1c527/?gd_sdk_referrer_url=https://crazycattle3d.com/games/snow-rush-3d&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Snow Rush 3D Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
-                </div>
-                <div class="game-card" data-game-name="Tower Crash 3D">
-                    <div class="game-thumbnail">
-                        <img src="images/games/game-placeholder.svg" alt="Tower Crash 3D game cover" loading="lazy">
-                    </div>
-                    <div class="game-title">Tower Crash 3D</div>
-                    <iframe data-src="https://html5.gamedistribution.com/b375b05ea29b40abaaf3606a2ff215ad/?gd_sdk_referrer_url=https://crazycattle3d.com/games/tower-crash-3d&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Tower Crash 3D Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
-                </div>
-                <div class="game-card" data-game-name="Tunnel Road">
-                    <div class="game-thumbnail">
-                        <img src="images/games/game-placeholder.svg" alt="Tunnel Road game cover" loading="lazy">
-                    </div>
-                    <div class="game-title">Tunnel Road</div>
-                    <iframe data-src="https://html5.gamedistribution.com/14e87fab0cbf44b6b3e57ddb77af5941/?gd_sdk_referrer_url=https://crazycattle3d.com/games/tunnel-road&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" style="height:100%;position:relative;top:0;left:0;right:0;bottom:0;z-index:1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Tunnel Road Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen"></iframe>
-                </div>
-                <div class="game-card" data-game-name="Merge Flowers">
-                    <div class="game-thumbnail">
-                        <img src="images/games/game-placeholder.svg" alt="Merge Flowers game cover" loading="lazy">
-                    </div>
-                    <div class="game-title">Merge Flowers</div>
-                    <iframe data-src="https://html5.gamedistribution.com/2e5863b7cc10444a88f72c81e74502f1/?gd_sdk_referrer_url=https://crazycattle3d.com/games/merge-flowers&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Merge Flowers Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
-                </div>
-                <div class="game-card" data-game-name="Obby On a Bike">
-                    <div class="game-thumbnail">
-                        <img src="images/games/game-placeholder.svg" alt="Obby On a Bike game cover" loading="lazy">
-                    </div>
-                    <div class="game-title">Obby On a Bike</div>
-                    <iframe data-src="https://html5.gamedistribution.com/bc2f52c2d9d04e41aee48bef01075d22/?gd_sdk_referrer_url=https://crazycattle3d.com/games/obby-on-a-bike&amp;gdpr-tracking=1&amp;gdpr-targeting=1&amp;gdpr-third-party=1" class="w-full h-full border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen" title="Obby On a Bike Online Game" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-fullscreen" style="height: 100%; position: relative; inset: 0px; z-index: 1;"></iframe>
-                </div>
-            </div>
-        </section>
-
-        <!-- Social media share area -->
-        <section class="share-section">
-            <h2 class="share-title">🌐 Share on Social Media</h2>
-            <div class="share-buttons">
-                <a href="#" class="share-btn facebook" onclick="shareToFacebook()">
-                    <span class="share-icon">📘</span>
-                    Facebook
-                </a>
-                <a href="#" class="share-btn twitter" onclick="shareToTwitter()">
-                    <span class="share-icon">🐦</span>
-                    Twitter
-                </a>
-                <a href="#" class="share-btn linkedin" onclick="shareToLinkedIn()">
-                    <span class="share-icon">💼</span>
-                    LinkedIn
-                </a>
-                <a href="#" class="share-btn whatsapp" onclick="shareToWhatsApp()">
-                    <span class="share-icon">📱</span>
-                    WhatsApp
-                </a>
-                <a href="#" class="share-btn telegram" onclick="shareToTelegram()">
-                    <span class="share-icon">📬</span>
-                    Telegram
-                </a>
-                <a href="#" class="share-btn reddit" onclick="shareToReddit()">
-                    <span class="share-icon">🤖</span>
-                    Reddit
-                </a>
-                <a href="#" class="share-btn pinterest" onclick="shareToPinterest()">
-                    <span class="share-icon">📌</span>
-                    Pinterest
-                </a>
-                <a href="#" class="share-btn email" onclick="shareToEmail()">
-                    <span class="share-icon">📧</span>
-                    Email
-                </a>
-                <button class="share-btn copy" onclick="copyPageLink()">
-                    <span class="share-icon">📋</span>
-                    Copy Link
-                </button>
-            </div>
-        </section>
-
-        <!-- SEO content area -->
-        <section class="section">
-            <h2 class="section-title">🎮 Youxi Studio - Professional Game Development Services</h2>
-            <div style="line-height: 1.8; color: #555; margin-bottom: 2rem; font-size: 0.95rem;">
-                <p><strong>Youxi Studio</strong> specializes in <strong>game development</strong>, <strong>production</strong>, and <strong>indie game</strong> design. We deliver end-to-end <strong>game design</strong> services for <strong>mobile</strong>, <strong>PC</strong>, <strong>single-player</strong>, and <strong>online</strong> experiences.</p>
-
-                <p>Our <strong>development team</strong> builds a wide range of genres, including <strong>role-playing (RPG)</strong>, <strong>strategy</strong>, <strong>action</strong>, <strong>adventure</strong>, and <strong>casual</strong> games. Every project focuses on polished gameplay so players can enjoy premium experiences for free.</p>
-
-                <p>As a dedicated <strong>game development company</strong>, we use modern <strong>game engines</strong> such as <strong>Unity</strong> and <strong>Unreal Engine</strong>. Our <strong>programmers</strong>, <strong>artists</strong>, and <strong>designers</strong> collaborate to ship the <strong>latest</strong> and most <strong>popular games</strong>.</p>
-
-                <p>We also share <strong>game recommendations</strong>, <strong>guides</strong>, <strong>reviews</strong>, and <strong>industry news</strong> so fans stay informed about trends. From <strong>indie productions</strong> to large-scale launches, we support a complete <strong>game development pipeline</strong>.</p>
-            </div>
-        </section>
-
-        <section class="section" id="faqSection">
-            <h2 class="section-title">FAQ – Playing on Youxi Studio</h2>
-            <p class="section-description">Quick answers to the most common questions from new players and studio partners.</p>
-            <div class="faq">
-                <details>
-                    <summary>Do I need to download anything to play?</summary>
-                    <p>No. All titles are browser-based and optimized to launch instantly without installs.</p>
-                </details>
-                <details>
-                    <summary>How do you choose featured games?</summary>
-                    <p>We highlight games with strong engagement, fast performance, and clear genre appeal so players can find the best options quickly.</p>
-                </details>
-                <details>
-                    <summary>Can developers collaborate with Youxi Studio?</summary>
-                    <p>Yes. Visit the Game Development Services page to learn about publishing support, art direction, and go-to-market planning.</p>
-                </details>
-            </div>
-        </section>
-
-        
-
-        <section class="section">
-            <h2 class="section-title">🧩 Brain Teasers - Puzzle Games</h2>
-            <p class="section-description">Keep your mind sharp with puzzles, word challenges, and relaxing logic experiences. Jump to the dedicated Brain Teasers hub to find every brain-bending game in one place.</p>
-            <a class="section-link-button" href="brain-teasers.html">Play Brain Teasers <span aria-hidden="true">🧠</span></a>
-        </section>
+        <footer class="footer">
+            <p>© 2024 Youxi Studio Sudoku Library. All rights reserved.</p>
+        </footer>
     </div>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2024 Youxi Studio. All rights reserved.</p>
-            <p>
-                <a href="about-us.html">About Us</a> |
-                <a href="game-development.html">Developer Collaboration</a> |
-                <a href="marketing-hub.html">Contact & Marketing</a>
-            </p>
-        </div>
-    </footer>
-
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-                {
-                    "@type": "Question",
-                    "name": "Do I need to download anything to play?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "No. All titles are browser-based and optimized to launch instantly without installs."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "How do you choose featured games?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "We highlight games with strong engagement, fast performance, and clear genre appeal so players can find the best options quickly."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Can developers collaborate with Youxi Studio?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes. Visit the Game Development Services page to learn about publishing support, art direction, and go-to-market planning."
-                    }
-                }
-            ]
-        }
-    </script>
-
-    <script>
-        const CLASSIC_IMAGE_BASE_PATH = 'img-classic/';
-        const CLASSIC_IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp'];
-        const CLASSIC_IMAGE_FALLBACKS = {
-            'paper minecraft': 'img-portal/Paper.jpg',
-            'paperminecraft': 'img-portal/Paper.jpg',
-            'sudoku': 'img-portal/suduku.png',
-            'suduku': 'img-portal/suduku.png',
-            'blockpuzzle3d': 'img-portal/blockpuzzle3d.jpg',
-            'block puzzle 3d': 'img-portal/blockpuzzle3d.jpg',
-            'blockdroppingmerge': 'img-portal/blockdroppingmerge.jpg',
-            'block dropping merge': 'img-portal/blockdroppingmerge.jpg',
-            'crazymotorcycle': 'img-portal/crazymotorcycle.jpg',
-            'crazy motorcycle': 'img-portal/crazymotorcycle.jpg',
-            'parkingfury3d:nightcity': 'img-portal/parkingfury3dn.jpg',
-            'parkingfury3d nightcity': 'img-portal/parkingfury3dn.jpg',
-            'parking fury 3d night city': 'img-portal/parkingfury3dn.jpg',
-            'matchfind3d': 'img-portal/matchfind3d.jpg',
-            'match find 3d': 'img-portal/matchfind3d.jpg',
-            'highschoolmeangirls3': 'img-portal/highschoolmeangirls3.jpg',
-            'highschool mean girls 3': 'img-portal/highschoolmeangirls3.jpg',
-            'fallbean2': 'img-portal/fallbean2.jpeg',
-            'fall bean 2': 'img-portal/fallbean2.jpeg',
-            'bubbleshooterpop': 'img-portal/bubbleshooterpop.jpg',
-            'bubble shooter pop': 'img-portal/bubbleshooterpop.jpg',
-            'emojimatch': 'img-portal/emojimatch.jpeg',
-            'emoji match': 'img-portal/emojimatch.jpeg',
-            'vexx3m': 'img-portal/vexx3m.jpg',
-            'vex x3m': 'img-portal/vexx3m.jpg',
-            'magicsolitaire': 'img-portal/magicsolitaire.jpg',
-            'magic solitaire': 'img-portal/magicsolitaire.jpg',
-            'farmblockpuzzle': 'img-portal/farmblockpuzzle.jpg',
-            'farm block puzzle': 'img-portal/farmblockpuzzle.jpg'
-        };
-
-        function normalizeClassicImageUrl(url) {
-            if (!url || typeof url !== 'string') {
-                return url;
-            }
-
-            const trimmed = url.trim();
-
-            if (!trimmed) {
-                return trimmed;
-            }
-
-            try {
-                if (/^https?:\/\//i.test(trimmed)) {
-                    const parsed = new URL(trimmed);
-
-                    if (parsed.pathname.startsWith('/img-classic') && !parsed.pathname.startsWith('/img-classic/')) {
-                        parsed.pathname = parsed.pathname.replace('/img-classic', '/img-classic/');
-                    }
-
-                    return parsed.toString();
-                }
-
-                if (trimmed.startsWith('img-classic') && !trimmed.startsWith('img-classic/')) {
-                    return trimmed.replace(/^img-classic/, 'img-classic/');
-                }
-
-                return trimmed;
-            } catch (_) {
-                return trimmed;
-            }
-        }
-
-        function buildClassicImageSources(game) {
-            const sources = [];
-
-            if (game && typeof game.image === 'string' && game.image.trim()) {
-                sources.push(normalizeClassicImageUrl(game.image));
-            }
-
-            if (game && typeof game.name === 'string' && game.name.trim()) {
-                const rawName = game.name.trim();
-                const normalizedName = rawName.toLowerCase();
-
-                if (Object.prototype.hasOwnProperty.call(CLASSIC_IMAGE_FALLBACKS, normalizedName)) {
-                    sources.push(normalizeClassicImageUrl(CLASSIC_IMAGE_FALLBACKS[normalizedName]));
-                }
-
-                const baseCandidates = new Set([
-                    rawName,
-                    rawName.replace(/\s+/g, ''),
-                    rawName.toLowerCase().replace(/\s+/g, ''),
-                ]);
-
-                baseCandidates.forEach(candidate => {
-                    const encodedCandidate = encodeURIComponent(candidate);
-                    CLASSIC_IMAGE_EXTENSIONS.forEach(ext => {
-                        sources.push(`${CLASSIC_IMAGE_BASE_PATH}${encodedCandidate}${ext}`);
-                    });
-                });
-            }
-
-            sources.push('images/games/game-placeholder.svg');
-
-            return Array.from(new Set(sources));
-        }
-
-        function loadClassicGallery() {
-            const grid = document.getElementById('classicGalleryGrid');
-
-            if (!grid) {
-                return;
-            }
-
-            const placeholder = document.createElement('div');
-            placeholder.className = 'classic-gallery-placeholder';
-            placeholder.textContent = 'Loading classic games...';
-            grid.innerHTML = '';
-            grid.appendChild(placeholder);
-
-            fetch('img-classic/youxistudiodata.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Failed to load classic games (${response.status})`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    const games = Array.isArray(data.games) ? data.games : [];
-                    grid.innerHTML = '';
-
-                    if (!games.length) {
-                        const emptyState = document.createElement('div');
-                        emptyState.className = 'classic-gallery-placeholder';
-                        emptyState.textContent = 'No classic games are available right now. Please check back soon!';
-                        grid.appendChild(emptyState);
-                        return;
-                    }
-
-                    const visibleGames = games.slice(0, 8);
-                    const fragment = document.createDocumentFragment();
-
-                    visibleGames.forEach(game => {
-                        const card = document.createElement('a');
-                        card.className = 'classic-gallery-card';
-                        card.href = game.url || '#';
-                        card.target = '_blank';
-                        card.rel = 'noopener noreferrer';
-                        card.setAttribute('role', 'listitem');
-                        card.setAttribute('aria-label', game.name ? `Play ${game.name}` : 'Play classic game');
-
-                        const imageWrapper = document.createElement('div');
-                        imageWrapper.className = 'classic-gallery-image-wrapper';
-
-                        const img = document.createElement('img');
-                        img.loading = 'lazy';
-                        img.decoding = 'async';
-                        img.alt = game.name ? `${game.name} cover art` : 'Classic game cover art';
-
-                        const candidateSources = buildClassicImageSources(game);
-                        let sourceIndex = 0;
-                        let lastAssignedSource = null;
-
-                        const assignNextSource = () => {
-                            while (sourceIndex < candidateSources.length) {
-                                const nextSource = candidateSources[sourceIndex++];
-
-                                if (!nextSource || nextSource === lastAssignedSource) {
-                                    continue;
-                                }
-
-                                lastAssignedSource = nextSource;
-                                img.src = nextSource;
-                                return;
-                            }
-                        };
-
-                        img.addEventListener('error', assignNextSource);
-                        assignNextSource();
-                        imageWrapper.appendChild(img);
-
-                        if (game.isNew !== false) {
-                            const badge = document.createElement('span');
-                            badge.className = 'classic-gallery-badge';
-                            badge.textContent = 'NEW';
-                            imageWrapper.appendChild(badge);
-                        }
-
-                        const info = document.createElement('div');
-                        info.className = 'classic-gallery-info';
-
-                        const title = document.createElement('span');
-                        title.className = 'classic-game-title';
-                        title.textContent = game.name || 'Play Now';
-
-                        const arrow = document.createElement('span');
-                        arrow.className = 'classic-gallery-arrow';
-                        arrow.textContent = '→';
-                        arrow.setAttribute('aria-hidden', 'true');
-
-                        info.appendChild(title);
-                        info.appendChild(arrow);
-
-                        card.appendChild(imageWrapper);
-                        card.appendChild(info);
-                        fragment.appendChild(card);
-                    });
-
-                    grid.appendChild(fragment);
-                })
-                .catch(error => {
-                    console.error(error);
-                    grid.innerHTML = '';
-                    const errorState = document.createElement('div');
-                    errorState.className = 'classic-gallery-placeholder';
-                    errorState.textContent = 'Unable to load the classic game gallery. Please try again later.';
-                    grid.appendChild(errorState);
-                });
-        }
-
-        // Search functionality
-        function setupSearch() {
-            const searchInput = document.getElementById('searchInput');
-            searchInput.addEventListener('input', function(e) {
-                const searchTerm = e.target.value.toLowerCase();
-                const gameCards = document.querySelectorAll('.game-card');
-
-                gameCards.forEach(card => {
-                    const titleElement = card.querySelector('.game-title');
-                    const categoryElement = card.querySelector('.game-category');
-                    const title = titleElement ? titleElement.textContent.toLowerCase() : '';
-                    const category = categoryElement ? categoryElement.textContent.toLowerCase() : '';
-                    const match = title.includes(searchTerm) || category.includes(searchTerm) || searchTerm === '';
-                    card.style.display = match ? '' : 'none';
-                });
-            });
-        }
-
-        function initializePopularGameImages() {
-            const fallbackImage = 'images/games/game-placeholder.svg';
-            const extensions = ['webp', 'jpg', 'jpeg', 'png', 'svg'];
-
-            document.querySelectorAll('#gamesGrid .game-card').forEach(card => {
-                const imgElement = card.querySelector('.game-thumbnail img');
-                if (!imgElement) {
-                    return;
-                }
-
-                const manualImage = card.dataset.image;
-                const gameName = card.dataset.gameName ? card.dataset.gameName.trim() : '';
-                const slug = gameName
-                    .toLowerCase()
-                    .replace(/[^a-z0-9]+/g, '-')
-                    .replace(/^-+|-+$/g, '');
-
-                const candidates = manualImage
-                    ? [`images/games/${manualImage}`]
-                    : slug
-                        ? extensions.map(ext => `images/games/${slug}.${ext}`)
-                        : [];
-
-                let index = 0;
-
-                const handleError = () => {
-                    if (index < candidates.length) {
-                        imgElement.src = candidates[index++];
-                    } else {
-                        imgElement.removeEventListener('error', handleError);
-                        imgElement.src = fallbackImage;
-                    }
-                };
-
-                imgElement.addEventListener('error', handleError);
-
-                if (candidates.length > 0) {
-                    imgElement.src = candidates[index++];
-                } else {
-                    imgElement.removeEventListener('error', handleError);
-                    imgElement.src = fallbackImage;
-                }
-            });
-        }
-
-        function initializePopularGamePlaceholders() {
-            const placeholderImage = 'images/games/game-placeholder.svg';
-            const popularCards = document.querySelectorAll('#gamesGrid .game-card');
-
-            popularCards.forEach(card => {
-                const iframe = card.querySelector('iframe');
-                const dataSrc = iframe ? iframe.dataset.src : null;
-
-                if (!iframe || !dataSrc) {
-                    return;
-                }
-
-                card.classList.add('popular-game-card');
-                card.setAttribute('role', 'button');
-                card.setAttribute('tabindex', '0');
-                card.setAttribute('aria-label', 'Click to load the game content');
-                iframe.classList.add('game-iframe');
-
-                const placeholder = document.createElement('div');
-                placeholder.className = 'game-placeholder';
-                placeholder.innerHTML = `
-                    <img src="${placeholderImage}" alt="Click to start the game" loading="lazy">
-                    <p>Click the card to load the game instantly</p>
-                `;
-                card.insertBefore(placeholder, iframe);
-
-                const loadGame = () => {
-                    if (card.classList.contains('game-loaded')) {
-                        return;
-                    }
-
-                    card.classList.add('game-loaded');
-                    placeholder.classList.add('is-hidden');
-                    iframe.style.display = 'block';
-                    iframe.setAttribute('src', dataSrc);
-                    iframe.setAttribute('loading', 'lazy');
-                    card.removeAttribute('role');
-                    card.removeAttribute('tabindex');
-                    card.removeAttribute('aria-label');
-                };
-
-                card.addEventListener('click', loadGame);
-                placeholder.addEventListener('click', event => {
-                    event.stopPropagation();
-                    loadGame();
-                });
-
-                card.addEventListener('keydown', event => {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                        event.preventDefault();
-                        loadGame();
-                    }
-                });
-            });
-        }
-
-        function setupIframeLazyLoading() {
-            const popularIframes = new Set(Array.from(document.querySelectorAll('#gamesGrid .game-card iframe')));
-            const lazyIframes = Array.from(document.querySelectorAll('iframe')).filter(iframe => !popularIframes.has(iframe));
-
-            const loadIframe = (iframe) => {
-                if (!iframe.dataset.src || iframe.getAttribute('src')) {
-                    return;
-                }
-
-                iframe.setAttribute('src', iframe.dataset.src);
-                iframe.setAttribute('loading', 'lazy');
-            };
-
-            if ('IntersectionObserver' in window) {
-                const observer = new IntersectionObserver((entries, observerInstance) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            loadIframe(entry.target);
-                            observerInstance.unobserve(entry.target);
-                        }
-                    });
-                }, {
-                    rootMargin: '200px 0px',
-                    threshold: 0.15
-                });
-
-                lazyIframes.forEach(iframe => observer.observe(iframe));
-            } else {
-                // Fallback: load after short delay
-                setTimeout(() => lazyIframes.forEach(loadIframe), 500);
-            }
-        }
-
-
-
-        // Initialize after page load
-        document.addEventListener('DOMContentLoaded', function() {
-            loadClassicGallery();
-            setupSearch();
-            initializePopularGameImages();
-            initializePopularGamePlaceholders();
-            setupIframeLazyLoading();
-        });
-
-        // Navigation interactions
-        const mobileMenuButton = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-        const dropdowns = document.querySelectorAll('.dropdown');
-
-        dropdowns.forEach(dropdown => {
-            const toggleLink = dropdown.querySelector('a');
-            if (!toggleLink) return;
-
-            toggleLink.setAttribute('aria-expanded', 'false');
-
-            toggleLink.addEventListener('click', function(event) {
-                if (window.innerWidth <= 768) {
-                    event.preventDefault();
-                    const isOpen = dropdown.classList.toggle('open');
-                    toggleLink.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                }
-            });
-        });
-
-        function closeDropdowns() {
-            dropdowns.forEach(dropdown => {
-                dropdown.classList.remove('open');
-                const toggleLink = dropdown.querySelector('a');
-                if (toggleLink) {
-                    toggleLink.setAttribute('aria-expanded', 'false');
-                }
-            });
-        }
-
-        if (mobileMenuButton && navLinks) {
-            mobileMenuButton.setAttribute('aria-expanded', 'false');
-
-            mobileMenuButton.addEventListener('click', function() {
-                const isOpen = navLinks.style.display === 'flex';
-                if (isOpen) {
-                    navLinks.style.display = 'none';
-                    closeDropdowns();
-                    mobileMenuButton.setAttribute('aria-expanded', 'false');
-                } else {
-                    navLinks.style.display = 'flex';
-                    mobileMenuButton.setAttribute('aria-expanded', 'true');
-                }
-            });
-
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 768) {
-                    navLinks.style.display = 'flex';
-                    closeDropdowns();
-                } else {
-                    navLinks.style.display = 'none';
-                    closeDropdowns();
-                    mobileMenuButton.setAttribute('aria-expanded', 'false');
-                }
-            });
-        }
-
-        // Social media share helpers
-        function shareToFacebook() {
-            const url = encodeURIComponent(window.location.href);
-            const title = encodeURIComponent(document.title);
-            const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-            window.open(shareUrl, '_blank', 'width=600,height=400');
-        }
-
-        function shareToTwitter() {
-            const url = encodeURIComponent(window.location.href);
-            const title = encodeURIComponent(document.title);
-            const shareUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
-            window.open(shareUrl, '_blank', 'width=600,height=400');
-        }
-
-        function shareToLinkedIn() {
-            const url = encodeURIComponent(window.location.href);
-            const title = encodeURIComponent(document.title);
-            const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-            window.open(shareUrl, '_blank', 'width=600,height=400');
-        }
-
-        function shareToWhatsApp() {
-            const url = encodeURIComponent(window.location.href);
-            const title = encodeURIComponent(document.title);
-            const shareUrl = `https://wa.me/?text=${title}%20${url}`;
-            window.open(shareUrl, '_blank');
-        }
-
-        function shareToTelegram() {
-            const url = encodeURIComponent(window.location.href);
-            const title = encodeURIComponent(document.title);
-            const shareUrl = `https://t.me/share/url?url=${url}&text=${title}`;
-            window.open(shareUrl, '_blank');
-        }
-
-        function shareToReddit() {
-            const url = encodeURIComponent(window.location.href);
-            const title = encodeURIComponent(document.title);
-            const shareUrl = `https://reddit.com/submit?url=${url}&title=${title}`;
-            window.open(shareUrl, '_blank');
-        }
-
-        function shareToPinterest() {
-            const url = encodeURIComponent(window.location.href);
-            const title = encodeURIComponent(document.title);
-            const shareUrl = `https://pinterest.com/pin/create/button/?url=${url}&description=${title}`;
-            window.open(shareUrl, '_blank');
-        }
-
-        function shareToEmail() {
-            const url = window.location.href;
-            const title = document.title;
-            const subject = encodeURIComponent(`Check out this amazing game studio: ${title}`);
-            const body = encodeURIComponent(`I found this great game studio website that you might be interested in:\n\n${title}\n${url}\n\nIt features professional game development services, free online games, and much more!`);
-            const mailtoUrl = `mailto:?subject=${subject}&body=${body}`;
-            window.location.href = mailtoUrl;
-        }
-
-        function copyPageLink() {
-            const url = window.location.href;
-            navigator.clipboard.writeText(url).then(function() {
-                // Show a success message
-                const copyBtn = document.querySelector('.share-btn.copy');
-                const originalText = copyBtn.innerHTML;
-                copyBtn.innerHTML = '<span class="share-icon">✅</span>Copied';
-                copyBtn.style.background = 'linear-gradient(45deg, #22c55e, #16a34a)';
-
-                setTimeout(() => {
-                    copyBtn.innerHTML = originalText;
-                    copyBtn.style.background = 'linear-gradient(45deg, #6b7280, #9ca3af)';
-                }, 2000);
-            }).catch(function(err) {
-                console.error('Copy failed:', err);
-                alert('Copy failed. Please copy the link manually: ' + url);
-            });
-        }
-    </script>
 </body>
 </html>
