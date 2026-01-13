@@ -395,24 +395,25 @@
         .sudoku-board {
             aspect-ratio: 1 / 1;
             width: 100%;
-            max-width: 520px;
+            max-width: 560px;
             margin: 0 auto;
-            border-radius: var(--radius-md);
-            border: 2px solid rgba(28, 36, 49, 0.2);
+            border-radius: 18px;
+            border: 3px solid #2c3c52;
             display: grid;
             grid-template-columns: repeat(9, 1fr);
-            background: #fff;
+            background: #eef3fb;
             overflow: hidden;
             position: relative;
         }
 
         .sudoku-cell {
-            border: 1px solid rgba(28, 36, 49, 0.12);
+            border: 1px solid rgba(44, 60, 82, 0.2);
             display: grid;
             place-items: center;
             font-weight: 600;
-            font-size: clamp(0.8rem, 1.5vw, 1.1rem);
-            color: #28314a;
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            color: #2b3951;
+            background: rgba(255, 255, 255, 0.7);
             position: relative;
         }
 
@@ -422,27 +423,27 @@
         }
 
         .sudoku-cell.cell-selected {
-            background: rgba(53, 88, 255, 0.15);
-            outline: 2px solid rgba(53, 88, 255, 0.5);
+            background: rgba(131, 191, 255, 0.6);
+            outline: 2px solid rgba(49, 94, 189, 0.6);
         }
 
         .sudoku-cell.cell-same {
-            background: rgba(53, 88, 255, 0.08);
+            background: rgba(198, 222, 255, 0.65);
         }
 
         .sudoku-cell.cell-conflict {
-            background: rgba(255, 88, 88, 0.18);
-            color: #b11f1f;
+            background: rgba(255, 177, 177, 0.6);
+            color: #b14545;
         }
 
         .sudoku-cell:nth-child(3n) {
-            border-right: 2px solid rgba(28, 36, 49, 0.2);
+            border-right: 3px solid rgba(44, 60, 82, 0.8);
         }
 
         .sudoku-row-break {
             grid-column: span 9;
             height: 0;
-            border-bottom: 2px solid rgba(28, 36, 49, 0.2);
+            border-bottom: 3px solid rgba(44, 60, 82, 0.8);
         }
 
         .game-meta {
@@ -478,6 +479,171 @@
         .control-btn.primary {
             background: var(--primary);
             color: #fff;
+        }
+
+        .game-panel {
+            padding: 1.8rem;
+        }
+
+        .game-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .difficulty-tabs {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            color: var(--muted);
+            font-weight: 600;
+            flex-wrap: wrap;
+        }
+
+        .difficulty-tabs span {
+            font-weight: 500;
+            color: #8b96ab;
+        }
+
+        .difficulty-tab {
+            padding: 0.45rem 1.1rem;
+            border-radius: 14px;
+            background: transparent;
+            border: 1px solid transparent;
+            color: #7c879c;
+            font-weight: 600;
+        }
+
+        .difficulty-tab.active {
+            background: #f2f5fb;
+            border-color: #e5eaf4;
+            color: #2b4ea0;
+        }
+
+        .game-score {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e2f4f;
+        }
+
+        .game-body {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.9fr);
+            gap: 1.8rem;
+            align-items: start;
+        }
+
+        .game-board {
+            display: flex;
+            justify-content: center;
+        }
+
+        .game-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .game-info {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .game-stats {
+            display: grid;
+            gap: 0.4rem;
+            color: #8a95aa;
+            font-weight: 600;
+        }
+
+        .game-stats strong {
+            font-size: 1.1rem;
+            color: #2a3b58;
+        }
+
+        .game-timer {
+            text-align: right;
+            color: #8a95aa;
+            font-weight: 600;
+        }
+
+        .game-timer strong {
+            font-size: 1.1rem;
+            color: #2a3b58;
+        }
+
+        .icon-btn {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #f1f4f9;
+            color: #2f56c9;
+            display: grid;
+            place-items: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .icon-btn.small {
+            width: 42px;
+            height: 42px;
+            font-size: 1.1rem;
+        }
+
+        .icon-btn .badge {
+            position: absolute;
+            top: -8px;
+            right: -4px;
+            background: #2f56c9;
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.4rem;
+            border-radius: 999px;
+        }
+
+        .icon-btn .toggle {
+            position: absolute;
+            top: -12px;
+            right: -8px;
+            background: #aeb7c7;
+            color: #fff;
+            font-size: 0.6rem;
+            padding: 0.15rem 0.4rem;
+            border-radius: 999px;
+        }
+
+        .game-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.85rem;
+        }
+
+        .key-btn {
+            padding: 1.3rem 0;
+            border-radius: 14px;
+            background: #eef2f7;
+            color: #2f56c9;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .game-cta {
+            padding: 1rem;
+            border-radius: 14px;
+            background: #5b78c5;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
 
         .note-bar {
@@ -579,6 +745,10 @@
             .nav-toggle-label {
                 display: inline-flex;
             }
+
+            .game-body {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -670,114 +840,140 @@
             </aside>
 
             <section class="column">
-                <div class="panel">
-                    <h4>Classic Board · Current Run</h4>
-                    <div class="sudoku-board" aria-label="Sudoku board preview">
-                        <div class="sudoku-cell">5</div>
-                        <div class="sudoku-cell cell-same"> </div>
-                        <div class="sudoku-cell cell-note">2 4</div>
-                        <div class="sudoku-cell">8</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell cell-same"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">1</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-row-break"></div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell cell-selected">2</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">9</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell cell-conflict">3</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-row-break"></div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">7</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">4</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">6</div>
-                        <div class="sudoku-row-break"></div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">5</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">1</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-row-break"></div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">9</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">7</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">5</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-row-break"></div>
-                        <div class="sudoku-cell">6</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">3</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">2</div>
-                        <div class="sudoku-row-break"></div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">4</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">6</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">9</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-row-break"></div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">8</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">1</div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell"> </div>
-                        <div class="sudoku-cell">7</div>
+                <div class="panel game-panel">
+                    <div class="game-header">
+                        <div class="difficulty-tabs">
+                            <span>Difficulty:</span>
+                            <button class="difficulty-tab active" type="button">Easy</button>
+                            <button class="difficulty-tab" type="button">Medium</button>
+                            <button class="difficulty-tab" type="button">Hard</button>
+                            <button class="difficulty-tab" type="button">Expert</button>
+                            <button class="difficulty-tab" type="button">Master</button>
+                            <button class="difficulty-tab" type="button">Extreme</button>
+                        </div>
+                        <div class="game-score">0</div>
                     </div>
-                    <div class="game-meta">
-                        <span>Timer: 00:12:41</span>
-                        <span>Mistakes: 1 / 3</span>
-                        <span>Difficulty: Normal</span>
-                    </div>
-                </div>
-                <div class="panel control-bar">
-                    <h4>Control Panel</h4>
-                    <div class="control-group">
-                        <button class="control-btn primary" type="button">New Game</button>
-                        <button class="control-btn" type="button">Undo</button>
-                        <button class="control-btn" type="button">Hint</button>
-                        <button class="control-btn" type="button">Notes</button>
-                        <button class="control-btn" type="button">Auto Save</button>
-                    </div>
-                    <div class="note-bar" aria-label="Mobile keypad">
-                        <button class="note-btn" type="button">1</button>
-                        <button class="note-btn" type="button">2</button>
-                        <button class="note-btn" type="button">3</button>
-                        <button class="note-btn" type="button">4</button>
-                        <button class="note-btn" type="button">5</button>
-                        <button class="note-btn" type="button">6</button>
-                        <button class="note-btn" type="button">7</button>
-                        <button class="note-btn" type="button">8</button>
-                        <button class="note-btn" type="button">9</button>
+                    <div class="game-body">
+                        <div class="game-board">
+                            <div class="sudoku-board" aria-label="Sudoku board preview">
+                                <div class="sudoku-cell">5</div>
+                                <div class="sudoku-cell cell-same"> </div>
+                                <div class="sudoku-cell cell-note">2 4</div>
+                                <div class="sudoku-cell">8</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell cell-same"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">1</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-row-break"></div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell cell-selected">2</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">9</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell cell-conflict">3</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-row-break"></div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">7</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">4</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">6</div>
+                                <div class="sudoku-row-break"></div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">5</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">1</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-row-break"></div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">9</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">7</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">5</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-row-break"></div>
+                                <div class="sudoku-cell">6</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">3</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">2</div>
+                                <div class="sudoku-row-break"></div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">4</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">6</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">9</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-row-break"></div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">8</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">1</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">7</div>
+                            </div>
+                        </div>
+                        <div class="game-controls">
+                            <div class="game-info">
+                                <div class="game-stats">
+                                    <span>Mistakes</span>
+                                    <strong>0/3</strong>
+                                </div>
+                                <div class="game-timer">
+                                    <span>Time</span><br />
+                                    <strong>00:29</strong>
+                                </div>
+                                <button class="icon-btn small" type="button" aria-label="Pause">Ⅱ</button>
+                            </div>
+                            <div class="game-actions">
+                                <button class="icon-btn" type="button" aria-label="Undo">↺</button>
+                                <button class="icon-btn" type="button" aria-label="Erase">⌫</button>
+                                <button class="icon-btn" type="button" aria-label="Notes">
+                                    ✎
+                                    <span class="toggle">OFF</span>
+                                </button>
+                                <button class="icon-btn" type="button" aria-label="Hint">
+                                    💡
+                                    <span class="badge">3</span>
+                                </button>
+                            </div>
+                            <div class="keypad" aria-label="Number keypad">
+                                <button class="key-btn" type="button">1</button>
+                                <button class="key-btn" type="button">2</button>
+                                <button class="key-btn" type="button">3</button>
+                                <button class="key-btn" type="button">4</button>
+                                <button class="key-btn" type="button">5</button>
+                                <button class="key-btn" type="button">6</button>
+                                <button class="key-btn" type="button">7</button>
+                                <button class="key-btn" type="button">8</button>
+                                <button class="key-btn" type="button">9</button>
+                            </div>
+                            <button class="game-cta" type="button">New Game</button>
+                        </div>
                     </div>
                 </div>
             </section>
