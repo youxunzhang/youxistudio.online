@@ -295,9 +295,9 @@
 
         .main-layout {
             width: min(1200px, 92vw);
-            margin: 0 auto 3rem;
+            margin: 2rem auto 3rem;
             display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-columns: 220px minmax(0, 2.2fr) 260px;
             gap: 1.5rem;
         }
 
@@ -317,6 +317,62 @@
         .panel h4 {
             margin-bottom: 1rem;
             font-size: 1rem;
+        }
+
+        .side-logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            line-height: 1.1;
+        }
+
+        .side-logo span {
+            display: block;
+            color: var(--primary);
+        }
+
+        .side-links {
+            list-style: none;
+            display: grid;
+            gap: 0.6rem;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: #3050ff;
+        }
+
+        .side-links a {
+            color: inherit;
+        }
+
+        .side-note {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .ad-card {
+            background: linear-gradient(180deg, #f3e1f9 0%, #efe6ff 100%);
+            border-radius: var(--radius-md);
+            padding: 1.2rem;
+            text-align: center;
+            border: 1px solid rgba(126, 90, 200, 0.25);
+            min-height: 220px;
+        }
+
+        .ad-card h5 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #5a3cae;
+        }
+
+        .ad-card p {
+            color: #6c6c7d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .ad-card .control-btn {
+            background: #5a3cae;
+            color: #fff;
         }
 
         .gallery-card {
@@ -580,80 +636,36 @@
             </div>
         </header>
 
-        <section class="hero" id="support">
-            <div class="hero-card">
-                <h1>Classic 9×9 Sudoku, redesigned for focus and flow.</h1>
-                <p>
-                    Play in-browser with six difficulty tiers, timer + mistake tracking, notes, hints, and undo.
-                    Switch input modes seamlessly across keyboard, mouse, and touch.
-                </p>
-                <div class="hero-actions">
-                    <button class="primary-btn" type="button">Start Classic</button>
-                    <button class="ghost-btn" type="button">Daily Challenge</button>
-                    <button class="ghost-btn" type="button">View Rankings</button>
-                </div>
-                <div class="badge-row" aria-label="Key highlights">
-                    <span class="badge">Auto Save</span>
-                    <span class="badge">Notes Mode</span>
-                    <span class="badge">Hint System</span>
-                    <span class="badge">Mistake Limit</span>
-                </div>
-            </div>
-            <div class="hero-panel" id="modes">
-                <h3>Mode Hub</h3>
-                <div class="mode-grid">
-                    <div class="mode-card">
-                        <strong>Classic</strong>
-                        <span>Always-on 9×9 grid</span>
-                    </div>
-                    <div class="mode-card">
-                        <strong>Daily Challenge</strong>
-                        <span>Fresh puzzle every day</span>
-                    </div>
-                    <div class="mode-card">
-                        <strong>Killer</strong>
-                        <span>Planned release</span>
-                    </div>
-                    <div class="mode-card">
-                        <strong>Tournaments</strong>
-                        <span>Planned release</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <main class="main-layout" id="classic">
             <aside class="column left">
-                <div class="panel gallery-card">
-                    <h4>Player Experience</h4>
-                    <ul>
-                        <li>6 difficulty tiers from Easy to Extreme.</li>
-                        <li>Timer + mistake tracking to challenge speed and accuracy.</li>
-                        <li>Keyboard, mouse, and touch input optimized for mobile.</li>
+                <div class="panel">
+                    <div class="side-logo">
+                        Free <span>Sudoku</span> Online
+                    </div>
+                    <ul class="side-links">
+                        <li><a href="#classic">Sudoku</a></li>
+                        <li><a href="#modes">Killer Sudoku</a></li>
+                        <li><a href="#modes">Sudoku X</a></li>
+                        <li><a href="#modes">Irregular Sudoku</a></li>
+                        <li><a href="#modes">Mini Sudoku</a></li>
+                        <li><a href="#modes">Sudoku 2048</a></li>
+                        <li><a href="#modes">Today's Sudoku</a></li>
+                        <li><a href="#modes">Samurai Sudoku</a></li>
                     </ul>
-                </div>
-                <div class="panel" id="config">
-                    <h4>Difficulty & Language</h4>
-                    <div class="control-group">
-                        <button class="control-btn" type="button">Easy</button>
-                        <button class="control-btn" type="button">Normal</button>
-                        <button class="control-btn" type="button">Hard</button>
-                        <button class="control-btn" type="button">Expert</button>
-                        <button class="control-btn" type="button">Extreme</button>
-                        <button class="control-btn" type="button">Master</button>
-                    </div>
-                    <div class="control-group">
-                        <button class="control-btn" type="button">EN</button>
-                        <button class="control-btn" type="button">ZH</button>
-                    </div>
                 </div>
                 <div class="panel">
-                    <h4>Configurable Settings</h4>
-                    <ul class="info-list">
-                        <li><strong>difficultyLevels:</strong> tune clue removal per tier.</li>
-                        <li><strong>maxMistakes:</strong> set the fail condition.</li>
-                        <li><strong>CSS theme variables:</strong> update brand colors quickly.</li>
-                    </ul>
+                    <h4>Logic Corner</h4>
+                    <p class="side-note">
+                        Solve with logic first — no guessing needed. Each puzzle has a single unique solution.
+                    </p>
+                </div>
+                <div class="panel">
+                    <h4>Sudoku Today</h4>
+                    <p class="side-note">Scan to play on mobile.</p>
+                    <div class="control-group">
+                        <button class="control-btn" type="button">Open QR</button>
+                        <button class="control-btn" type="button">Get App</button>
+                    </div>
                 </div>
             </aside>
 
@@ -771,40 +783,60 @@
             </section>
 
             <aside class="column right">
-                <div class="panel">
-                    <h4>Stats & Challenges</h4>
-                    <ul class="info-list">
-                        <li>This week: 12 puzzles solved</li>
-                        <li>Best time: 05:23</li>
-                        <li>Win streak: 4</li>
-                    </ul>
+                <div class="ad-card">
+                    <h5>Brain Test</h5>
+                    <p>Discover your puzzle archetype and improve your playstyle.</p>
+                    <button class="control-btn" type="button">Take the Test</button>
                 </div>
-                <div class="info-card" id="tips">
-                    <h5>Rules & Tips</h5>
-                    <p>Master elimination, box-first scanning, and candidate marking to speed up solves.</p>
-                    <div class="control-group">
-                        <button class="control-btn" type="button">Learn Rules</button>
-                        <button class="control-btn" type="button">Strategy Guide</button>
-                    </div>
-                </div>
-                <div class="panel" id="tech">
-                    <h4>Tech & Algorithm</h4>
-                    <ul class="info-list">
-                        <li>Pure HTML, CSS, and JavaScript — no frameworks.</li>
-                        <li>Backtracking solver + difficulty-tuned puzzle generation.</li>
-                        <li>Auto-save, conflict highlighting, and mistake feedback.</li>
-                    </ul>
-                </div>
-                <div class="panel" id="roadmap">
-                    <h4>Roadmap</h4>
-                    <ul class="info-list">
-                        <li>Killer Sudoku full implementation</li>
-                        <li>Accounts, sync, and personal stats</li>
-                        <li>Leaderboards, tournaments, and variants</li>
-                    </ul>
+                <div class="ad-card">
+                    <h5>Logic Challenge</h5>
+                    <p>Daily IQ mini games and creative thinking quizzes.</p>
+                    <button class="control-btn" type="button">Start Now</button>
                 </div>
             </aside>
         </main>
+
+        <section class="hero" id="support">
+            <div class="hero-card">
+                <h1>Classic 9×9 Sudoku, redesigned for focus and flow.</h1>
+                <p>
+                    Play in-browser with six difficulty tiers, timer + mistake tracking, notes, hints, and undo.
+                    Switch input modes seamlessly across keyboard, mouse, and touch.
+                </p>
+                <div class="hero-actions">
+                    <button class="primary-btn" type="button">Start Classic</button>
+                    <button class="ghost-btn" type="button">Daily Challenge</button>
+                    <button class="ghost-btn" type="button">View Rankings</button>
+                </div>
+                <div class="badge-row" aria-label="Key highlights">
+                    <span class="badge">Auto Save</span>
+                    <span class="badge">Notes Mode</span>
+                    <span class="badge">Hint System</span>
+                    <span class="badge">Mistake Limit</span>
+                </div>
+            </div>
+            <div class="hero-panel" id="modes">
+                <h3>Mode Hub</h3>
+                <div class="mode-grid">
+                    <div class="mode-card">
+                        <strong>Classic</strong>
+                        <span>Always-on 9×9 grid</span>
+                    </div>
+                    <div class="mode-card">
+                        <strong>Daily Challenge</strong>
+                        <span>Fresh puzzle every day</span>
+                    </div>
+                    <div class="mode-card">
+                        <strong>Killer</strong>
+                        <span>Planned release</span>
+                    </div>
+                    <div class="mode-card">
+                        <strong>Tournaments</strong>
+                        <span>Planned release</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <div class="mobile-actions">
             <button class="control-btn primary" type="button">New Game</button>
