@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Play classic 9x9 Sudoku with 6 difficulty tiers, timer, mistake tracking, notes, hints, and multi-device input. Explore daily challenges, tournaments, and roadmap features.">
-    <meta name="keywords" content="Sudoku, 9x9, puzzle, timer, notes, hints, difficulty levels, daily challenge, tournaments">
+    <meta name="description" content="Play a simple 6x6 Sudoku with three difficulty tiers, timer, mistake tracking, notes, hints, and multi-device input.">
+    <meta name="keywords" content="Sudoku, 6x6, puzzle, timer, notes, hints, difficulty levels">
     <meta name="author" content="Youxi Studio">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://youxistudio.online/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-    <meta property="og:title" content="Youxi Studio Sudoku | Classic 9x9" />
-    <meta property="og:description" content="Classic 9x9 Sudoku with multiple difficulty tiers, timer + mistake tracking, notes, hints, and mobile-friendly input." />
+    <meta property="og:title" content="Youxi Studio Sudoku | Classic 6x6" />
+    <meta property="og:description" content="Simple 6x6 Sudoku with three difficulty tiers, timer + mistake tracking, notes, hints, and mobile-friendly input." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://youxistudio.online/" />
     <meta property="og:image" content="https://youxistudio.online/img-portal/fruit-connect-cover.svg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Youxi Studio Sudoku | Classic 9x9" />
-    <meta name="twitter:description" content="Classic 9x9 Sudoku with 6 difficulty tiers, timer + mistake tracking, notes, hints, and multi-device input." />
+    <meta name="twitter:title" content="Youxi Studio Sudoku | Classic 6x6" />
+    <meta name="twitter:description" content="Simple 6x6 Sudoku with three difficulty tiers, timer + mistake tracking, notes, hints, and multi-device input." />
     <meta name="twitter:image" content="https://youxistudio.online/img-portal/fruit-connect-cover.svg" />
     <meta name="theme-color" content="#3558ff" />
-    <title>Youxi Studio Sudoku | Classic 9x9</title>
+    <title>Youxi Studio Sudoku | Classic 6x6</title>
     <style>
         :root {
             --nav-height: 68px;
@@ -400,7 +400,7 @@
             border-radius: 18px;
             border: 3px solid #2c3c52;
             display: grid;
-            grid-template-columns: repeat(9, 1fr);
+            grid-template-columns: repeat(6, 1fr);
             background: #eef3fb;
             overflow: hidden;
             position: relative;
@@ -444,13 +444,12 @@
             color: #b14545;
         }
 
-        .sudoku-cell:nth-child(3n) {
+        .sudoku-cell:nth-child(6n + 3) {
             border-right: 3px solid rgba(44, 60, 82, 0.8);
         }
 
-        .sudoku-row-break {
-            grid-column: span 9;
-            height: 0;
+        .sudoku-cell:nth-child(n + 7):nth-child(-n + 12),
+        .sudoku-cell:nth-child(n + 19):nth-child(-n + 24) {
             border-bottom: 3px solid rgba(44, 60, 82, 0.8);
         }
 
@@ -855,94 +854,48 @@
                             <button class="difficulty-tab active" type="button">Easy</button>
                             <button class="difficulty-tab" type="button">Medium</button>
                             <button class="difficulty-tab" type="button">Hard</button>
-                            <button class="difficulty-tab" type="button">Expert</button>
-                            <button class="difficulty-tab" type="button">Master</button>
-                            <button class="difficulty-tab" type="button">Extreme</button>
                         </div>
                         <div class="game-score">0</div>
                     </div>
                     <div class="game-body">
                         <div class="game-board">
                             <div class="sudoku-board" aria-label="Sudoku board preview">
-                                <div class="sudoku-cell">5</div>
-                                <div class="sudoku-cell cell-same"> </div>
-                                <div class="sudoku-cell cell-note">2 4</div>
-                                <div class="sudoku-cell">8</div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell cell-same"> </div>
-                                <div class="sudoku-cell"> </div>
                                 <div class="sudoku-cell">1</div>
+                                <div class="sudoku-cell cell-same"> </div>
+                                <div class="sudoku-cell cell-note">2 5</div>
+                                <div class="sudoku-cell">4</div>
                                 <div class="sudoku-cell"> </div>
-                                <div class="sudoku-row-break"></div>
+                                <div class="sudoku-cell cell-same"> </div>
                                 <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell cell-selected">2</div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell">9</div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell cell-conflict">3</div>
+                                <div class="sudoku-cell cell-selected">3</div>
                                 <div class="sudoku-cell"> </div>
                                 <div class="sudoku-cell"> </div>
-                                <div class="sudoku-row-break"></div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell">7</div>
+                                <div class="sudoku-cell cell-conflict">6</div>
                                 <div class="sudoku-cell"> </div>
                                 <div class="sudoku-cell"> </div>
                                 <div class="sudoku-cell">4</div>
                                 <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell"> </div>
                                 <div class="sudoku-cell">6</div>
-                                <div class="sudoku-row-break"></div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell">5</div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell">1</div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-row-break"></div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell">9</div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell">7</div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell">5</div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-row-break"></div>
-                                <div class="sudoku-cell">6</div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell">3</div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell"> </div>
                                 <div class="sudoku-cell"> </div>
                                 <div class="sudoku-cell">2</div>
-                                <div class="sudoku-row-break"></div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell">4</div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell">6</div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell">9</div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-row-break"></div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell">8</div>
+                                <div class="sudoku-cell">5</div>
                                 <div class="sudoku-cell"> </div>
                                 <div class="sudoku-cell"> </div>
                                 <div class="sudoku-cell">1</div>
                                 <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">3</div>
+                                <div class="sudoku-cell">2</div>
                                 <div class="sudoku-cell"> </div>
-                                <div class="sudoku-cell">7</div>
+                                <div class="sudoku-cell">4</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">5</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">6</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">1</div>
+                                <div class="sudoku-cell"> </div>
+                                <div class="sudoku-cell">4</div>
                             </div>
                         </div>
                         <div class="game-controls">
@@ -976,9 +929,6 @@
                                 <button class="key-btn" type="button">4</button>
                                 <button class="key-btn" type="button">5</button>
                                 <button class="key-btn" type="button">6</button>
-                                <button class="key-btn" type="button">7</button>
-                                <button class="key-btn" type="button">8</button>
-                                <button class="key-btn" type="button">9</button>
                             </div>
                             <button class="game-cta" type="button">New Game</button>
                         </div>
@@ -1002,9 +952,9 @@
 
         <section class="hero" id="support">
             <div class="hero-card">
-                <h1>Classic 9×9 Sudoku, redesigned for focus and flow.</h1>
+                <h1>Classic 6×6 Sudoku, redesigned for focus and flow.</h1>
                 <p>
-                    Play in-browser with six difficulty tiers, timer + mistake tracking, notes, hints, and undo.
+                    Play in-browser with three difficulty tiers, timer + mistake tracking, notes, hints, and undo.
                     Switch input modes seamlessly across keyboard, mouse, and touch.
                 </p>
                 <div class="hero-actions">
@@ -1024,7 +974,7 @@
                 <div class="mode-grid">
                     <div class="mode-card">
                         <strong>Classic</strong>
-                        <span>Always-on 9×9 grid</span>
+                        <span>Always-on 6×6 grid</span>
                     </div>
                     <div class="mode-card">
                         <strong>Daily Challenge</strong>
@@ -1070,7 +1020,7 @@
             const normalizeCell = (cell) => {
                 const rawText = cell.textContent.trim();
                 cell.classList.remove("cell-selected", "cell-same", "cell-conflict");
-                if (/^[1-9]$/.test(rawText)) {
+                if (/^[1-6]$/.test(rawText)) {
                     cell.dataset.given = "true";
                     cell.classList.add("cell-given");
                 } else {
@@ -1165,7 +1115,7 @@
                     const target = event.target;
                     if (!(target instanceof HTMLButtonElement)) return;
                     const value = target.textContent.trim();
-                    if (/^[1-9]$/.test(value)) {
+                    if (/^[1-6]$/.test(value)) {
                         setCellValue(value);
                     }
                 });
@@ -1185,7 +1135,7 @@
 
             document.addEventListener("keydown", (event) => {
                 if (!selectedCell) return;
-                if (event.key >= "1" && event.key <= "9") {
+                if (event.key >= "1" && event.key <= "6") {
                     setCellValue(event.key);
                     event.preventDefault();
                 } else if (event.key === "Backspace" || event.key === "Delete" || event.key === "0") {
