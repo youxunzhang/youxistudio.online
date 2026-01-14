@@ -415,11 +415,19 @@
             color: #2b3951;
             background: rgba(255, 255, 255, 0.7);
             position: relative;
+            cursor: pointer;
         }
 
         .sudoku-cell.cell-note {
             font-size: 0.6rem;
             color: var(--muted);
+        }
+
+        .sudoku-cell.cell-given {
+            background: #f5f7ff;
+            color: #1b2d4a;
+            font-weight: 700;
+            cursor: default;
         }
 
         .sudoku-cell.cell-selected {
@@ -1044,5 +1052,148 @@
             <p>© 2024 Youxi Studio Sudoku. All rights reserved.</p>
         </footer>
     </div>
+    <script>
+        (() => {
+            const board = document.querySelector(".sudoku-board");
+            if (!board) return;
+
+            const cells = Array.from(board.querySelectorAll(".sudoku-cell"));
+            const keypad = document.querySelector(".keypad");
+            const eraseButton = document.querySelector('.game-actions [aria-label="Erase"]');
+            const notesButton = document.querySelector('.game-actions [aria-label="Notes"]');
+            const notesToggle = notesButton ? notesButton.querySelector(".toggle") : null;
+            const newGameButtons = document.querySelectorAll(".game-cta, .mobile-actions .control-btn.primary");
+
+            let selectedCell = null;
+            let notesMode = false;
+
+            const normalizeCell = (cell) => {
+                const rawText = cell.textContent.trim();
+                cell.classList.remove("cell-selected", "cell-same", "cell-conflict");
+                if (/^[1-9]$/.test(rawText)) {
+                    cell.dataset.given = "true";
+                    cell.classList.add("cell-given");
+                } else {
+                    cell.dataset.given = "false";
+                    cell.textContent = "";
+                    cell.classList.remove("cell-note");
+                }
+            };
+
+            const clearHighlights = () => {
+                cells.forEach((cell) => cell.classList.remove("cell-selected", "cell-same"));
+            };
+
+            const highlightMatching = (value) => {
+                if (!value) return;
+                cells.forEach((cell) => {
+                    if (cell !== selectedCell && cell.textContent.trim() === value) {
+                        cell.classList.add("cell-same");
+                    }
+                });
+            };
+
+            const selectCell = (cell) => {
+                selectedCell = cell;
+                clearHighlights();
+                cell.classList.add("cell-selected");
+                highlightMatching(cell.textContent.trim());
+            };
+
+            const setNotesMode = (nextMode) => {
+                notesMode = nextMode;
+                if (notesToggle) {
+                    notesToggle.textContent = notesMode ? "ON" : "OFF";
+                }
+                if (notesButton) {
+                    notesButton.classList.toggle("active", notesMode);
+                }
+            };
+
+            const setCellValue = (value) => {
+                if (!selectedCell || selectedCell.dataset.given === "true") return;
+
+                if (notesMode) {
+                    const current = selectedCell.textContent.trim();
+                    const notes = new Set(current ? current.split(/\s+/) : []);
+                    if (notes.has(value)) {
+                        notes.delete(value);
+                    } else {
+                        notes.add(value);
+                    }
+                    const nextNotes = Array.from(notes).sort().join(" ");
+                    selectedCell.textContent = nextNotes;
+                    selectedCell.classList.toggle("cell-note", nextNotes.length > 0);
+                } else {
+                    selectedCell.textContent = value;
+                    selectedCell.classList.remove("cell-note");
+                }
+
+                clearHighlights();
+                selectedCell.classList.add("cell-selected");
+                highlightMatching(selectedCell.textContent.trim());
+            };
+
+            const clearCellValue = () => {
+                if (!selectedCell || selectedCell.dataset.given === "true") return;
+                selectedCell.textContent = "";
+                selectedCell.classList.remove("cell-note");
+                clearHighlights();
+                selectedCell.classList.add("cell-selected");
+            };
+
+            const resetBoard = () => {
+                cells.forEach((cell) => {
+                    if (cell.dataset.given === "true") {
+                        cell.classList.remove("cell-note");
+                        return;
+                    }
+                    cell.textContent = "";
+                    cell.classList.remove("cell-note", "cell-selected", "cell-same", "cell-conflict");
+                });
+                selectedCell = null;
+                clearHighlights();
+            };
+
+            cells.forEach((cell) => {
+                normalizeCell(cell);
+                cell.addEventListener("click", () => selectCell(cell));
+            });
+
+            if (keypad) {
+                keypad.addEventListener("click", (event) => {
+                    const target = event.target;
+                    if (!(target instanceof HTMLButtonElement)) return;
+                    const value = target.textContent.trim();
+                    if (/^[1-9]$/.test(value)) {
+                        setCellValue(value);
+                    }
+                });
+            }
+
+            if (notesButton) {
+                notesButton.addEventListener("click", () => setNotesMode(!notesMode));
+            }
+
+            if (eraseButton) {
+                eraseButton.addEventListener("click", clearCellValue);
+            }
+
+            newGameButtons.forEach((button) => {
+                button.addEventListener("click", resetBoard);
+            });
+
+            document.addEventListener("keydown", (event) => {
+                if (!selectedCell) return;
+                if (event.key >= "1" && event.key <= "9") {
+                    setCellValue(event.key);
+                    event.preventDefault();
+                } else if (event.key === "Backspace" || event.key === "Delete" || event.key === "0") {
+                    clearCellValue();
+                    event.preventDefault();
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
